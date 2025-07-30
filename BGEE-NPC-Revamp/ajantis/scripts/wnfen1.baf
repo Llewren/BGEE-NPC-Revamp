@@ -1,0 +1,76 @@
+// Fenathigrast Combat AI
+
+IF
+    StateCheck(Myself,STATE_PANIC)
+THEN
+    RESPONSE #100
+        RandomWalkContinuous()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HasItem("potn46",Myself)
+THEN
+  RESPONSE #100
+    DisplayStringHead(Myself,~Quaffs a potion~)
+    UseItem("potn46",Myself)
+    Continue()
+END
+
+IF
+    See(NearestEnemyOf(Myself))
+    HaveSpell(WIZARD_HASTE)
+THEN
+    RESPONSE #100
+        Spell("wnabom",WIZARD_HASTE)
+END
+
+IF
+    See(NearestEnemyOf(Myself))
+	HPLT(NearestEnemyOf(Myself),21)
+    HaveSpell(WIZARD_POWER_WORD_SLEEP)
+THEN
+    RESPONSE #100
+        Spell(NearestEnemyOf(Myself),WIZARD_POWER_WORD_SLEEP)
+END
+		
+IF
+    See(NearestEnemyOf(Myself))
+    HaveSpell(WIZARD_CHROMATIC_ORB)
+THEN
+    RESPONSE #100
+        Spell(NearestEnemyOf(Myself),WIZARD_CHROMATIC_ORB)
+END
+
+IF
+    See(NearestEnemyOf(Myself))
+    HaveSpell(WIZARD_FLAME_ARROW)
+THEN
+    RESPONSE #100
+        Spell(NearestEnemyOf(Myself),WIZARD_FLAME_ARROW)
+END
+
+IF
+    See(NearestEnemyOf(Myself))
+    HaveSpell(WIZARD_SLOW)
+THEN
+    RESPONSE #100
+        Spell(NearestEnemyOf(Myself),WIZARD_SLOW)
+END
+
+IF
+  HPPercentLT(Myself,50)
+  HasItem("potn17",Myself)
+THEN
+  RESPONSE #100
+    DisplayStringHead(Myself,~Quaffs a potion~)
+    UseItem("potn17",Myself)
+    Continue()
+END
+
+IF
+    See(NearestEnemyOf(Myself))
+THEN
+    RESPONSE #100
+        Attack(NearestEnemyOf(Myself))
+END

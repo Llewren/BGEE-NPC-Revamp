@@ -1,0 +1,9 @@
+// Coran - Dialogue
+
+COMPILE ~BGEE-NPC-Revamp/coran/dialogue/coranj.d~
+COMPILE ~BGEE-NPC-Revamp/coran/dialogue/brielb.d~
+
+
+// Coran - Scripts
+
+EXTEND_TOP ~coran.bcs~ ~BGEE-NPC-Revamp/coran/scripts/coran.baf~

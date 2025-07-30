@@ -1,0 +1,9 @@
+IF
+	Global("WNFenaFirst","GLOBAL",1)
+	Global("WNBoaShieldDestroyed","GLOBAL",0)
+THEN
+	RESPONSE #100
+		DestroyItem("wnajsh")
+		SetGlobal("WNBoaShieldDestroyed","GLOBAL",1)
+END
+	

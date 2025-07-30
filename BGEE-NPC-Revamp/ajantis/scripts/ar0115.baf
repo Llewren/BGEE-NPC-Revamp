@@ -1,0 +1,24 @@
+// Peitor
+
+IF                  
+   Global("wnPeitorSpawn","AR0115",0)      
+   OR(2)
+		TimeOfDay(DUSK) 
+		TimeOfDay(NIGHT)                     
+THEN
+   RESPONSE #100
+		CreateCreature("WNPEIT",[535.277],SW)
+		SetGlobal("wnPeitorSpawn","AR0115",1)
+END
+
+
+IF
+	Global("wnPeitorSpawn","AR0115",1)
+	!TimeOfDay(DUSK) 
+	!TimeOfDay(NIGHT)  
+
+THEN
+	RESPONSE #100
+		DestroySelf()
+		SetGlobal("wnPeitorSpawn","AR0115",0)
+END

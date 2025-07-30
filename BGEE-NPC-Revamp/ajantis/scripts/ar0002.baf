@@ -1,0 +1,34 @@
+// Commoners
+IF
+	Global("WNHelmRevampedSpawned","AR0002",0)
+	THEN
+		RESPONSE #100
+		CreateCreature("WNTEO",[581.327],2)
+		CreateCreature("WNCOM1",[425.244],SE)
+		CreateCreature("WNCOM2",[474.235],W)
+		CreateCreature("WNCOM3",[536.428],N)
+		SetGlobal("WNHelmRevampedSpawned","AR0002",1)
+	END
+
+IF
+	Global("WNPeitorJudgementSpawn","AR0002",0)
+	OR(2)
+	Global("WNAjantisQuest","GLOBAL",30)
+	Global("WNAjantisQuest","GLOBAL",20)
+	THEN
+		RESPONSE #100
+		CreateCreature("WNPEIT",[519.306],SE)
+		SetGlobal("WNPeitorJudgementSpawn","AR0002",1)
+	END
+	
+	
+IF
+	Global("WNAjantisQuestDone","GLOBAL",1)
+	Global("WNPeitorFinalPosition","GLOBAL",0)
+	THEN
+		RESPONSE #100
+		ActionOverride("WNPEIT",MoveToPoint([315.331]))
+		Wait(4)
+		ActionOverride("WNPEIT",Face(SE))
+		SetGlobal("WNPeitorFinalPosition","GLOBAL",1)
+	END

@@ -1,0 +1,17 @@
+IF
+GlobalGT("WNAjantisQuest","GLOBAL",14)
+Global("wn_fist_zombies_spawn","GLOBAL",0)
+THEN
+	RESPONSE #100
+		CreateCreature("wnzomf1",[2064.1088],SE) // Flaming Fist Zombie
+		CreateCreature("wnzomf2",[1996.1130],E) // Flaming Fist Zombie
+		SetGlobal("wn_fist_zombies_spawn","GLOBAL",1)
+END
+
+IF
+	Dead("wnfena")
+THEN
+	RESPONSE #100
+		ActionOverride("wnzomf1",DestroySelf())
+		ActionOverride("wnzomf2",DestroySelf())
+END

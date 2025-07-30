@@ -1,0 +1,6 @@
+IF
+    Heard("wnfena",1)
+THEN
+    RESPONSE #100
+        Enemy()
+END

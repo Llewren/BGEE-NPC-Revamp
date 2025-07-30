@@ -1,0 +1,215 @@
+//////////////////////////////
+////////// AJANTIS	//////////
+//////////////////////////////
+
+// Ajantis - Journal Entries
+		 
+ADD_JOURNAL TITLE (@100) @101 @102 USING ~BGEE-NPC-Revamp/ajantis/translations/english/ajantjournalentries.tra~
+ADD_JOURNAL TITLE (@103) @104 @105 @106 @107 @108 @109 @110 @111 @112 @113 @114 @115 USING ~BGEE-NPC-Revamp/ajantis/translations/english/ajantjournalentries.tra~
+ADD_JOURNAL TITLE (@116) @117 USING ~BGEE-NPC-Revamp/ajantis/translations/english/ajantjournalentries.tra~
+
+// Ajantis - Dialogue
+
+COMPILE ~BGEE-NPC-Revamp/ajantis/dialogue/ajantj.d~
+COMPILE ~BGEE-NPC-Revamp/ajantis/dialogue/wnpeit.d~
+COMPILE ~BGEE-NPC-Revamp/ajantis/dialogue/wnteo.d~
+COMPILE ~BGEE-NPC-Revamp/ajantis/dialogue/wncom1.d~
+COMPILE ~BGEE-NPC-Revamp/ajantis/dialogue/wncom2.d~
+COMPILE ~BGEE-NPC-Revamp/ajantis/dialogue/wncom3.d~
+COMPILE ~BGEE-NPC-Revamp/ajantis/dialogue/wnboa.d~
+COMPILE ~BGEE-NPC-Revamp/ajantis/dialogue/wnzomf1.d~
+COMPILE ~BGEE-NPC-Revamp/ajantis/dialogue/wnfena.d~
+COMPILE ~BGEE-NPC-Revamp/ajantis/dialogue/wnauc1.d~
+COMPILE ~BGEE-NPC-Revamp/ajantis/dialogue/wnauc2.d~
+COMPILE ~BGEE-NPC-Revamp/ajantis/dialogue/wnauc3.d~
+COMPILE ~BGEE-NPC-Revamp/ajantis/dialogue/wnauc4.d~
+COMPILE ~BGEE-NPC-Revamp/ajantis/dialogue/wnauc0.d~
+
+// Ajantis - Scripts
+
+EXTEND_TOP ~ajantis.bcs~ ~BGEE-NPC-Revamp/ajantis/scripts/ajantis.baf~
+EXTEND_TOP ~AR0002.bcs~ ~BGEE-NPC-Revamp/ajantis/scripts/AR0002.baf~
+EXTEND_TOP ~AR0112.bcs~ ~BGEE-NPC-Revamp/ajantis/scripts/AR0112.baf~
+EXTEND_TOP ~AR0115.bcs~ ~BGEE-NPC-Revamp/ajantis/scripts/AR0115.baf~
+EXTEND_TOP ~AR0121.bcs~ ~BGEE-NPC-Revamp/ajantis/scripts/AR0121.baf~
+EXTEND_TOP ~AR0226.bcs~ ~BGEE-NPC-Revamp/ajantis/scripts/AR0226.baf~
+EXTEND_TOP ~AR1300.bcs~ ~BGEE-NPC-Revamp/ajantis/scripts/AR1300.baf~
+
+COMPILE ~BGEE-NPC-Revamp/ajantis/scripts/wnzomf1.baf~
+COMPILE ~BGEE-NPC-Revamp/ajantis/scripts/wnfena.baf~
+COMPILE ~BGEE-NPC-Revamp/ajantis/scripts/wnfen1.baf~
+COMPILE ~BGEE-NPC-Revamp/ajantis/scripts/wnabom.baf~
+COMPILE ~BGEE-NPC-Revamp/ajantis/scripts/wnauc0.baf~
+COMPILE ~BGEE-NPC-Revamp/ajantis/scripts/wnauc1.baf~
+COMPILE ~BGEE-NPC-Revamp/ajantis/scripts/wnboa.baf~
+COMPILE ~BGEE-NPC-Revamp/ajantis/scripts/wnbo1.baf~
+
+// Ajantis - Creatures
+
+COPY ~BGEE-NPC-Revamp/ajantis/creatures/wnteo.cre~ ~override~
+SAY NAME1 ~Watcher Teomara~
+SAY NAME2 ~Watcher Teomara~
+
+COPY ~BGEE-NPC-Revamp/ajantis/creatures/wnpeit.cre~ ~override~
+SAY NAME1 ~Peitor~
+SAY NAME2 ~Peitor~
+
+COPY ~BGEE-NPC-Revamp/ajantis/creatures/wncom1.cre~ ~override~
+SAY NAME1 ~Commoner~
+SAY NAME2 ~Commoner~
+
+COPY ~BGEE-NPC-Revamp/ajantis/creatures/wncom2.cre~ ~override~
+SAY NAME1 ~Boy~
+SAY NAME2 ~Boy~
+
+COPY ~BGEE-NPC-Revamp/ajantis/creatures/wncom3.cre~ ~override~
+SAY NAME1 ~Commoner~
+SAY NAME2 ~Commoner~
+
+COPY ~BGEE-NPC-Revamp/ajantis/creatures/wnboa.cre~ ~override~
+SAY NAME1 ~Boa~
+SAY NAME2 ~Boa~
+
+COPY ~BGEE-NPC-Revamp/ajantis/creatures/wnbog1.cre~ ~override~
+SAY NAME1 ~Guard~
+SAY NAME2 ~Guard~
+
+COPY ~BGEE-NPC-Revamp/ajantis/creatures/wnbog2.cre~ ~override~
+SAY NAME1 ~Guard~
+SAY NAME2 ~Guard~
+
+COPY ~BGEE-NPC-Revamp/ajantis/creatures/wnauc0.cre~ ~override~
+SAY NAME1 ~Auctioneer~
+SAY NAME2 ~Auctioneer~
+
+COPY ~BGEE-NPC-Revamp/ajantis/creatures/wnauc1.cre~ ~override~
+SAY NAME1 ~Pushy Patrician~
+SAY NAME2 ~Pushy Patrician~
+
+COPY ~BGEE-NPC-Revamp/ajantis/creatures/wnauc2.cre~ ~override~
+SAY NAME1 ~Loud Lordling~
+SAY NAME2 ~Loud Lordling~
+
+COPY ~BGEE-NPC-Revamp/ajantis/creatures/wnauc3.cre~ ~override~
+SAY NAME1 ~Nouveau Noble~
+SAY NAME2 ~Nouveau Noble~
+
+COPY ~BGEE-NPC-Revamp/ajantis/creatures/wnauc4.cre~ ~override~
+SAY NAME1 ~Bored Baroness~
+SAY NAME2 ~Bored Baroness~
+
+COPY ~BGEE-NPC-Revamp/ajantis/creatures/wnzomf1.cre~ ~override~
+SAY NAME1 ~"Flaming Fist Mercenary"~
+SAY NAME2 ~"Flaming Fist Mercenary"~
+
+COPY ~BGEE-NPC-Revamp/ajantis/creatures/wnzomf2.cre~ ~override~
+SAY NAME1 ~"Flaming Fist Mercenary"~
+SAY NAME2 ~"Flaming Fist Mercenary"~
+
+COPY ~BGEE-NPC-Revamp/ajantis/creatures/wnzomf3.cre~ ~override~
+SAY NAME1 ~"Flaming Fist Mercenary"~
+SAY NAME2 ~"Flaming Fist Mercenary"~
+
+COPY ~BGEE-NPC-Revamp/ajantis/creatures/wnzomf4.cre~ ~override~
+SAY NAME1 ~"Flaming Fist Mercenary"~
+SAY NAME2 ~"Flaming Fist Mercenary"~
+
+COPY ~BGEE-NPC-Revamp/ajantis/creatures/wnzomf5.cre~ ~override~
+SAY NAME1 ~"Flaming Fist Mercenary"~
+SAY NAME2 ~"Flaming Fist Mercenary"~
+
+COPY ~BGEE-NPC-Revamp/ajantis/creatures/wnfena.cre~ ~override~
+SAY NAME1 ~Fenathigrast~
+SAY NAME2 ~Fenathigrast~
+
+COPY ~BGEE-NPC-Revamp/ajantis/creatures/wnabom.cre~ ~override~
+SAY NAME1 ~Undead Abomination~
+SAY NAME2 ~Undead Abomination~
+
+COPY ~BGEE-NPC-Revamp/ajantis/creatures/wnolle.cre~ ~override~
+SAY NAME1 ~Ollera~
+SAY NAME2 ~Ollera~
+
+// Ajantis - Stores
+
+COPY ~BGEE-NPC-Revamp/ajantis/stores/wnhelm.sto~ ~override~
+SAY NAME1 ~Watcher Teomara~
+SAY NAME2 ~Watcher Teomara~
+
+COPY ~BGEE-NPC-Revamp/ajantis/stores/wnboa.sto~ ~override~
+SAY NAME1 ~Boa~
+SAY NAME2 ~Boa~
+
+// Ajantis - Eff
+
+COPY ~BGEE-NPC-Revamp/ajantis/eff~ ~override~
+
+// Ajantis - BAMS
+
+COPY ~BGEE-NPC-Revamp/ajantis/bams~ ~override~
+
+// Ajantis - Items
+
+COPY ~BGEE-NPC-Revamp/ajantis/items/wnajsh.itm~ ~override~
+  SAY NAME1 ~Medium Shield~
+  SAY NAME2 ~The Watchful Aegis~
+  SAY DESC ~This striking cobalt shield was forged in Waterdeep over a century ago, one of several shields commissioned for a group of dedicated Helmite paladins who swore themselves to protecting travelers through the more dangerous sections of the Sword Coast. This particular Aegis was borne by one Sir Marthen Jirlo, who earned renown for his steadfast service before meeting his end in a desperate stand on the edge of the Cloakwood.
+
+The caravan of pilgrims that Marthen and his squire were escorting to Baldur's Gate was ambushed by a host of undead. With the caravan already in disarray, the Helmite warriors drew the enemy's attention, holding a narrow pass until reinforcements could arrive. Marthen's squire was felled and the paladin held off the undead horde alone—and when help finally arrived, they found Marthen already victorious, but gravely wounded, the Aegis still strapped securely to his arm. 
+
+He succumbed to his injuries, and the shield was interred with honor in a small temple of Helm in Baldur's Gate, where it hung in vigil for decades. Helm, however, has little use for a shield gathering dust on a wall, and so it was taken up once again.
+
+STATISTICS:
+
+Charge abilities:
+– Detect Invisibility once per day
+
+Equipped abilities:
+– Armor Class +2
+– Turn Undead Level: +2
+– +10% resistance to slashing, piercing, and crushing damage (Paladins and Priests of Helm)
+
+Requires:
+14 Strength
+
+Weight: 7~
+
+COPY ~BGEE-NPC-Revamp/ajantis/items/wndag01.itm~ ~override~
+  SAY NAME1 ~Dagger~
+  SAY NAME2 ~Iyzena's Crackle +1~
+  SAY DESC ~This slender iron dagger hums faintly with a static charge and always feels ever so slightly too cool in your grasp. It was once the prized possession of the notorious raider Iyzena, a devotee of Talos who plagued settlements and caravans along the Sword Coast and took a cruel sense of joy from carrying out the work of Talos. Iyzena's band struck only during fierce thunderstorms, believing each roll of thunder a sign of approval from their god of destruction as they gleefully carried out their bloody work. After over a year of causing terror, a group of survivors from the villages she tormented pooled their resources and lured her into an ambush beneath the clear sky. She fought furiously to the end, but Talos did not save her, and the dagger fell from her lifeless hand, still flickering with sparks.
+  
+STATISTICS:
+
+Combat abilities:
+– Returns to the wielder's hand when thrown
+– 15% chance per hit of casting Storm Shield on self, bestowing 100% resistance to Electricity, Fire, and Cold damage, and normal missiles for 1 turn
+
+THAC0: +1
+Damage: 1d4+1, +1 electrical damage
+Damage type: Missile
+Speed Factor: 1
+Proficiency Type: Dagger
+Type: One-handed
+Requires:
+ 3 Strength
+
+Weight: 1~
+
+COPY ~BGEE-NPC-Revamp/ajantis/items/wnbody1.itm~ ~override~
+  SAY NAME1 ~Female Body~
+  SAY NAME2 ~Ollera's Body~
+  SAY DESC ~This is the body of Ollera, Peitor's sister. Other than being dead, she looks fine.
+ 
+STATISTICS:
+
+Weight: 140~
+
+COPY ~BGEE-NPC-Revamp/ajantis/items/wnbody2.itm~ ~override~
+  SAY NAME1 ~Female Body~
+  SAY NAME2 ~Mangled Corpse~
+  SAY DESC ~This is probably the body of Ollera, Peitor's sister. She has been stitched up unnaturally beyond recognition.
+ 
+STATISTICS:
+
+Weight: 140~

@@ -1,0 +1,24 @@
+// The Auction
+IF
+OR(2)
+Global("WNBoaFirst","GLOBAL",5)
+Global("WNFenaFirst","GLOBAL",1)
+Global("WNAuction","AR0121",0)
+THEN
+	RESPONSE #100
+		CreateCreature("WNAUC0",[1000.534],NW) // Auctioneer
+		CreateCreature("WNAUC1",[846.519],E) // Nobleman 1
+		CreateCreature("WNAUC2",[911.481],E) // Nobleman 2
+		CreateCreature("WNAUC3",[940.441],S) // Noblewoman 2
+		CreateCreature("WNAUC4",[1039.477],S) // Noblewoman 2
+		SetGlobal("WNAuction","AR0121",1)
+END
+
+IF
+	Dead("wnauc0")
+	!GlobalGT("WNBoaFirst","GLOBAL",0)
+	PartyHasItem("wnajsh")
+THEN
+	RESPONSE #100
+		AddJournalEntry(@112, QUEST)
+END

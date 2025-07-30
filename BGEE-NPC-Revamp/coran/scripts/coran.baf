@@ -1,0 +1,85 @@
+// Battle cry in the Wyvern Cave
+IF
+ InParty("CORAN")
+ See("CORWYVRN")
+ Global("CORAN_WYVERN_CRY","GLOBAL",0)
+THEN
+ RESPONSE #100
+ SetGlobal("CORAN_WYVERN_CRY","GLOBAL",1)
+ DisplayStringHead("CORAN",~There they are! Take the beasts down, and we'll all be in for a hefty reward.~)
+END
+
+// Set post-wyvern hunt dialogue timer
+
+IF
+	InParty(Myself)
+	CombatCounter(0)
+	!See([ENEMY])
+	See(Player1)
+	Global("CoranReward","GLOBAL",1)
+	Global("wyvernp","GLOBAL",1)
+	Global("wn_coran_wyvern_talk","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("wn_coran_wyvern_talk","GLOBAL",1)
+		SetGlobalTimer("wn_coran_wyvern_talk_timer","GLOBAL",ONE_ROUND)
+END
+
+IF
+	Global("wn_coran_wyvern_talk","GLOBAL",1)
+	GlobalTimerExpired("wn_coran_wyvern_talk_timer","GLOBAL")
+THEN
+	RESPONSE #100
+		MoveToObject(Player1)
+		StartDialogueNoSet(Player1)
+END
+
+// Set post-Brielbara talk 1
+
+IF
+	InParty(Myself)
+	CombatCounter(0)
+	!See([ENEMY])
+	See(Player1)
+	Global("bd_briel_coran","GLOBAL",1)
+	Global("wn_brielcoran_talk","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("wn_brielcoran_talk","GLOBAL",1)
+		SetGlobalTimer("wn_brielcoran_talk_timer","GLOBAL",2)
+END
+
+IF
+	Global("wn_brielcoran_talk","GLOBAL",1)
+	GlobalTimerExpired("wn_brielcoran_talk_timer","GLOBAL")
+THEN
+	RESPONSE #100
+		MoveToObject(Player1)
+		StartDialogueNoSet(Player1)
+END
+
+// Set post-Brielbara talk 2
+
+IF
+	InParty(Myself)
+	CombatCounter(0)
+	!See([ENEMY])
+	See(Player1)
+	Global("bd_briel_coran","GLOBAL",1)
+	Global("BrielbaraMove","GLOBAL",2)
+	Global("wn_coranquest_end","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("wn_coranquest_end","GLOBAL",1)
+		SetGlobalTimer("wn_coranquest_end_timer","GLOBAL",ONE_ROUND)
+END
+
+IF
+	Global("wn_coranquest_end","GLOBAL",1)
+	GlobalTimerExpired("wn_coranquest_end_timer","GLOBAL")
+THEN
+	RESPONSE #100
+		MoveToObject(Player1)
+		StartDialogueNoSet(Player1)
+END
+

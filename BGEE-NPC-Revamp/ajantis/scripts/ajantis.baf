@@ -1,0 +1,80 @@
+// Set first friendship timer
+IF
+ InParty(Myself)
+ Global("WNAjantisChat","GLOBAL",0)
+ Global("WNAjantisChatActive","GLOBAL",0)
+THEN
+ RESPONSE #100
+ RealSetGlobalTimer("WNAjantisChatTimer","GLOBAL",1800)
+ SetGlobal("WNAjantisChat","GLOBAL",1)
+ SetGlobal("WNAjantisChatActive","GLOBAL",1)
+END
+
+
+// Now we need to write three blocks that will: 
+
+//(a) increment the global variable when the timer’s countdown is finished
+IF
+ InParty(Myself) //character is in the party
+ CombatCounter(0) //nobody is fighting
+ See(Player1) //character can see Player1
+ !StateCheck("AJANTIS",CD_STATE_NOTVALID) //character has no applied states that should prevent the talks
+ !StateCheck(Player1,CD_STATE_NOTVALID) //Player1 has no applied states that should prevent the talks
+ RealGlobalTimerExpired("WNAjantisChatTimer","GLOBAL") //timer stopped counting
+ Global("WNAjantisChatActive","GLOBAL",1) //friendship is active
+ OR(1) //one of 9 conditions is met
+ Global("WNAjantisChat","GLOBAL",1)
+THEN
+RESPONSE #100
+ IncrementGlobal("WNAjantisChat","GLOBAL",1) //increment variable by 1
+END
+
+//(b) make the character talk when the variable is right
+IF
+ OR(1) //one of 9 conditions is met
+ Global("WNAjantisChat","GLOBAL",2)
+ THEN
+RESPONSE #100
+ MoveToObject(Player1) //move to Player1 before the talk
+ StartDialogue("AJANTJ",Player1) //start dialogue (AJANTJ.d because that’s where the talks are)
+END
+ 
+
+// (c) increment global and set the timer after the fired talk.
+IF
+ InParty(Myself) //after the talk is still in the team
+ Global("WNAjantisChatActive","GLOBAL",1) //after the talk friendship is still active
+ OR(1) //one of 8 conditions is met
+ Global("WNAjantisChat","GLOBAL",3)
+THEN
+RESPONSE #100
+ IncrementGlobal("WNAjantisChat","GLOBAL",1) //increment variable by 1
+ RealSetGlobalTimer("WNAjantisChatTimer","GLOBAL",1800) //set the timer again
+END
+
+
+
+//////////////////// SCENERY TALKS ////////////////////
+
+
+// QUEST 1: TEMPLE OF HELM IN THIS AREA
+
+IF
+InParty(Myself)
+CombatCounter(0)
+!See([ENEMY])
+See(Player1)
+AreaCheck("AR0200")
+Global("WNAjantisQuest","GLOBAL",0)
+THEN
+RESPONSE #100
+SetGlobal("WNAjantisQuest","GLOBAL",1)
+END
+
+IF
+Global("WNAjantisQuest","GLOBAL",1)
+THEN
+RESPONSE #100
+MoveToObject(Player1)
+StartDialogueNoSet(Player1)
+END

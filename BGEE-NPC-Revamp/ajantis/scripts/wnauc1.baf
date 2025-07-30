@@ -1,0 +1,9 @@
+IF
+    Range(Player1,3)
+    NumberOfTimesTalkedTo(0)
+	Global("WNBoaFirst","GLOBAL",5)
+THEN
+    RESPONSE #100
+        SmallWait(1)
+        StartDialog("wnauc1",[PC])
+END

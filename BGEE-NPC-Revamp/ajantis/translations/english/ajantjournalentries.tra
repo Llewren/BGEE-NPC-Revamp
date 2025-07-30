@@ -1,0 +1,48 @@
+@100 = ~Ajantis Wishes to Visit The Temple of Helm~ // Name of the quest
+@101 = ~Ajantis Wishes to Visit The Temple of Helm
+Ajantis has expressed his desire to seek the blessing of the church of Helm in northern Baldur's Gate. The temple is apparently located north of the Ducal Palace. We should drop by when we have time.~
+@102 = ~Ajantis Wishes to Visit The Temple of Helm
+At the behest of our companion Ajantis, we sought the blessings of the Temple of Helm. Whether or not we decide to do any more than that is up to us.~
+
+// Peitor's quest
+@103 = ~The Errant Acolyte~
+@104 = ~The Errant Acolyte
+Watcher Teomara of Baldur's Gate's Temple of Helm bid us to seek out a young paladin named Peitor, who was entrusted with a holy relic of the church. According to her, he hasn't been to the temple in quite some time, and she worries that there is something wrong—fears exacerbated by rumors that he spends his evenings drinking in the Blushing Mermaid. We should pick a time he's likely to be there and look for him then.~
+@105 = ~The Errant Acolyte
+We met Peitor on the second floor of the Blushing Mermaid and he admitted to us that he pawned the holy shield to a dwarf named Boa in the Undercellar, in order to gather enough coin to have his sister illicitly resurrected—only to have her body taken from him with little else said. We have two threads to follow: either we can find Boa and get the shield back now, or we can head east of the Blade and Stars to investigate this body merchant. Time may be of the essence.~
+
+// Boa Path
+@106 = ~The Errant Acolyte
+Boa told us that he still has the shield, though it is due to be auctioned imminently. He is willing to sell us the shield for 6000 gold right now to cut out the middle-man. We should return to him once we have the coin, else find another way to get it from him.~
+@107 = ~The Errant Acolyte
+Boa told us that he still has the shield, though it is due to be auctioned imminently. He is willing to sell us the shield for 5000 gold right now to cut out the middle-man, though only thanks to some haggling. We should return to him once we have the coin, else find another way to get it from him.~
+@108 = ~The Errant Acolyte
+The holy shield is safely in our hands, but Peitor will still be concerned about his sister's body. We ought to investigate the area he met with the diviner—east of the Blade and Stars.~
+@109 = ~The Errant Acolyte
+We encountered the villain that has been purchasing bodies in the streets: a necromancer who had turned Peitor's sister into a powerful undead abomination. We put a stop to his vile plans and laid his victims to rest. We retrieved what we could of the body, but Peitor won't like this.~
+
+// Fena Path
+@110 = ~The Errant Acolyte
+We tracked down the villain that has been purchasing bodies in the streets: a necromancer who was planning on turning Peitor's sister into a powerful undead abomination. We put a stop to his vile plans and laid his victims to rest. Thankfully, we arrived before further harm could befall Ollera's body.~
+@111 = ~The Errant Acolyte
+Boa, the dwarvern merchant in the Undercellar, informed us that the holy shield has been sent to an illicit auction taking place on the top floor of the Three Old Kegs. We should make our way there if we want to retrieve it—potentially with a hefty sum of gold on hand.~
+@112 = ~The Errant Acolyte
+We walked away from the auction with the holy shield in hand. We ought to visit Peitor and let him know the good news.~
+
+// Converge
+
+@113 = ~The Errant Acolyte
+Peitor has returned to the Temple of Helm. We should check in with him and Watcher Teomara.~
+@114 = ~The Errant Acolyte
+Teomara was satisfied enough with our actions, and Ajantis has been granted a boon from the church of Helm. Let's hope that it comes in handy.~
+
+// Bad Endings
+
+@115 = ~The Errant Acolyte
+After finding Peitor and hearing his plight, I decided that the whole ordeal wasn't worth our time.~
+
+// Boa's request
+
+@116 = ~Damage Control~
+@117 = ~Damage Control
+After we circumvented the auction to buy the Aegis of Helm, Boa requested that we gently inform the auction-goers on the top floor of the Three Old Kegs, implying there would be a reward next we see him if we did so.~

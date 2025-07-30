@@ -1,0 +1,55 @@
+IF
+	GlobalGT("WNAjantisQuest","GLOBAL",14)
+	Global("wnfena_spawn","GLOBAL",0)
+THEN
+	RESPONSE #100
+		CreateCreature("wnfena",[1400.3195],SE) // Fenathigrast
+		CreateCreature("wnabom",[1464.3118],S) // Undead Abomination
+		CreateCreature("wnabom",[1538.3101],SW) // Undead Abomination
+		CreateCreature("wnabom",[1561.3152],W) // Undead Abomination
+		SetGlobal("wnfena_spawn","GLOBAL",1)
+END
+
+IF
+	GlobalGT("WNBoaFirst","GLOBAL",1)
+	Global("wn_ollera_zombie","GLOBAL",0)
+THEN
+	RESPONSE #100
+		ActionOverride("wnfena",DestroyItem("wnbody1"))
+		CreateCreature("wnolle",[1459.3233],NW)
+		SetGlobal("wn_ollera_zombie","GLOBAL",1)
+END
+
+// FenaFirst journal entry
+IF
+	Dead("wnfena")
+	PartyHasItem("wnbody1")
+	Global("WNBodyEntry1","GLOBAL",0)
+THEN
+	RESPONSE #100
+		AddJournalEntry(@110, QUEST)
+		SetGlobal("WNBodyEntry1","GLOBAL",1)
+	END
+	
+// BoaFirst journal entry
+IF
+	Dead("wnfena")
+	PartyHasItem("wnbody2")
+	Global("WNBodyEntry2","GLOBAL",0)
+THEN
+	RESPONSE #100
+		AddJournalEntry(@109, QUEST)
+		SetGlobal("WNBodyEntry2","GLOBAL",1)
+	END
+	
+	
+IF
+GlobalGT("WNAjantisQuest","GLOBAL",14)
+Global("wn_fist_zombies_spawn2","GLOBAL",0)
+THEN
+	RESPONSE #100
+		CreateCreature("wnzomf3",[3756.2723],W) // Flaming Fist Zombie
+		CreateCreature("wnzomf4",[3775.2785],NW) // Flaming Fist Zombie
+		CreateCreature("wnzomf5",[2198.2406],S) // Flaming Fist Zombie
+		SetGlobal("wn_fist_zombies_spawn2","GLOBAL",1)
+END

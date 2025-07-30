@@ -1,0 +1,39 @@
+// Boa and his guards
+IF
+Global("WNBoaSpawned","AR0112",0)
+THEN
+RESPONSE #100
+CreateCreature("WNBOA",[2156.1224],SW)
+CreateCreature("WNBOG1",[2216.1257],SW)
+CreateCreature("WNBOG2",[2083.1194],S)
+SetGlobal("WNBoaSpawned","AR0112",1)
+END
+
+IF
+  GlobalGT("WNAjantisQuest","GLOBAL",5)
+  Global("ShieldLocation","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("ShieldLocation","GLOBAL",1)
+    ActionOverride("WNBOA",CreateItem("WNAJSH",0,0,0))
+END
+
+IF
+  GlobalGT("WNAjantisQuest","GLOBAL",5)
+  Global("WNNecroFirst","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("ShieldLocation","GLOBAL",2)
+    ActionOverride("WNBOA",DestroyItem("WNAJSH")
+END
+
+IF
+	Dead("wnboa")
+	!GlobalGT("WNFenaFirst","GLOBAL",0)
+	GlobalLT("WNBoaFirst","GLOBAL",5)
+	PartyHasItem("wnajsh")
+THEN
+	RESPONSE #100
+		SetGlobal("WNBoaFirst","GLOBAL",5)
+		AddJournalEntry(@108, QUEST)
+END
