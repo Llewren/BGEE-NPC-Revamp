@@ -43,10 +43,10 @@ CHAIN CORANJ CoranTalk.01xFem.06
 CHAIN CORANJ CoranTalk.01x07
 ~Oh, not in every circle, but I doubt it will prove problematic. A few dalliances with a lass here and there left a few bitter feelings among those with nothing better to worry about, that's all. Like I said—it won't be a problem, so shall we get on with it?~
 	END
-		IF~~THEN REPLY ~I'd be pleased to continue having you by my side, Coran.~ EXTERN CORANJ CoranTalk.01x05
-		IF~~THEN REPLY ~I'd be pleased to continue having you by my side, Coran.~ EXTERN CORANJ CoranTalk.01xFem.05
-		IF~~THEN REPLY ~Fine. Just don't cause any trouble.~ EXTERN CORANJ CoranTalk.01x06
-		IF~~THEN REPLY ~Fine. Just don't cause any trouble.~ EXTERN CORANJ CoranTalk.01xFem.06
+		IF~!Gender(player1,FEMALE)~THEN REPLY ~I'd be pleased to continue having you by my side, Coran.~ EXTERN CORANJ CoranTalk.01x05
+		IF~Gender(player1,FEMALE)~THEN REPLY ~I'd be pleased to continue having you by my side, Coran.~ EXTERN CORANJ CoranTalk.01xFem.05
+		IF~!Gender(player1,FEMALE)~THEN REPLY ~Fine. Just don't cause any trouble.~ EXTERN CORANJ CoranTalk.01x06
+		IF~Gender(player1,FEMALE)~THEN REPLY ~Fine. Just don't cause any trouble.~ EXTERN CORANJ CoranTalk.01xFem.06
 		IF~~THEN REPLY ~I don't think so. You sound like a liability.~ EXTERN CORANJ CoranTalk.01xLeave
 
 CHAIN CORANJ CoranTalk.01x08
@@ -134,37 +134,6 @@ DO ~SetGlobal("wn_coranquest_end","GLOBAL",2)~ EXIT
 	// Corans's Interjections //
 	////////////////////////////
 	
-	// 52
-/// — EM DASH FOR USAGE
-// Ajantis
-// Alora
-// Branwen
-// Coran
-// Dorn
-// Dynaheir
-// Edwin
-// Eldoth
-// Faldorn
-// Garrick
-// Imoen
-// Jaheira
-// Khalid
-// Kagain
-// Kivan
-// Minsc
-// Montaron
-// Neera
-// Quayle
-// Rasaad
-// Safana
-// Shar-Teel
-// Skie
-// Tiax
-// Viconia
-// Xan
-// Xzar
-// Yeslick 
-
 I_C_T2 ~CORANJ~ 0 wn_wyvernhunt
 == MINSCJ IF ~InParty("MINSC")IsValidForPartyDialogue("MINSC")~ THEN ~Battling these flying creatures was its own reward! Never has Boo faced such fearsome birds. I am sure it is good life experience for him.~
 == DYNAHJ IF ~InParty("DYNAHEIR")IsValidForPartyDialogue("DYNAHEIR") InParty("MINSC")IsValidForPartyDialogue("MINSC")~ THEN ~Please remove thy hamster from the wyvern carcass, Minsc. I shan't allow the smell of this rancid cave to follow thee out.~
