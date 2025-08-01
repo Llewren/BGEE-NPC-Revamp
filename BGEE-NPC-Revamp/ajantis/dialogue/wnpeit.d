@@ -33,7 +33,7 @@ CHAIN IF WEIGHT #-1 ~InParty("AJANTIS") IsValidForPartyDialogue("AJANTIS") Globa
 		IF~~THEN REPLY ~We're here to—~ EXTERN AJANTJ PeitorQuest.01
 		IF~~THEN REPLY ~Watcher Teomara sent—~ EXTERN AJANTJ PeitorQuest.01
 		IF~~THEN REPLY ~You have—~ EXTERN AJANTJ PeitorQuest.01
-		
+
 CHAIN AJANTJ PeitorQuest.01
 ~Ugh. By Helm, man! You're practically drowning in ale! 'Tis completely shameful! You cast a poor shadow on your temple. What excuse to do you have for your behavior?~
 == WNPEIT ~I—I'm sorry. I just... I couldn't go back. Not after everythin'.~
@@ -66,7 +66,7 @@ CHAIN WNPEIT PeitorQuest.03
 == WNPEIT ~I needed gold. To bring her back, but without the sickness. The healers said the damage was permanent—lethal, even if she was raised. There's always a way, though. At... at least, that's what I thought.~
 	END
 		IF~~THEN REPLY ~What did you do, Peitor?~ EXTERN WNPEIT PeitorQuest.04
-		IF~~THEN REPLY ~I'm sorry for your loss. but some things must be left to rest.~ EXTERN WNPEIT PeitorQuest.05
+		IF~~THEN REPLY ~I'm sorry for your loss. But some things must be left to rest.~ EXTERN WNPEIT PeitorQuest.05
 		IF ~Class(Player1,CLERIC_ALL)~ THEN REPLY ~Such a thing would require powerful magic. Magic that I doubt many in Baldur's Gate, if indeed any at all, possess.~ EXTERN WNPEIT PeitorQuest.06
 		IF~~THEN REPLY ~Get to the point, you sniveling wreck.~ EXTERN WNPEIT PeitorQuest.07
 
@@ -88,7 +88,7 @@ CHAIN WNPEIT PeitorQuest.04
 		IF~~THEN REPLY ~You sold a holy relic for the privelege of giving away your sister's corpse?~ EXTERN WNPEIT PeitorQuest.09
 		IF~~THEN REPLY ~Is there a chance that the offer was genuine?~ EXTERN WNPEIT PeitorQuest.10
 		IF~~THEN REPLY ~I can't make any promises, but we can try to fix this.~ EXTERN WNPEIT PeitorQuest.11
-		
+
 CHAIN WNPEIT PeitorQuest.08
 ~You can't say anythin' I haven't told myself.~ EXTERN AJANTJ PeitorQuest.12
 
@@ -127,14 +127,14 @@ CHAIN WNPEIT PeitorQuest.17
 		IF~~THEN REPLY ~Tell me about the man who took your sister's body.~ EXTERN WNPEIT PeitorQuest.14
 		IF~~THEN REPLY ~Have you gone looking for either the man or the shield?~ EXTERN WNPEIT PeitorQuest.15
 		IF~~THEN REPLY ~On second thought, this isn't worth my time.~ EXTERN WNPEIT PeitorQuest.16
-		
+
 CHAIN AJANTJ PeitorQuest.18
 ~Whatever scoundrel took advantage of Peitor’s grief can be dealt with later. Perhaps it was a mere sick joke in order to get some coin. The shield is a relic of Helm, and must be reclaimed now before it is lost to us forever.~
 == WNPEIT ~But if... if Ollera's body really is in the hands of some... some lunatic, then you have to go after him! What if it's already too late?~
 == JAHEIJ IF ~InParty("JAHEIRA") IsValidForPartyDialogue("JAHEIRA")~ THEN ~If there is someone buying bodies from the grieving, then it is likely for some unnatural purpose and it warrants our attention.~
 == KHALIJ IF ~InParty("KHALID") IsValidForPartyDialogue("KHALID")~ THEN ~H-how disturbing. We ought t-t-to look into this body collector, <CHARNAME>.~
 == KAGAIJ IF ~InParty("KAGAIN") IsValidForPartyDialogue("KAGAIN")~ THEN ~Let's go find this black market dealer and stick an axe in him!~
-== MINSCJ IF ~InParty("MINSC") IsValidForPartyDialogue("MINSC")~ THEN ~Even the dead must be protected from evil-doers! But... this shield could be dangerous in a villain's hands. Boo says he trusts your judgement.~
+== MINSCJ IF ~InParty("MINSC") IsValidForPartyDialogue("MINSC")~ THEN ~Even the dead must be protected from evil-doers! But... this shield could be dangerous in a villain's hands. Boo says he trusts your judgment.~
 == XZARJ IF ~InParty("XZAR") IsValidForPartyDialogue("XZAR")~ THEN ~Buying bodies in the street is an... intriguing hobby. Very intriguing indeed.~
 == AJANTJ ~The shield is a holy relic—its recovery is a duty I cannot ignore. Whatever villain holds it must be dealt with swiftly. This man who took your sister’s body... if he is truly mad, then his schemes can be unraveled after we secure the relic.~
 == WNPEIT ~The man said he’d meet me by the sewer entrance a ways east of the Blade and Stars. But... the Flamin' Fist men just kept pushin’ me away whenever I got close. Maybe you could get through to them, get them to help. Or else, you could talk to Boa about the shield, but I don't know how much luck you'll have.~
@@ -177,17 +177,17 @@ CHAIN WNPEIT PeitorReturn.03
 CHAIN WNPEIT BestPathMenu
 ~I ought t' go back and face Watcher Teomara. Helm will be seein' all anyway—even the drink doesn't help me to be forgettin' that. But... I don't know how I'll face her if I don't have the shield.~
 	END
-		IF~PartyHasItem("wnajsh")~THEN REPLY ~I have the shield. I'll meet you there with it. Go.~ DO ~SetGlobal("WNAjantisQuest","GLOBAL",20)~ EXTERN WNPEIT PeitorReturn.05 
+		IF~PartyHasItem("wnajsh")~THEN REPLY ~I have the shield. I'll meet you there with it. Go.~ DO ~SetGlobal("WNAjantisQuest","GLOBAL",20)~ EXTERN WNPEIT PeitorReturn.05
 		IF~GlobalGT("WNAuctionDone","GLOBAL",0)!PartyHasItem("wnajsh")~THEN REPLY ~I couldn't get the shield, Peitor. There's nothing more to do but go back.~ DO ~SetGlobal("WNAjantisQuest","GLOBAL",20)~ EXTERN WNPEIT PeitorReturn.05
 		IF~!PartyHasItem("wnajsh")~THEN REPLY ~Forget the shield. Go and take your punishment.~ DO ~SetGlobal("WNAjantisQuest","GLOBAL",20)~ EXTERN WNPEIT PeitorReturn.05
 		IF~!PartyHasItem("wnajsh")~THEN REPLY ~Very well, Peitor. I will do my best to retrieve the holy shield.~ EXTERN WNPEIT PeitorReturn.11
 		IF~PartyHasItem("wnajsh")~THEN REPLY ~I'll return to you shortly, there are some things I must take care of.~ EXTERN WNPEIT PeitorReturn.12
-		
+
 CHAIN WNPEIT PeitorReturn.05
 ~Very well. You've done more for me than I could rightly say. I'll see you back at the temple... whatever my fate may be.~
 DO ~AddJournalEntry(@113, QUEST) TakePartyItem("wnbody1") SetGlobal("WNPeitorLeft","GLOBAL",1) EscapeArea()~
 	EXIT
-	
+
 // Body defiled
 CHAIN WNPEIT PeitorReturn.04
 ~Eh?! Nay, that's not my sister. That's not Ollera. I... wait—~
@@ -196,7 +196,7 @@ CHAIN WNPEIT PeitorReturn.04
 		IF~~THEN REPLY ~The man you gave the body to was a necromancer. It seems he performed some kind of ritual on her.~ EXTERN WNPEIT PeitorReturn.06
 		IF~~THEN REPLY ~She became some kind of zombie, and I had to strike her down. It was a tough battle.~ EXTERN WNPEIT PeitorReturn.07
 		IF~~THEN REPLY ~It's best if you don't know.~ EXTERN WNPEIT PeitorReturn.08
-		
+
 CHAIN WNPEIT PeitorReturn.06
 ~I hope you made sure he's dead an' gone, then. Good for nothin' bastard.~ EXTERN WNPEIT PeitorReturn.09
 
@@ -214,7 +214,7 @@ CHAIN WNPEIT PeitorReturn.09
 		IF~!PartyHasItem("wnajsh")~THEN REPLY ~Forget the shield. Go and take your punishment.~ DO ~SetGlobal("WNAjantisQuest","GLOBAL",30)~ EXTERN WNPEIT PeitorReturn.10
 		IF~!PartyHasItem("wnajsh")~THEN REPLY ~Very well, Peitor. I will do my best to retrieve the holy shield.~ EXTERN WNPEIT PeitorReturn.11
 		IF~PartyHasItem("wnajsh")~THEN REPLY ~I'll return to you shortly, there are some things I must take care of.~ EXTERN WNPEIT PeitorReturn.12
-		
+
 CHAIN WNPEIT PeitorReturn.10
 ~Very well. I will face my wrongdoings as one befitting my order... regardless of whether or not I am allowed to remain a part of it.~
 DO ~AddJournalEntry(@113, QUEST) TakePartyItem("wnbody2") SetGlobal("WNPeitorLeft","GLOBAL",1) EscapeArea()~
@@ -229,12 +229,12 @@ CHAIN WNPEIT PeitorReturn.12
 DO ~SetGlobal("WNPeitRet","GLOBAL",1)~ EXIT
 
 CHAIN IF WEIGHT #-1 ~Global("WNPeitRet","GLOBAL",1)~ THEN WNPEIT Return.13
-			~You're back. I've just been... sittin' here, thinking.~ DO ~SetGlobal("WNPeitRet","GLOBAL",0)~ 
+			~You're back. I've just been... sittin' here, thinking.~ DO ~SetGlobal("WNPeitRet","GLOBAL",0)~
 			END
 			IF ~PartyHasItem("wnbody1")~ THEN EXTERN WNPEIT BestPathMenu
 			IF ~PartyHasItem("wnbody2")~ THEN EXTERN WNPEIT PeitorReturn.09
-			
-	
+
+
 // In the temple
 
 CHAIN IF WEIGHT #-1 ~OR(2)
