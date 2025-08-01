@@ -6,7 +6,7 @@ END
 IF~~THEN REPLY ~Who are you?~  EXTERN WNTEO Talk.02
 IF ~Global("WNAjantisQuest","GLOBAL",5) InParty("AJANTIS") IsValidForPartyDialogue("AJANTIS")~ THEN REPLY ~My companion, Ajantis, has come to seek out Helm's blessing on our quest.~ EXTERN AJANTJ Quest.01
 IF~~THEN REPLY ~Tell me about your religion.~ EXTERN WNTEO Talk.03
-IF~~THEN REPLY ~This temple seem to be hidden away. Why is that?~ EXTERN WNTEO Talk.04
+IF~~THEN REPLY ~This temple seems to be hidden away. Why is that?~ EXTERN WNTEO Talk.04
 IF~~THEN REPLY ~I would like to make use of your temple services.~ EXTERN WNTEO Talk.05
 IF~~THEN REPLY ~Do you have any items for sale?~ EXTERN WNTEO Talk.06
 IF~~THEN REPLY ~Nothing for now.~ EXTERN WNTEO Talk.07
@@ -23,11 +23,11 @@ CHAIN WNTEO HighReputation
 ~I needn't ask who you are. Your virtuous deeds have not gone unnoticed nor unappreciated, <CHARNAME>. Helm looks fondly on those who uphold righteousness and protect the people.~ EXTERN WNTEO Talk.08
 
 // Dialogue State: LowReputation
-CHAIN WNTEO LowReputation 
+CHAIN WNTEO LowReputation
 ~I needn't ask who you are. Your reputation in this city precedes you, and it does not speak kindly. Know that Helm sees all, <CHARNAME>, and while I believe that there is room in the hearts of all mortals for redemption, there are many others that do not see things the same way. Walk safely in the streets of Baldur's Gate.~ EXTERN WNTEO Talk.08
 
 // Dialogue State: NeutralReputation
-CHAIN WNTEO NeutralReputation 
+CHAIN WNTEO NeutralReputation
 ~I needn't ask who you are. Your actions along the Sword Coast have caused quite a stir among those who are willing to pay attention, <CHARNAME>.~ EXTERN WNTEO Talk.08
 
 CHAIN WNTEO Talk.03
@@ -128,16 +128,16 @@ DO ~SetGlobal("WNAjantisQuest","GLOBAL",2)~ EXIT
 // Quest DONE!
 
 // Variables:
-//1. SHIELD RECOVERED: PartyHasItem("wnajsh") 
+//1. SHIELD RECOVERED: PartyHasItem("wnajsh")
 //2. BODY DEFILED: Global("WNAjantisQuest","GLOBAL",20)
 //3: BODY RESCUED: Global("WNAjantisQuest","GLOBAL",30)
 
 
-CHAIN IF WEIGHT #-1~OR(2) 
-Global("WNAjantisQuest","GLOBAL",20) 
+CHAIN IF WEIGHT #-1~OR(2)
+Global("WNAjantisQuest","GLOBAL",20)
 Global("WNAjantisQuest","GLOBAL",30)
 !Global("WNAjantisQuestDone","GLOBAL",1)
-InParty("AJANTIS") 
+InParty("AJANTIS")
 IsValidForPartyDialogue("AJANTIS")~THEN WNTEO AjantisQuestFin.00
 ~Welcome back, <CHARNAME>. Ajantis. It is good to see you both, just as it is to have Peitor under our roof once more. I understand that we have you to thank for this.~
 	== AJANTJ ~It was nothing, Watcher. Just the duty that you assigned my companions and I.~
@@ -151,7 +151,7 @@ CHAIN WNTEO AjantisQuestFin.01
 
 CHAIN WNTEO AjantisQuestFin.02
 ~In due time. First, Peitor must face judgement for his actions.~ EXTERN WNTEO AjantisQuestFin.03
-	
+
 CHAIN WNTEO AjantisQuestFin.03
 ~Helm's everseeing eye has borne witness to the events unfolding around you, Peitor. The truth is undeniable: you sold a holy relic of this church and gave away sweet Ollera's body once she had passed, not merely in the hopes of seeing her once again, but in order to set right what you saw as a failure of your duty.~
 	== WNTEO ~While we do all we can to protect those in need, sometimes the fates must take their dues. Life and death is not ours to meddle with in such ways.~
@@ -200,7 +200,7 @@ CHAIN WNTEO BestReward
 		IF~~THEN REPLY ~Thank you, Teomara. You are most generous.~ EXTERN WNTEO BestRewardExit
 		IF~~THEN REPLY ~Gifts. How lovely.~ EXTERN WNTEO BestRewardExit
 		IF~~THEN REPLY ~I'd prefer gold, but I guess that's what I get for doing jobs for a church.~ EXTERN WNTEO BestRewardExit
-		
+
 CHAIN WNTEO BestRewardExit
 ~May the everseeing eye of Helm watch over you.~
   DO ~SetGlobal("WNAjantisQuestDone","GLOBAL",1)
@@ -244,10 +244,10 @@ CHAIN WNTEO LessGoodRewardExit
 
 // Player is without AJANTIS
 
-CHAIN IF~OR(2) 
-Global("WNAjantisQuest","GLOBAL",20) 
+CHAIN IF~OR(2)
+Global("WNAjantisQuest","GLOBAL",20)
 Global("WNAjantisQuest","GLOBAL",30)
-!InParty("AJANTIS") 
+!InParty("AJANTIS")
 !IsValidForPartyDialogue("AJANTIS")~THEN WNTEO AjantisQuestNoAjantis
 ~Why don't you come back here with Squire Ilvastarr, then we can discuss the day's events?~
 EXIT
