@@ -4,16 +4,14 @@ README ~BGEE-NPC-Revamp/Readme.txt~
 
 AUTO_TRA ~BGEE-NPC-Revamp/ajantis/translations/%s~ //The "%s" reads in the chosen language folder via LANGUAGE. Currently there is only one.
 
+ALWAYS
+	INCLUDE ~%MOD_FOLDER%/lib/always.tpa~
+END
+
 LANGUAGE ~English~
          ~english~
          ~BGEE-NPC-Revamp/ajantis/translations/english/setup.tra~
          ~BGEE-NPC-Revamp/ajantis/translations/english/ajantjournalentries.tra~
-
-BEGIN ~NPC Revamp~
-
-// Add CD State Notvalid
-APPEND ~STATE.IDS~ ~0x80101FEF CD_STATE_NOTVALID~
-UNLESS ~CD_STATE_NOTVALID~
 
 // Ajantis Revamp
 BEGIN ~Ajantis Revamp~ DESIGNATED 0
@@ -29,5 +27,5 @@ BEGIN ~Party Banter Revamp~ DESIGNATED 20
 
 	COMPILE ~%MOD_FOLDER%/general/banter/wnrevampbanter.d~
 
-PRINT ~Adjusting conflicts and existing banter...~
+	PRINT ~Adjusting conflicts and existing banter...~
 	COMPILE ~%MOD_FOLDER%/general/banter/wnbanterpatch.d~
