@@ -1,4 +1,4 @@
-// Fenathigrast Combat AI
+// Boa Combat AI
 
 IF
     StateCheck(Myself,STATE_PANIC)

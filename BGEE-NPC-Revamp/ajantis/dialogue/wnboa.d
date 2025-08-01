@@ -153,7 +153,7 @@ CHAIN WNBOA Second.00
 		IF~~THEN REPLY ~Flaming Fist? Us? Don't make me laugh.~ EXTERN WNBOA Second.03
 		
 CHAIN WNBOA Second.01 ~Top floor of the Three Old Kegs—one of the rooms up there is hosting the auction. Knock on doors till you find it. Don’t go scaring the silk-wrapped types too much, or they’ll call the Fist and we’ll both be in it deep. Go on, and don’t say Boa never helped ya out. Now scram!~
-	DO ~SetGlobal("WNAjantisQuest","GLOBAL",20) AddJournalEntry(@111, QUEST)~ EXIT
+	DO ~SetGlobal("WNAjantisQuest","GLOBAL",16) AddJournalEntry(@111, QUEST)~ EXIT
 	
 CHAIN WNBOA Second.02 ~Only if you want to be thrown head first into the sewers! Haw! Now settle down.~ EXTERN WNBOA Second.01
 
@@ -165,7 +165,7 @@ CHAIN WNBOA Second.03 ~I've not seen you 'round here much, so I'm inclined to be
 
 CHAIN IF WEIGHT #-1 ~Global("WNAuctionCrashed","GLOBAL",1)~ THEN WNBOA HappyAuc.00
 ~Well, I’ll be damned. You actually managed to walk the shield out and smooth those vultures’ ruffled feathers. I was half-expecting to see your corpse thrown out a window, though I'm glad to see you're a capable business<PRO_MANWOMAN>. Here—take these. Consider it a token of appreciation from one professional to another. If you ever need good prices, you know where to find me.~
-DO ~SetGlobal("AuctionCrashed","GLOBAL",4)
+DO ~SetGlobal("WNAuctionCrashed","GLOBAL",4)
 	GiveItemCreate("potn07",LastTalkedToBy,1,0,0)
 	GiveItemCreate("potn42",LastTalkedToBy,1,0,0)
 	GiveItemCreate("scrl5a",LastTalkedToBy,1,0,0)
@@ -176,8 +176,8 @@ DO ~SetGlobal("AuctionCrashed","GLOBAL",4)
 
 CHAIN IF WEIGHT #-1 ~Global("WNAuctionCrashed","GLOBAL",2)~ THEN WNBOA BadAuc.00
 ~That was a gods-damned fiasco. You call that smoothing things over? I'd have had better luck asking a gnoll to sort that out. If the Fist start poking around, I’ll know who to thank. Now get out before I decide you’re more trouble than you’re worth.~
-DO ~SetGlobal("AuctionCrashed","GLOBAL",4)~ EXIT // Nothing
+DO ~SetGlobal("WNAuctionCrashed","GLOBAL",4)~ EXIT // Nothing
 
 CHAIN IF WEIGHT #-1 ~Global("WNAuctionCrashed","GLOBAL",3)~ THEN WNBOA DeadAuc.00
 ~You really couldn’t leave well enough alone, could you? Word’s already spreading—Boa can’t keep his house in order, his deals end with blood staining the rugs. You expect me to thank you for what you did? I'll show you just how appreciative I am.~
-DO ~SetGlobal("AuctionCrashed","GLOBAL",4) Shout(1) Enemy()~ EXIT
+DO ~SetGlobal("WNAuctionCrashed","GLOBAL",4) Shout(1) Enemy()~ EXIT

@@ -9,7 +9,69 @@ THEN
  DisplayStringHead("CORAN",~There they are! Take the beasts down, and we'll all be in for a hefty reward.~)
 END
 
-// Set post-wyvern hunt dialogue timer
+
+
+//////////////////// TIMERED TALKS ////////////////////
+
+// Set first friendship timer
+IF
+ InParty(Myself)
+ Global("wn_coran_wyvern_talk","GLOBAL",2)
+ Global("WNCoranChat","GLOBAL",0)
+ Global("WNCoranChatActive","GLOBAL",0)
+THEN
+ RESPONSE #100
+ RealSetGlobalTimer("WNCoranChatTimer","GLOBAL",1800)
+ SetGlobal("WNCoranChat","GLOBAL",1)
+ SetGlobal("WNCoranChatActive","GLOBAL",1)
+END
+
+//(a) increment the global variable when the timer’s countdown is finished
+IF
+	InParty(Myself)
+	CombatCounter(0) 
+	See(Player1) 
+	!StateCheck("CORAN",CD_STATE_NOTVALID) 
+	!StateCheck(Player1,CD_STATE_NOTVALID) 
+	RealGlobalTimerExpired("WNCoranChatTimer","GLOBAL") 
+	Global("WNCoranChatActive","GLOBAL",1) 
+	OR(2) 
+		Global("WNCoranChat","GLOBAL",1)
+		Global("WNCoranChat","GLOBAL",4)
+	THEN
+		RESPONSE #100
+		IncrementGlobal("WNCoranChat","GLOBAL",1) 
+END
+
+//(b) make the character talk when the variable is right
+IF
+	OR(2)
+		Global("WNCoranChat","GLOBAL",2)
+		Global("WNCoranChat","GLOBAL",5)
+	THEN
+		RESPONSE #100
+		MoveToObject(Player1)
+		StartDialogue("CORANJ",Player1)
+END
+
+
+// (c) increment global and set the timer after the fired talk.
+IF
+	InParty(Myself) 
+	Global("WNCoranChatActive","GLOBAL",1)
+	OR(2)
+		Global("WNCoranChat","GLOBAL",3)
+		Global("WNCoranChat","GLOBAL",6)
+	THEN
+	RESPONSE #100
+		IncrementGlobal("WNCoranChat","GLOBAL",1)
+		RealSetGlobalTimer("WNCoranChatTimer","GLOBAL",1800)
+END
+
+
+//////////////////// SCENERY TALKS ////////////////////
+
+// QUEST 1: AFTER TURNING IN THE WYVERN HEAD
 
 IF
 	InParty(Myself)
@@ -34,7 +96,7 @@ THEN
 		StartDialogueNoSet(Player1)
 END
 
-// Set post-Brielbara talk 1
+// QUEST 2: BRIELBARA MET THE PARTY
 
 IF
 	InParty(Myself)
@@ -58,7 +120,7 @@ THEN
 		StartDialogueNoSet(Player1)
 END
 
-// Set post-Brielbara talk 2
+// QUEST 3: BRIELBARA'S BABY COMPLETE
 
 IF
 	InParty(Myself)

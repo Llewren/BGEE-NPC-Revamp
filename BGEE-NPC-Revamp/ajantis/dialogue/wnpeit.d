@@ -35,7 +35,7 @@ CHAIN IF WEIGHT #-1 ~InParty("AJANTIS") IsValidForPartyDialogue("AJANTIS") Globa
 		IF~~THEN REPLY ~You have—~ EXTERN AJANTJ PeitorQuest.01
 		
 CHAIN AJANTJ PeitorQuest.01
-~Ugh. By Helm, man! You're practically drowning in ale! 'Tis completely shameful! What excuse to do you have for your pitiful behavior?~
+~Ugh. By Helm, man! You're practically drowning in ale! 'Tis completely shameful! You cast a poor shadow on your temple. What excuse to do you have for your behavior?~
 == WNPEIT ~I—I'm sorry. I just... I couldn't go back. Not after everythin'.~
 == AJANTJ ~What do you mean? Explain yourself.~
 	END
@@ -45,7 +45,7 @@ CHAIN AJANTJ PeitorQuest.01
 		IF~~THEN REPLY ~Let me guess. He got lost on the way back and decided the bottom of a tankard was close enough?~ EXTERN AJANTJ PeitorQuest.04
 
 CHAIN AJANTJ PeitorQuest.02
-~Fine. I'll not complain about taking a step back from this wreck.~ EXTERN WNPEIT PeitorQuest.03
+~Fine. I'll not complain about taking a step back.~ EXTERN WNPEIT PeitorQuest.03
 
 CHAIN AJANTJ PeitorQuest.04
 ~This is no laughing matter, <CHARNAME>. This man is shirking his duty to Helm, and to the people of this city.~
@@ -62,7 +62,7 @@ CHAIN WNPEIT PeitorQuest.03
 == KAGAIJ IF ~InParty("KAGAIN") IsValidForPartyDialogue("KAGAIN")~ THEN ~You did the smart thing, boy. You're better off with the gold than some religious junk.~
 == WNPEIT ~It wasn't just for the coin! I swear, I didn't want to. But there was no other way... my sister was sick—somethin' real bad. She passed, alone an' in pain.~
 == CORANJ IF ~InParty("CORAN") IsValidForPartyDialogue("CORAN")~ THEN ~So you sold the shield to get the gold you needed to drown your troubles. Classic.~
-== AJANTJ ~A tragedy, but what does this have to do with the shield, Peitor?~
+== AJANTJ ~That is a tragedy, but what does this have to do with the shield, Peitor? Help me to understand.~
 == WNPEIT ~I needed gold. To bring her back, but without the sickness. The healers said the damage was permanent—lethal, even if she was raised. There's always a way, though. At... at least, that's what I thought.~
 	END
 		IF~~THEN REPLY ~What did you do, Peitor?~ EXTERN WNPEIT PeitorQuest.04
@@ -102,7 +102,7 @@ CHAIN WNPEIT PeitorQuest.11
 ~Nothin' can fix this as long as Ollera's gone.~ EXTERN AJANTJ PeitorQuest.12
 
 CHAIN AJANTJ PeitorQuest.12
-~Pull yourself together! We must reclaim the relic that you cast away. Tell us everything so that we may right your foolish wrong.~
+~I can see your pain, Peitor, and I question not its magnitude, but we must reclaim the relic that you, in your desperation, cast away. Tell us everything so that we may right your foolish wrong.~
 == WNPEIT ~What d'you want t' know?~
 	END
 		IF~~THEN REPLY ~Who was the trader that you sold the shield to?~ EXTERN WNPEIT PeitorQuest.13
@@ -113,7 +113,7 @@ CHAIN WNPEIT PeitorQuest.13
 ~He's a dwarf named Boa. I don't know much about him, but he operates out of the Undercellar—that's, uh, the basement of this tavern. I showed him the shield an' he bought it off me on the spot. Barely gave me a moment to think about it.~ EXTERN WNPEIT PeitorQuest.17
 
 CHAIN WNPEIT PeitorQuest.14
-~I was approached after I left Ollera's house. He said he was a diviner... that he had a premonition, that she was not meant to die, and that he could bring her back healthy an' happy. I... I was a fool.~
+~I was approached after I left Ollera's house. He said he was some kind of special healer, and that he could bring her back healthy an' happy. I... I was a fool.~
 == WNPEIT ~He told me to meet him east of the Blade and Stars, some tavern in the lower city. I took Ollera to him there, and he disappeared with her. I just... watched as he faded into the shadows, carrying her body. I've been here since then.~ EXTERN WNPEIT PeitorQuest.17
 
 CHAIN WNPEIT PeitorQuest.15
@@ -129,7 +129,7 @@ CHAIN WNPEIT PeitorQuest.17
 		IF~~THEN REPLY ~On second thought, this isn't worth my time.~ EXTERN WNPEIT PeitorQuest.16
 		
 CHAIN AJANTJ PeitorQuest.18
-~Whatever scoundrel took advantage of this man’s grief can be dealt with later. The shield must be reclaimed now, before it is lost to us forever.~
+~Whatever scoundrel took advantage of Peitor’s grief can be dealt with later. Perhaps it was a mere sick joke in order to get some coin. The shield is a relic of Helm, and must be reclaimed now before it is lost to us forever.~
 == WNPEIT ~But if... if Ollera's body really is in the hands of some... some lunatic, then you have to go after him! What if it's already too late?~
 == JAHEIJ IF ~InParty("JAHEIRA") IsValidForPartyDialogue("JAHEIRA")~ THEN ~If there is someone buying bodies from the grieving, then it is likely for some unnatural purpose and it warrants our attention.~
 == KHALIJ IF ~InParty("KHALID") IsValidForPartyDialogue("KHALID")~ THEN ~H-how disturbing. We ought t-t-to look into this body collector, <CHARNAME>.~
@@ -147,7 +147,7 @@ DO ~SetGlobal("WNAjantisQuest","GLOBAL",2) AddJournalEntry(@115, QUEST_DONE)~ EX
 
 // Returning
 
-CHAIN IF WEIGHT #-1 ~GlobalGT("WNAjantisQuest","GLOBAL",10)GlobalLT("WNAjantisQuest","GLOBAL",20) !Global("WNPeitRet","GLOBAL",1)~ THEN WNPEIT PeitorReturn.00
+CHAIN IF WEIGHT #-1 ~GlobalGT("WNAjantisQuest","GLOBAL",10)GlobalLT("WNAjantisQuest","GLOBAL",21) !Global("WNPeitRet","GLOBAL",1)~ THEN WNPEIT PeitorReturn.00
 ~You're back. Do you have any news?~
 	END
 		IF~~THEN REPLY ~Not yet. I'll let you know when I do.~ EXTERN WNPEIT PeitorReturn.01
@@ -185,7 +185,7 @@ CHAIN WNPEIT BestPathMenu
 		
 CHAIN WNPEIT PeitorReturn.05
 ~Very well. You've done more for me than I could rightly say. I'll see you back at the temple... whatever my fate may be.~
-DO ~AddJournalEntry(@113, QUEST) TakePartyItem("wnbody1") EscapeArea()~
+DO ~AddJournalEntry(@113, QUEST) TakePartyItem("wnbody1") SetGlobal("WNPeitorLeft","GLOBAL",1) EscapeArea()~
 	EXIT
 	
 // Body defiled
@@ -217,7 +217,7 @@ CHAIN WNPEIT PeitorReturn.09
 		
 CHAIN WNPEIT PeitorReturn.10
 ~Very well. I will face my wrongdoings as one befitting my order... regardless of whether or not I am allowed to remain a part of it.~
-DO ~AddJournalEntry(@113, QUEST) TakePartyItem("wnbody2") EscapeArea()~
+DO ~AddJournalEntry(@113, QUEST) TakePartyItem("wnbody2") SetGlobal("WNPeitorLeft","GLOBAL",1) EscapeArea()~
 	EXIT
 
 CHAIN WNPEIT PeitorReturn.11

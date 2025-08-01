@@ -237,6 +237,7 @@ CHAIN WNTEO LessGoodReward
 CHAIN WNTEO LessGoodRewardExit
 ~May the everseeing eye of Helm watch over you.~
   DO ~SetGlobal("WNAjantisQuestDone","GLOBAL",1)
+	  SetGlobal("WNAjantisQuestBadEnding","GLOBAL",1)
         AddJournalEntry(@114, QUEST_DONE)
 		GiveItemCreate("brac22",LastTalkedToBy,1,0,0)~
     EXIT

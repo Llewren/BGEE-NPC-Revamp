@@ -1,4 +1,10 @@
-// Post-Wyvern Reward Talk
+///////////////////////////////////
+///Conversations with the player///
+///////////////////////////////////
+
+// Quest Dialogue
+
+// Post-Wyvern Hunt
 
 CHAIN IF ~Global("wn_coran_wyvern_talk","GLOBAL",1)~ THEN CORANJ CoranTalk.01x00
 ~You've proven yourself a reliable hunter, <CHARNAME>, and we're all the wealthier for it. I'd be happy to keep enjoying your company—it's been a while since I've had traveling companions, what with my deluge in the forest.~
@@ -68,14 +74,14 @@ LeaveParty()
 EscapeAreaMove("AR2301",627,941,SE)~ 
 EXIT
 
-// Brielbara Talk 1
+// Brielbara Talk 1: After meeting her for the first time
 
 CHAIN IF ~Global("wn_brielcoran_talk","GLOBAL",1)~ THEN CORANJ CoranQuest1.00
 ~Sorry, <CHARNAME>. I know I said I wasn't going to turn my problems into yours but it appears that things here have gotten... a little out of hand. We should pay Yago a visit, quickly. I've met the man only once and he certainly seemed like the sort of fellow to curse a child to certain death.~
 DO ~SetGlobal("wn_brielcoran_talk","GLOBAL",2)~
 EXIT
 
-// Brielbara Talk 2
+// Brielbara Talk 2: After returning Yago's spellbook
 
 CHAIN IF ~Global("wn_coranquest_end","GLOBAL",1)~ THEN CORANJ CoranQuest2.00
 ~I'm glad that mess is done with. As little interest as I have in being a... parent, Yago was a bitter old man and Baldur's Gate is a better place without him. What say you, shall we hit the road?~
@@ -127,8 +133,107 @@ CHAIN CORANJ CoranQuest2.02
 ~Let's keep this fine little operation of yours moving.~
 DO ~SetGlobal("wn_coranquest_end","GLOBAL",2)~ EXIT		
 
+// OTR Talks
 
+// Conversation 1: Threadbare Stages
 
+CHAIN IF ~Global("WNCoranChat","GLOBAL",2)~ THEN CORANJ Chat.01x01
+~I say, it is good to be on the road once more. I was getting tired of being holed up in the Cloakwood tracking the unfortunate cousins of the much more deadly drakes. Wyverns never like to eat the whole beast when they hunt, so they leave rotting carcasses all over the place. It makes for an easier hunting experience, but not a particularly pleasant one.~
+	END
+		IF~~THEN REPLY ~Well, I'm glad to provide you with a reason to travel.~ EXTERN CORANJ Chat.01x02
+		IF~~THEN REPLY ~You seem to know an awful lot about wyverns.~ EXTERN CORANJ Chat.01x03
+		IF~~THEN REPLY ~If you say so, Coran.~ EXTERN CORANJ Chat.01x04
+		IF~~THEN REPLY ~This isn't the time for conversation.~ EXTERN CORANJ Chat.01x05
+		
+CHAIN CORANJ Chat.01x02
+~Oh, I never truly need a reason to find myself putting one foot in front of the other. 'Tis like second nature to me, truth be told.~ EXTERN CORANJ Chat.01x06
+
+CHAIN CORANJ Chat.01x03
+~As I should. I once called the largest forest in all the Sword Coast my home, though such days are behind me now.~ EXTERN CORANJ Chat.01x06
+
+CHAIN CORANJ Chat.01x04
+~I don't truly speak lightly. The stench was horrendous. The body odor of this group is somewhat more tolerable.~ EXTERN CORANJ Chat.01x06
+
+CHAIN CORANJ Chat.01x06
+~That I get to live the life of an adventurer is one of life's greatest gifts. The road is a threadbare but endless stage—no matter how worn it is, you can always be exactly who you wish to be.~
+== CORANJ ~It’s not the road that changes, mind you, it’s the stories you tell about yourself along the way. And I, my friend, have a vast collection of stories.~
+	END
+		IF~~THEN REPLY ~That's an interesting perspective. The adventuring lifestyle lends itself to reinvention.~ EXTERN CORANJ Chat.01x07
+		IF~~THEN REPLY ~I'm not sure that I agree. Knowing yourself is how you stay true to the things that matter.~ EXTERN CORANJ Chat.01x08
+		IF~~THEN REPLY ~Sounds lonely, to be honest.~ EXTERN CORANJ Chat.01x09
+		IF~!Gender(player1,FEMALE)~THEN REPLY ~What I'm hearing is that you're an ingenuine wanderer.~ EXTERN CORANJ Chat.01x10
+		IF~Gender(player1,FEMALE)~THEN REPLY ~What I'm hearing is that you're an ingenuine wanderer.~ EXTERN CORANJ Chat.01x11
+
+CHAIN CORANJ Chat.01x07
+~Precisely. No need to be the fool you were yesterday, eh? Today, you can be a new fool, with better shoes and a sharper smile.~ EXTERN CORANJ Chat.01x12
+
+CHAIN CORANJ Chat.01x08
+~Ah, but how does one know what matters if you never let yourself change? Too many people anchor themselves to ideas that stopped making sense a long time ago.~ EXTERN CORANJ Chat.01x12
+
+CHAIN CORANJ Chat.01x09
+~Stagnation is lonely. Losing yourself to a way of life that cares nothing for you is lonely. Life is full of loneliness, so why not step out there and look for something new?~ EXTERN CORANJ Chat.01x12
+
+CHAIN CORANJ Chat.01x10
+~Compliments already? I'll take ingenuine over boring any day of the week.~ EXTERN CORANJ Chat.01x12
+
+CHAIN CORANJ Chat.01x11
+~Ah, a feisty heart. I like that in a woman. There's little room to be ingenuine to a fellow member of your adventuring troupe, is there not? You'll find me a paragon of honesty, my dear. It's up to you to decide whether or not you like what you hear when I'm honest.~ EXTERN CORANJ Chat.01x12
+
+CHAIN CORANJ Chat.01x12
+~Ah, listen to us—philosophers in the mud. Come on, let’s enjoy some well-deserved silence before the next beastie drops dead in our path.~
+DO ~SetGlobal("WNCoranChat","GLOBAL",3)~ EXIT
+
+CHAIN CORANJ Chat.01x05
+~As you wish it, my socially avoidant friend.~
+DO ~SetGlobal("WNCoranChat","GLOBAL",3)~ EXIT
+
+// Conversation 2: Archery
+
+CHAIN IF ~Global("WNCoranChat","GLOBAL",5)~ THEN CORANJ Chat.02x01
+~Blast. I keep forgetting to pick up more wax for my bowstring. One tug too many and it’ll snap like a harp string in a jealous bard’s hands.~
+	END
+		IF~~THEN REPLY ~If it breaks, we'll buy you another.~ EXTERN CORANJ Chat.02x02
+		IF~~THEN REPLY ~You really ought to take better care of your equipment.~ EXTERN CORANJ Chat.02x03
+		IF~~THEN REPLY ~You're handy enough with a blade, aren't you?~ EXTERN CORANJ Chat.02x04
+		IF~~THEN REPLY ~The quicker you stop complaining about it the faster we can fix that. Let's go.~ EXTERN CORANJ Chat.02x05
+
+CHAIN CORANJ Chat.02x02
+~Not quite the point, <CHARNAME>. I take great pride in caring for my belongings—when I remember to, that is.~ EXTERN CORANJ Chat.02x06
+
+CHAIN CORANJ Chat.02x03
+~As if you haven't had a forgetful day in the midst of your life of excitement and adventure.~ EXTERN CORANJ Chat.02x06
+
+CHAIN CORANJ Chat.02x04
+~'Handy enough' isn't quite the same thing as masterful. I try my best not to settle for mediocrity.~ EXTERN CORANJ Chat.02x06
+
+CHAIN CORANJ Chat.02x06
+~I've long learned to keep my tools sharp. If nothing else, they remind me I'm still capable of hitting my mark. Besides, there’s a satisfaction in it. You draw, you loose, and just for that one moment, you've no questions to ask.~
+	END
+		IF~~THEN REPLY ~So that's what keeps you going?~ EXTERN CORANJ Chat.02x07
+		IF~!Gender(player1,FEMALE)~THEN REPLY ~Sometimes you sound more like a bard than some actual bards I've met.~ EXTERN CORANJ Chat.02x08
+		IF~Gender(player1,FEMALE)~THEN REPLY ~Sometimes you sound more like a bard than some actual bards I've met.~ EXTERN CORANJ Chat.02x09
+		IF~~THEN REPLY ~Perhaps you could take that same attitude to the rest of your life.~ EXTERN CORANJ Chat.02x10
+		
+CHAIN CORANJ Chat.02x07
+~Among other things. My aim is the one thing I can always rely on, and the one thing that I know will always save my life when it comes down to it. It's hard not to appreciate such a thing, don't you think?~ EXTERN CORANJ Chat.02x11
+
+CHAIN CORANJ Chat.02x08
+~You need to meet more bards then. There's a reason why I don't carry a lute with me, you know.~ EXTERN CORANJ Chat.02x11
+
+CHAIN CORANJ Chat.02x09
+~You're not the first woman to say that, you know. The last one was basking in the afterglow of a hard night's work as I recounted the beauties of my forested home for her.~ EXTERN CORANJ Chat.02x11
+
+CHAIN CORANJ Chat.02x10
+~Nay, I'm happy with merely the one constant. A bow in my hand reminds me who I am and where I'm going. I needn't make sense of the rest.~ EXTERN CORANJ Chat.02x11
+
+CHAIN CORANJ Chat.02x11
+~Simple pleasures, <CHARNAME>. They're rare enough. A steady shot. A good bottle of wine. And perhaps a pretty lass to notice both.~
+== CORANJ ~Let's get going. I'll not forget the wax next time we stop.~
+DO ~SetGlobal("WNCoranChat","GLOBAL",3)~ EXIT
+
+CHAIN CORANJ Chat.02x05
+~Shockingly, you are right. It'll be as you say then.~
+DO ~SetGlobal("WNCoranChat","GLOBAL",3)~ EXIT
 
 	////////////////////////////
 	// Corans's Interjections //
