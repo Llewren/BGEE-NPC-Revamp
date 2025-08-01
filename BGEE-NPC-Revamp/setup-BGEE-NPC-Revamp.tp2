@@ -5,7 +5,7 @@ README ~BGEE-NPC-Revamp/Readme.txt~
 AUTO_TRA ~BGEE-NPC-Revamp/ajantis/translations/%s~ //The "%s" reads in the chosen language folder via LANGUAGE. Currently there is only one.
 
 LANGUAGE ~English~
-         ~english~   
+         ~english~
          ~BGEE-NPC-Revamp/ajantis/translations/english/setup.tra~
          ~BGEE-NPC-Revamp/ajantis/translations/english/ajantjournalentries.tra~
 
@@ -16,18 +16,18 @@ APPEND ~STATE.IDS~ ~0x80101FEF CD_STATE_NOTVALID~
 UNLESS ~CD_STATE_NOTVALID~
 
 // Ajantis Revamp
-BEGIN ~Ajantis Revamp~
-	INCLUDE ~BGEE-NPC-Revamp/lib/ajantisrevamp.tpa~
+BEGIN ~Ajantis Revamp~ DESIGNATED 0
+	INCLUDE ~%MOD_FOLDER%/lib/ajantisrevamp.tpa~
 
 // Coran Revamp
-BEGIN ~Coran Revamp~
-	INCLUDE ~BGEE-NPC-Revamp/lib/coranrevamp.tpa~
-	
+BEGIN ~Coran Revamp~ DESIGNATED 10
+	INCLUDE ~%MOD_FOLDER%/lib/coranrevamp.tpa~
+
 // Banter
-BEGIN ~Party Banter Revamp~
-	COPY ~BGEE-NPC-Revamp/general/banteraudio~ ~override~
-	
-	COMPILE ~BGEE-NPC-Revamp/general/banter/wnrevampbanter.d~
+BEGIN ~Party Banter Revamp~ DESIGNATED 20
+	COPY ~%MOD_FOLDER%/general/banteraudio~ ~override~
+
+	COMPILE ~%MOD_FOLDER%/general/banter/wnrevampbanter.d~
 
 PRINT ~Adjusting conflicts and existing banter...~
-	COMPILE ~BGEE-NPC-Revamp/general/banter/wnbanterpatch.d~ 
+	COMPILE ~%MOD_FOLDER%/general/banter/wnbanterpatch.d~
