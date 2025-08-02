@@ -134,7 +134,7 @@ CHAIN AJANTJ PeitorQuest.18
 == JAHEIJ IF ~InParty("JAHEIRA") IsValidForPartyDialogue("JAHEIRA")~ THEN ~If there is someone buying bodies from the grieving, then it is likely for some unnatural purpose and it warrants our attention.~
 == KHALIJ IF ~InParty("KHALID") IsValidForPartyDialogue("KHALID")~ THEN ~H-how disturbing. We ought t-t-to look into this body collector, <CHARNAME>.~
 == KAGAIJ IF ~InParty("KAGAIN") IsValidForPartyDialogue("KAGAIN")~ THEN ~Let's go find this black market dealer and stick an axe in him!~
-== MINSCJ IF ~InParty("MINSC") IsValidForPartyDialogue("MINSC")~ THEN ~Even the dead must be protected from evil-doers! But... this shield could be dangerous in a villain's hands. Boo says he trusts your judgment.~
+== MINSCJ IF ~InParty("MINSC") IsValidForPartyDialogue("MINSC")~ THEN ~Even the dead must be protected from evil-doers! But... this shield could be dangerous in a villain's hands. Boo says he trusts your judgement.~
 == XZARJ IF ~InParty("XZAR") IsValidForPartyDialogue("XZAR")~ THEN ~Buying bodies in the street is an... intriguing hobby. Very intriguing indeed.~
 == AJANTJ ~The shield is a holy relic—its recovery is a duty I cannot ignore. Whatever villain holds it must be dealt with swiftly. This man who took your sister’s body... if he is truly mad, then his schemes can be unraveled after we secure the relic.~
 == WNPEIT ~The man said he’d meet me by the sewer entrance a ways east of the Blade and Stars. But... the Flamin' Fist men just kept pushin’ me away whenever I got close. Maybe you could get through to them, get them to help. Or else, you could talk to Boa about the shield, but I don't know how much luck you'll have.~
