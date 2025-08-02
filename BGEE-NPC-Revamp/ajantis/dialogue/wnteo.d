@@ -166,7 +166,7 @@ CHAIN WNTEO Ending1
 ~You are forgiven, Peitor, but do not mistake that for absolution. Both your sister's body and the shield lie safe within our grasp, thanks only to your newfound friends.~
 	== WNTEO ~There will not always be others to catch you should you slip. As followers of Helm, it is our duty to protect those that lack the means to protect themselves, and you must be fully prepared for that responsibility. The temple welcomes you back, for I see this courage in you still—even if you yet do not.~
 	== WNPEIT ~Thank you, Watcher. I will do my best not t' squander this chance.~
-	== WNTEO ~As for you, Ajantis, you and your companions pathed the road that brought Peitor back to us, though I suspect the task was not an easy one. The choices made reflect on us all. Tell me, did you hold to Helm’s path, even in the mire?~
+	== WNTEO ~As for you, Ajantis, you and your companions paved the road that brought Peitor back to us, though I suspect the task was not an easy one. The choices made reflect on us all. Tell me, did you hold to Helm’s path, even in the mire?~
 	== AJANTJ ~I believe so, Watcher, though perhaps I would have struggled without <CHARNAME>'s judgment to temper me.~
 	== WNTEO ~Then you have learned a valuable lesson in trust and restraint both. May it serve you well, Ajantis, for there will be darker days with fewer answers, and it is then that Helm will watch you most closely.~ EXTERN WNTEO BestReward
 
@@ -174,7 +174,7 @@ CHAIN WNTEO Ending2
 ~You have squandered my faith in you, Peitor. Though your sister's body lies safe, the shield you so foolishly pawned is lost to us. The item itself is of less consequence than your faith, and it has been found wanting.~
 	== WNTEO ~That being said, you have returned before Helm's gaze with humility and an understanding of your wrongs. I have no doubt that the company of your own conscience will prove as sufficient punishment before Helm. The temple welcomes you back, though only time will tell if this gift of grace is misplaced.~
 	== WNPEIT ~I understand, Watcher. Thank you.~
-	== WNTEO ~As for you, Ajantis, you and your companions pathed the road that brought Peitor back to us, though I suspect the task was not an easy one. The choices made reflect on us all. Tell me, did you hold to Helm’s path, even in the mire?~
+	== WNTEO ~As for you, Ajantis, you and your companions paved the road that brought Peitor back to us, though I suspect the task was not an easy one. The choices made reflect on us all. Tell me, did you hold to Helm’s path, even in the mire?~
 	== AJANTJ ~I know not, in truth. May Helm vindicate me if it is so—but I carry frustration over our inability to recover the shield.~
 	== WNTEO ~Even without it, you ensured Ollera's body returned safely, and in the process put a stop to an evil preying on the defenseless. This is Helm's duty to us, and you fulfilled it admirably.~ EXTERN WNTEO LessGoodReward
 
@@ -182,15 +182,15 @@ CHAIN WNTEO Ending3
 ~You are forgiven, Peitor, though not lightly—nor are you yet excused. The shield you so foolishly pawned is safe within our grasp, but your actions led to the desecration of your sister's body.~
 	== WNTEO ~I have no doubt that the company of your own conscience will prove as sufficient punishment before Helm. The temple welcomes you back, and I hope that you may work your way back to your former standing and beyond with this gift of grace.~
 	== WNPEIT ~I understand, Watcher. Thank you.~
-	== WNTEO ~As for you, Ajantis, you and your companions pathed the road that brought Peitor back to us, though I suspect the task was not an easy one. The choices made reflect on us all. Tell me, did you hold to Helm’s path, even in the mire?~
+	== WNTEO ~As for you, Ajantis, you and your companions paved the road that brought Peitor back to us, though I suspect the task was not an easy one. The choices made reflect on us all. Tell me, did you hold to Helm’s path, even in the mire?~
 	== AJANTJ ~I am uncertain. We have fulfilled the task you gave us, but there was an evil lurking below the shadows—one that I did not see until it was too late.~
 	== WNTEO ~Even so, you put an end to it. Not all losses can be prevented, but under Helm's gaze you have gained insight that will arm you well for the future.~ EXTERN WNTEO GoodReward
 
 CHAIN WNTEO Ending4
-~You have squandered Helm's duty and my faith in you both, Peitor. Your sister's body carries the evidence of your carelessness, and the shield that you so foolishly pawned is lost to us. You having been tested by Helm, and by life, and you have been found wanting.~
+~You have squandered Helm's duty and my faith in you both, Peitor. Your sister's body carries the evidence of your carelessness, and the shield that you so foolishly pawned is lost to us. You have been tested by Helm, and by life, and you have been found wanting.~
 	== WNTEO ~I hope that you may one day return to us a bettered man, Peitor. However, I cannot allow you to remain with this temple.~
 	== WNPEIT ~About as much as I was expectin', to be honest. I... I accept this decision. Maybe one day I will return before you, an' let Helm judge me truly. Till then, I... I ought t' bury my sister. Excuse me. (Cutscene -- Peitor Leaves)~ // CUTSCENE -- PEITOR LEAVES
-	== WNTEO ~A shame, but perhaps things are as they should be. As for you, Ajantis, you and your companions pathed the road that brought Peitor to judgment, though I suspect the task was not an easy one. The choices made reflect on us all. Tell me, did you hold to Helm’s path, even in the mire?~
+	== WNTEO ~A shame, but perhaps things are as they should be. As for you, Ajantis, you and your companions paved the road that brought Peitor to judgment, though I suspect the task was not an easy one. The choices made reflect on us all. Tell me, did you hold to Helm’s path, even in the mire?~
 	== AJANTJ ~I know not, in truth. We put an end to an evil lurking beneath the shadows, but I did not see it until it was too late for Peitor's sister.~
 	== WNTEO ~Indeed. Not all losses can be prevented, as you have learned. You carried this burden with vigilance, and that is no small thing. Helm sees all, Ajantis. If your path was righteous, His gaze will vindicate you—and if not, it will call you to reckon with the truth.~ EXTERN WNTEO LessGoodReward
 
