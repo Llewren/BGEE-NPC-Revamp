@@ -41,7 +41,7 @@ CHAIN IF~Global("WNAjantisQuestDoneTalk","GLOBAL",1) !Global("WNAjantisQuestBadE
 		IF~~THEN REPLY ~Something to with Peitor?~ EXTERN AJANTJ AjantisAfterQuest.01
 		IF~PartyHasItem("wnajsh")~THEN REPLY ~The shield, perhaps?~ EXTERN AJANTJ AjantisAfterQuest.02
 		IF~~THEN REPLY ~The necromancer and what he wrought?~ EXTERN AJANTJ AjantisAfterQuest.03
-		IF~~THEN REPLY ~Watcher Teomara's judgement?~ EXTERN AJANTJ AjantisAfterQuest.04
+		IF~~THEN REPLY ~Watcher Teomara's judgment?~ EXTERN AJANTJ AjantisAfterQuest.04
 		IF~~THEN REPLY ~I'm assuming it's probably related to Helm.~ EXTERN AJANTJ AjantisAfterQuest.05
 		IF~~THEN REPLY ~I don't. Please, tell me.~ EXTERN AJANTJ AjantisAfterQuest.06
 
@@ -189,7 +189,7 @@ CHAIN AJANTJ Chat.02x07
 ~Aye, in more ways than one. He sees with a clarity I can only aspire to, though I chase it with all my strength.~ EXTERN AJANTJ Chat.02x10
 
 CHAIN AJANTJ Chat.02x08
-~Perhaps, but he is old and wise enough that his judgement holds a weight that others filled with certainty would not have.~ EXTERN AJANTJ Chat.02x10
+~Perhaps, but he is old and wise enough that his judgment holds a weight that others filled with certainty would not have.~ EXTERN AJANTJ Chat.02x10
 
 CHAIN AJANTJ Chat.02x09
 ~Hah! No silver dragon, though I have seen him ride a steed as fine a destrier as any knight could ask for. Even so, perhaps my tongue runs away with me when I speak of him.~ EXTERN AJANTJ Chat.02x10
