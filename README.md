@@ -3,8 +3,7 @@
 | <img width="525" height="825" alt="revamp-card-2" src="https://github.com/user-attachments/assets/8f0975bc-600d-442a-88d5-faabb757c31c" /> | This is an in-development mod exclusively for *Baldur’s Gate: Enhanced Edition*. It aims to add depth to the companions in the game with all new interparty banter, quests, expansions to existing quests, interjections, and player-talks. |
 | --- | --- |
 
-                                                                   
-  ## Features [Currently Implemented]
+## Features [Currently Implemented]
 
 - Two on-the-road conversations with Coran.
 - Two on-the-road conversations with Ajantis.
@@ -15,6 +14,7 @@
 - Two new shopkeepers added to support companion-related content — one in the Temple of Helm, and one in the Undercellar.
 
 ## Planned Features [Subject To Change]
+
 - 700+ inter-party banters.
 - 5+ on-the-road conversations with every companion.
 - Companion interjections throughout the story.
