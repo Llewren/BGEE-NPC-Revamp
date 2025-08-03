@@ -30,7 +30,7 @@ CHAIN IF ~Global("WNBoaFirst","GLOBAL",5)~ THEN WNAUC0 ShieldPath.00
 		IF~InParty("AJANTIS") IsValidForPartyDialogue("AJANTIS")~ THEN REPLY ~Boa has sent me with the shield. Let us begin with the auction.~ EXTERN WNAUC0 ShieldPath.02
 		IF~~THEN REPLY ~Gutless worms. I have you all right where I want you. Prepare to die.~ EXTERN WNAUC3 ShieldPath.03
 		IF~~THEN REPLY ~Just dropping in to say hi. Excuse me.~ EXTERN WNAUC0 ShieldPath.04
-		
+
 CHAIN WNAUC0 ShieldPath.01
 ~Oh? I eagerly await to hear it, as I'm sure we all do.~
 	END
@@ -38,7 +38,7 @@ CHAIN WNAUC0 ShieldPath.01
 		IF~~THEN REPLY ~I bought the shield from Boa myself, and I'm not giving it to any of you. Go home.~ EXTERN WNAUC2 ShieldPath.06
 		IF~~THEN REPLY ~The shield was determined to be a fake by an expert. I apologize for the inconvenience.~ EXTERN WNAUC1 ShieldPath.07
 		IF~~THEN REPLY ~The shield has been stolen. Unless one of you is hiding it under your coat, there’s nothing left to auction.~ EXTERN WNAUC3 ShieldPath.08
-		IF~~THEN REPLY ~Boa has entrusted me with the task of delivering it. I am here to oversee the auction and return the payment back to him.~ EXTERN WNAUC0 ShieldPath.02
+		IF~~THEN REPLY ~Boa has entrusted me with the task of delivering it. I am here to oversee the auction and return the payment to him.~ EXTERN WNAUC0 ShieldPath.02
 
 CHAIN WNAUC0 ShieldPath.02
 ~You're... not who I was expecting to bring it, but if you have the item with you then I suppose we can begin with the auction.~ EXTERN AJANTJ ShieldPath.Interject
@@ -49,19 +49,19 @@ CHAIN WNAUC0 ShieldPath.04
 		IF~~THEN REPLY ~I come bearing news regarding the subject of this auction.~ EXTERN WNAUC0 ShieldPath.01
 		IF~~THEN REPLY ~Boa has sent me with the shield and to return to him with payment. Let us begin with the auction.~ EXTERN WNAUC0 ShieldPath.02
 		IF~~THEN REPLY ~I'm here to kill you all and take your gold.~ EXTERN WNAUC3 ShieldPath.03
-		
+
 CHAIN AJANTJ ShieldPath.Interject
 ~You cannot be serious, <CHARNAME>. If you are playing some game, then I advise that you quit now. This shield must be returned to the Temple of Helm.~
 	== WNAUC4 ~They're Helmites? We have to get out of here!~
 	== WNAUC0 ~Please, if everyone could keep their heads, I'm sure we can sort all of this out—~
 	== WNAUC1 ~Run for it!~
-	DO ~SetGlobal("WNAuctionCrashed","GLOBAL",2) 
+	DO ~SetGlobal("WNAuctionCrashed","GLOBAL",2)
 	ActionOverride("wnauc1",EscapeArea())
 	ActionOverride("wnauc2",EscapeArea())
 	ActionOverride("wnauc3",EscapeArea())
 	ActionOverride("wnauc4",EscapeArea())~
 	EXIT
-	
+
 CHAIN WNAUC3 ShieldPath.05
 ~What?! This is outrageous!~
 	== WNAUC1 ~The Flaming Fist have never intercepted one of these auctions before!~
@@ -69,13 +69,13 @@ CHAIN WNAUC3 ShieldPath.05
 	== WNAUC0 ~Please, if everyone could keep their heads, I'm sure we can sort all of this out—~
 	== WNAUC3 ~Run for it!~
 	== WNAUC0 ~Oh, blast it.~
-	DO ~SetGlobal("WNAuctionCrashed","GLOBAL",1) 
+	DO ~SetGlobal("WNAuctionCrashed","GLOBAL",1)
 	ActionOverride("wnauc1",EscapeArea())
 	ActionOverride("wnauc2",EscapeArea())
 	ActionOverride("wnauc3",EscapeArea())
 	ActionOverride("wnauc4",EscapeArea())~
 	EXIT
-	
+
 CHAIN WNAUC2 ShieldPath.06
 ~Bought it yourself? I don't bloody think so. This is an AUCTION!~
 	== WNAUC1 ~You've already concluded the sale? What a waste of time this has been...~
@@ -83,13 +83,13 @@ CHAIN WNAUC2 ShieldPath.06
 	== WNAUC0 ~Let's all keep our heads, friends and—~
 	== WNAUC4 ~C'mon, see the way <PRO_HESHE>'s armed? Let's just get out of here.~
 	== WNAUC3 ~Fine. I've a pile of gold burning a hole in my aurumthread trouser pockets. Let's go drinking, shall we?~
-	DO ~SetGlobal("WNAuctionCrashed","GLOBAL",2) 
+	DO ~SetGlobal("WNAuctionCrashed","GLOBAL",2)
 	ActionOverride("wnauc1",EscapeArea())
 	ActionOverride("wnauc2",EscapeArea())
 	ActionOverride("wnauc3",EscapeArea())
 	ActionOverride("wnauc4",EscapeArea())~
 	EXIT
-	
+
 CHAIN WNAUC1 ShieldPath.07
 ~Bah, not again!~
 	== WNAUC4 ~At least they caught it early this time. The last thing I need is some tacky imitation on my wall.~
@@ -97,28 +97,28 @@ CHAIN WNAUC1 ShieldPath.07
 	== WNAUC0 ~Please, if everyone could keep their heads, I'm sure we can sort all of this out—~
 	== WNAUC3 ~Let's go. Perhaps I can get a carriage back to the estate...~
 	== WNAUC0 ~Oh, blast it. I suppose the auction is off.~
-	DO ~SetGlobal("WNAuctionCrashed","GLOBAL",1) 
+	DO ~SetGlobal("WNAuctionCrashed","GLOBAL",1)
 	ActionOverride("wnauc0",EscapeArea())
 	ActionOverride("wnauc1",EscapeArea())
 	ActionOverride("wnauc2",EscapeArea())
 	ActionOverride("wnauc3",EscapeArea())
 	ActionOverride("wnauc4",EscapeArea())~
 	EXIT
-		
+
 CHAIN WNAUC3 ShieldPath.08
 ~Stolen?! Outrageous. This is a terrible way to conduct business.~
 	== WNAUC1 ~This is the last time I attend one of these auctions, that's for certain.~
 	== WNAUC2 ~Let's get out of here. This has been a godsdamned waste of time.~
 	== WNAUC0 ~I'd like to formally apologize, everyone. This is most unusual, but I assure you that it shan't happen again!~
 	== WNAUC4 ~Whatever. I'm leaving.~
-	DO ~SetGlobal("WNAuctionCrashed","GLOBAL",1) 
+	DO ~SetGlobal("WNAuctionCrashed","GLOBAL",1)
 	ActionOverride("wnauc0",EscapeArea())
 	ActionOverride("wnauc1",EscapeArea())
 	ActionOverride("wnauc2",EscapeArea())
 	ActionOverride("wnauc3",EscapeArea())
 	ActionOverride("wnauc4",EscapeArea())~
-	EXIT			
-		
+	EXIT
+
 CHAIN WNAUC3 ShieldPath.03
 ~Aeeeeeeei! Run for it!~
 	DO ~SetGlobal("WNAuctionCrashed","GLOBAL",3)
@@ -134,7 +134,7 @@ CHAIN IF ~OR(2)
 		Global("WNAuctionCrashed","GLOBAL",1)~ THEN WNAUC0 Leave
 ~This is terribly inconvenient, but I suppose there's not much to do about it. Thank you for bringing this to my attention. Good day.~
 DO ~EscapeArea()~ EXIT
-	
+
 // Real Auction
 
 CHAIN IF ~Global("WNAuctionDone","GLOBAL",0) Global("WNFenaFirst","GLOBAL",1)~ THEN WNAUC0 NecroPath.00
@@ -150,14 +150,14 @@ CHAIN IF ~Global("WNAuctionDone","GLOBAL",0) Global("WNFenaFirst","GLOBAL",1)~ T
 		IF~~THEN REPLY ~Yes. I wish to make a bid.~ DO ~SetGlobal("WNAucPlayerBid","GLOBAL",0)~ EXTERN WNAUC0 BidMenu
 		IF~~THEN REPLY ~I'm not here to buy. I'm here for the shield—and none of you are leaving with it.~ EXTERN WNAUC1 NecroPath.02
 		IF~~THEN REPLY ~Just here to watch. Please, continue.~ EXTERN WNAUC0 NecroPath.03
-		
+
 CHAIN WNAUC0 NecroPath.01
 ~We are at six-thousand gold. I trust that you are informed on the nature of the auction? We have a shield of great value ~
 	END
 		IF~~THEN REPLY ~The Helmite shield? Yes, I wish to make a bid.~ DO ~SetGlobal("WNAucPlayerBid","GLOBAL",0)~ EXTERN WNAUC0 BidMenu
 		IF~~THEN REPLY ~I'm not here to buy. I'm here for the shield—and none of you are leaving with it.~ EXTERN WNAUC1 NecroPath.02
 		IF~~THEN REPLY ~I'm just here to watch. Please, continue.~ EXTERN WNAUC0 NecroPath.03
-		
+
 CHAIN WNAUC0 BidMenu
 ~Very well, my <PRO_LADYLORD>. What will your bid be?~
     END
@@ -181,7 +181,7 @@ CHAIN WNAUC0 Bid01
 		IF~~THEN REPLY ~Fine, time for a real bid.~ EXTERN WNAUC0 BidMenu
 		IF~~THEN REPLY ~Nope, I've had my fun. Everyone out! Now!~ EXTERN WNAUC1 NecroPath.02
 		IF~~THEN REPLY ~I've decided to end my auctioning career early, actually.~ EXTERN WNAUC0 NecroPath.03
-		
+
 CHAIN WNAUC0 Bid02
 ~We have SEVEN-THOUSAND! The stakes are getting hefty here tonight, my friends. Will ANYONE contest it?~
 	== WNAUC1 ~I doubt a low-life like yourself even has such coin, but even so... I bid eight-thousand!~
@@ -193,7 +193,7 @@ CHAIN WNAUC0 Bid02
 		IF~~THEN REPLY ~With pleasure.~ EXTERN WNAUC0 BidMenu
 		IF~~THEN REPLY ~That's it. This auction is over!~ EXTERN WNAUC1 NecroPath.02
 		IF~~THEN REPLY ~I'll sit out, thanks.~ EXTERN WNAUC0 NecroPath.03
-		
+
 CHAIN WNAUC0 Bid03
 ~A bold move! Seventy-five-hundred gold on the line for this artifact tonight! Will anyone outbid this <PRO_RACE>?~
 	== WNAUC3 ~... Hmph.~
@@ -205,8 +205,8 @@ CHAIN WNAUC0 Bid03
 	END
 		IF~~THEN REPLY ~With pleasure.~ EXTERN WNAUC0 BidMenu
 		IF~~THEN REPLY ~That's it. This auction is over!~ EXTERN WNAUC1 NecroPath.02
-		IF~~THEN REPLY ~I'll sit out this one.~ EXTERN WNAUC0 NecroPath.03	
-		
+		IF~~THEN REPLY ~I'll sit out this one.~ EXTERN WNAUC0 NecroPath.03
+
 CHAIN WNAUC0 Bid04
 ~A thunderous bid from our newcomer! Will anyone match <PRO_HISHER> bid?~
 	== WNAUC1 ~What a racket. I doubt <PRO_HESHE> even has that much gold!~
@@ -219,9 +219,9 @@ CHAIN WNAUC0 Bid04
 		IF~~THEN REPLY ~I'm not out yet.~ EXTERN WNAUC0 BidMenu
 		IF~~THEN REPLY ~Okay, I'm done playing about. Everyone out!~ EXTERN WNAUC1 NecroPath.02
 		IF~~THEN REPLY ~I'm afraid not.~ EXTERN WNAUC0 NecroPath.03
-	
+
 CHAIN WNAUC0 Bid05
-~Eight-thousand-five-hundred, everyone. Our most impressive bid of the night... Will anyone contest it?~ 
+~Eight-thousand-five-hundred, everyone. Our most impressive bid of the night... Will anyone contest it?~
 	== WNAUC1 ~Bah. This isn't worth my time.~
 	== WNAUC3 ~I... no, I'll pass.~ EXTERN WNAUC0 BidWon
 
@@ -230,8 +230,8 @@ CHAIN WNAUC0 Bid06
 	== WNAUC1 ~Ridiculous. Who comes to an auction and acts this way?~
 	== WNAUC3 ~I think I... I must pass, as dashing as the piece would look atop my wall.~
 	== WNAUC4 ~Mm. Fine.~ EXTERN WNAUC0 BidWon
-	
-	
+
+
 CHAIN WNAUC2 Bid07
 ~You don't have that much money! That's outrageous.~
     == WNAUC3 ~Do us all a favor and hand over your estate next, darling.~
@@ -269,7 +269,7 @@ CHAIN WNAUC1 NecroPath.02
 	== WNAUC1 ~What if they're with the Flaming Fist? Or here to rob us? Gods, we—we should get out of here. Now.~
 	== WNAUC4 ~...I don't want to die.~
 	== WNAUC0 ~Please, if everyone could keep their heads, I'm sure we can sort all of this out—~
-	== WNAUC3 ~Run for it!~	
+	== WNAUC3 ~Run for it!~
 	DO ~ActionOverride("wnauc1",EscapeArea())
 	ActionOverride("wnauc2",EscapeArea())
 	ActionOverride("wnauc3",EscapeArea())
@@ -290,7 +290,7 @@ CHAIN WNAUC0 NecroPath.03
 	== SHARTJ IF ~InParty("SHARTEEL") IsValidForPartyDialogue("SHARTEEL")~ THEN ~Let's just gut them all and get what we came for.~
 	DO ~SetGlobal("WNAuctionDone","GLOBAL",2)~ EXIT
 
-// PLAYER WON THE AUCTION 
+// PLAYER WON THE AUCTION
 
 CHAIN IF WEIGHT #-1 ~Global("WNAuctionDone","GLOBAL",1)~THEN WNAUC0 AuctionWon.00
 ~It is rare to see a newcomer at one of these events. Watching you stun the others was quite the spectacle— I do hope you return for another auction, should your coinpurse allow.~
@@ -299,7 +299,7 @@ CHAIN IF WEIGHT #-1 ~Global("WNAuctionDone","GLOBAL",1)~THEN WNAUC0 AuctionWon.0
 		IF~~THEN REPLY ~Seeing those nobles squirm with discomfort made this entire debacle worth it.~ EXTERN WNAUC0 AuctionWon.02
 		IF~~THEN REPLY ~Perhaps I will. It was quite envigorating.~ EXTERN WNAUC0 AuctionWon.03
 		IF~~THEN REPLY ~Don't count on it.~ EXTERN WNAUC0 AuctionWon.04
-		
+
 CHAIN WNAUC0 AuctionWon.01
 ~All that we have to do is discuss the matter of payment. Most of the time we settle payments on the spot, but given that you are new, I will be happy to make an exception should you need to withdraw funds to finalize your purchase.~
 	END
@@ -319,7 +319,7 @@ CHAIN WNAUC0 AuctionWon.04
 
 CHAIN WNAUC0 AuctionWon.85k
 ~Excellent. I will sort the paperwork on my end over the coming days and inform Boa of the purchase. Thank you for your patronage, friend. Who's joining me for drinks? My throat's parched.~
-DO ~TakePartyGold(8500) 
+DO ~TakePartyGold(8500)
 	GiveItem("WNAJSH",player1)
 	ActionOverride("wnauc0",EscapeArea())
 	ActionOverride("wnauc1",EscapeArea())
@@ -328,10 +328,10 @@ DO ~TakePartyGold(8500)
 	ActionOverride("wnauc4",EscapeArea())
 	AddJournalEntry(@112, QUEST)~
 	EXIT
-	
+
 CHAIN WNAUC0 AuctionWon.9k
 ~Excellent. I truly do hope to see you here again, friend. We could use more willing spenders thrown in the ring. Ah, well... enjoy your purchase! Who's joining me for drinks? My throat's parched.~
-DO ~TakePartyGold(9000) 
+DO ~TakePartyGold(9000)
 	GiveItem("WNAJSH",player1)
 	ActionOverride("wnauc0",EscapeArea())
 	AddJournalEntry(@112, QUEST)~
@@ -339,7 +339,7 @@ DO ~TakePartyGold(9000)
 
 CHAIN WNAUC0 AuctionWon.10k
 ~Done and done. We are MOST grateful for your generous spending, friend. I shan't bother you a moment longer but to once again say thank you. Enjoy your purchase! Come, everyone, let's get drinks!~
-DO ~TakePartyGold(10000) 
+DO ~TakePartyGold(10000)
 	GiveItem("WNAJSH",player1)
 	ActionOverride("wnauc0",EscapeArea())
 	ActionOverride("wnauc1",EscapeArea())
@@ -387,18 +387,18 @@ CHAIN WNAUC0 AuctionCrashed.05
 
 CHAIN WNAUC0 AuctionCrashed.06
 ~A... pleasure doing business with you. No need for paperwork, I'm sure you're a busy <PRO_MANWOMAN>. Please, enjoy your purchase!~
-DO ~GiveItem("WNAJSH",player1) 
+DO ~GiveItem("WNAJSH",player1)
 	ActionOverride("wnauc0",EscapeArea())
-	AddJournalEntry(@112, QUEST)~ 
+	AddJournalEntry(@112, QUEST)~
 	EXIT
-	
+
 CHAIN WNAUC0 AuctionCrashed.07
 ~Fine. So long as you leave the events of this <DAYNIGHTALL> out of any Flaming Fist reports, hm? The last thing we need is more eyes. Now that our business is concluded, I hope you enjoy your purchase. I'll be going now.~
-DO ~GiveItem("WNAJSH",player1) 
+DO ~GiveItem("WNAJSH",player1)
 	ActionOverride("wnauc0",EscapeArea())
-	AddJournalEntry(@112, QUEST)~ 
+	AddJournalEntry(@112, QUEST)~
 	EXIT
-	
+
 CHAIN WNAUC0 AuctionCrashed.08
 ~The Flaming Fist are likely well aware of master Boa's operations, both below the city and above. That being said...~
 END
@@ -407,22 +407,22 @@ IF ~OR(2) !CheckStatGT(Player1,15,STR) !CheckStatGT(Player1,15,CHR)~ THEN EXTERN
 
 CHAIN WNAUC0 Intimidated
 ~Hm. I would not be surprised if they launched some kind of performative investigation if one such as yourself brought the matter before them. Very well, you shall have your shield, but do not expect any reasonable businessman in the greater region to look upon you fondly for this.~
-DO ~GiveItem("WNAJSH",player1) 
+DO ~GiveItem("WNAJSH",player1)
 	ActionOverride("wnauc0",EscapeArea())
-	AddJournalEntry(@112, QUEST)~ 
+	AddJournalEntry(@112, QUEST)~
 	EXIT
-	
+
 CHAIN WNAUC0 Steadfast
 ~No, I doubt that anyone in the compound would even take your complaints seriously. I shan't be departing with the shield unless it is paid for.~ EXTERN WNAUC0 AuctionCrashed.05
 
 CHAIN WNAUC0 AuctionCrashed.04
 ~Ah, w-well, of course. Well, here you go—all yours! Isn't it shiny? I'll be going now. Goodbye!~
-DO ~GiveItem("WNAJSH",player1) 
+DO ~GiveItem("WNAJSH",player1)
 	ReputationInc(-2)
 	ActionOverride("wnauc0",EscapeArea())
-	AddJournalEntry(@112, QUEST)~ 
+	AddJournalEntry(@112, QUEST)~
 	EXIT
-		
+
 CHAIN WNAUC0 AuctionCrashed.09
 ~What a mess... I shall be here a short while longer, so should you decide that you've scrounged up the coin, return to me—but do not tarry!~
 DO ~SetGlobal("WNCantAffordAuc","GLOBAL",1)~ EXIT
@@ -435,9 +435,9 @@ CHAIN IF WEIGHT #-1 ~Global("WNCantAffordAuc","GLOBAL",1)~ THEN WNAUC0 PricyRetu
 		IF~~THEN REPLY ~Give me the shield and I won't tell the Flaming Fist that you're holding illegal auctions.~ EXTERN WNAUC0 AuctionCrashed.08
 		IF~~THEN REPLY ~Your head will depart from your body if you don't give me the shield now!~ EXTERN WNAUC0 AuctionCrashed.04
 		IF~~THEN REPLY ~I don't have that much money.~ EXTERN WNAUC0 AuctionCrashed.09
-		
+
 // PLAYER LOST THE AUCTION
-		
+
 CHAIN IF WEIGHT #-1~Global("WNAuctionDone","GLOBAL",2)~ THEN WNAUC0 Loser.00
 ~Tough luck, friend. Maybe next time, eh?~
 EXIT
