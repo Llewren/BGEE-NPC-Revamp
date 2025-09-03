@@ -24,7 +24,7 @@ CHAIN AJANTJ Temple.04
 DO ~SetGlobal("WNAjantisQuest","GLOBAL",5) AddJournalEntry(@101, QUEST)~ EXIT
 
 CHAIN AJANTJ Temple.05
-~It has been so many years since I last visited the temple. I was but a child then... I suspect it may not be quite so grand as my memories paint it to be, but it will strengthen our resolve nonetheless. Come, let us go!~
+~It has been so many years since I last visited the temple. I was but a child then... I suspect it may not be quite so grand as my memories paint it to be, but it will strengthen our resolve nonetheless. Come, let us go!~ 
 DO ~SetGlobal("WNAjantisQuest","GLOBAL",5) AddJournalEntry(@101, QUEST)~ EXIT
 
 // Quest 2: Peitor is not here
@@ -41,7 +41,7 @@ CHAIN IF~Global("WNAjantisQuestDoneTalk","GLOBAL",1) !Global("WNAjantisQuestBadE
 		IF~~THEN REPLY ~Something to with Peitor?~ EXTERN AJANTJ AjantisAfterQuest.01
 		IF~PartyHasItem("wnajsh")~THEN REPLY ~The shield, perhaps?~ EXTERN AJANTJ AjantisAfterQuest.02
 		IF~~THEN REPLY ~The necromancer and what he wrought?~ EXTERN AJANTJ AjantisAfterQuest.03
-		IF~~THEN REPLY ~Watcher Teomara's judgment?~ EXTERN AJANTJ AjantisAfterQuest.04
+		IF~~THEN REPLY ~Watcher Teomara's judgement?~ EXTERN AJANTJ AjantisAfterQuest.04
 		IF~~THEN REPLY ~I'm assuming it's probably related to Helm.~ EXTERN AJANTJ AjantisAfterQuest.05
 		IF~~THEN REPLY ~I don't. Please, tell me.~ EXTERN AJANTJ AjantisAfterQuest.06
 
@@ -104,16 +104,17 @@ CHAIN AJANTJ AjantisAfterQuest.15
 ~Thank you for listening to me. I have much to think on, it seems. Now, let us go forth and tackle our quest with the strength that it requires!~
 DO ~SetGlobal("WNAjantisQuestDoneTalk","GLOBAL",2)~ EXIT
 
+// OTR Talks
 
 // Conversation 1: Marching Order
 
 CHAIN IF ~Global("WNAjantisChat","GLOBAL",2)~ THEN AJANTJ Chat.01x01
 ~I often forget just how strongly my Order regiments its knights. When we travel in groups, we are expected to move as one and follow strict orders from our leader, not gallivant around as we do now.~
-END
-IF~~THEN REPLY ~I am not a knight of your order, Ajantis. I'm not sure if it's fair to hold me to those standards.~ EXTERN AJANTJ Chat.01x02
-IF~~THEN REPLY ~If you don't like the way I run things, I'm open to suggestions.~ EXTERN AJANTJ Chat.01x03
-IF~~THEN REPLY ~We are hardly gallivanting. I am committed to our quest.~ EXTERN AJANTJ Chat.01x04
-IF~~THEN REPLY ~I don't wish to listen to your complaining.~ EXTERN AJANTJ Chat.01x05
+	END
+		IF~~THEN REPLY ~I am not a knight of your order, Ajantis. I'm not sure if it's fair to hold me to those standards.~ EXTERN AJANTJ Chat.01x02
+		IF~~THEN REPLY ~If you don't like the way I run things, I'm open to suggestions.~ EXTERN AJANTJ Chat.01x03
+		IF~~THEN REPLY ~We are hardly gallivanting. I am committed to our quest.~ EXTERN AJANTJ Chat.01x04
+		IF~~THEN REPLY ~I don't wish to listen to your complaining.~ EXTERN AJANTJ Chat.01x05
 
 CHAIN AJANTJ Chat.01x02
 ~Of course, I meant no offense! I am simply still growing accustomed to this way of doing things, so I apologize for my bluntness. I have been on the road alone for some time.~ EXTERN AJANTJ Chat.01x06
@@ -127,12 +128,12 @@ CHAIN AJANTJ Chat.01x04
 CHAIN AJANTJ Chat.01x06
 ~The Order of the Radiant Heart teaches that our skills must be nurtured and developed, so that they may serve to protect our allies in times of need. There is no greater honor than that of absolute dedication to your brothers-and-sisters in arms.~
 == AJANTJ ~Leadership too, is a skill, and one that you already seem proficient in. Proficiency may not be enough, however. We must all strive for greatness, for that is how we earn our honor.~
-END
-IF~~THEN REPLY ~I didn't ask to be a leader. I'd happily leave it to someone else.~ EXTERN AJANTJ Chat.01x07
-IF~~THEN REPLY ~Proficiency is all I care for now. The rest will come with time.~ EXTERN AJANTJ Chat.01x08
-IF~~THEN REPLY ~I intend on improving my abilities, but perhaps not quite as strictly as your order would have it.~ EXTERN AJANTJ Chat.01x09
-IF~~THEN REPLY ~If you wish to lead this group, then you are welcome to.~ EXTERN AJANTJ Chat.01x10
-IF~~THEN REPLY ~I have no interest in converting, if that's what you're getting at...~ EXTERN AJANTJ Chat.01x11
+	END
+		IF~~THEN REPLY ~I didn't ask to be a leader. I'd happily leave it to someone else.~ EXTERN AJANTJ Chat.01x07
+		IF~~THEN REPLY ~Proficiency is all I care for now. The rest will come with time.~ EXTERN AJANTJ Chat.01x08
+		IF~~THEN REPLY ~I intend on improving my abilities, but perhaps not quite as strictly as your order would have it.~ EXTERN AJANTJ Chat.01x09
+		IF~~THEN REPLY ~If you wish to lead this group, then you are welcome to.~ EXTERN AJANTJ Chat.01x10
+		IF~~THEN REPLY ~I have no interest in converting, if that's what you're getting at...~ EXTERN AJANTJ Chat.01x11
 
 CHAIN AJANTJ Chat.01x07
 ~Ah, is that not the classic virtue of a righteous leader? Helm willing, you will do just fine, my friend. I am glad to serve as your shield in this glorious quest.~ EXTERN AJANTJ Chat.01x12
@@ -167,7 +168,7 @@ CHAIN IF ~Global("WNAjantisChat","GLOBAL",5)~ THEN AJANTJ Chat.02x01
 		IF~~THEN REPLY ~There was someone in Candlekeep who taught me, but I wouldn't consider them a mentor, let alone a shining example.~ EXTERN AJANTJ Chat.02x04
 		IF~~THEN REPLY ~No, not particularly.~ EXTERN AJANTJ Chat.02x04
 		IF~~THEN REPLY ~We don't have time to talk, Ajantis.~ EXTERN AJANTJ Chat.02x05
-
+		
 CHAIN AJANTJ Chat.02x02
 ~I am sorry to hear of your loss. Such a thing cannot be easy, and you can count on my strength to support you. Nonetheless, it is good to hear that you had a teacher of sorts. Such a thing can hold great value.~ EXTERN AJANTJ Chat.02x06
 
@@ -178,27 +179,36 @@ CHAIN AJANTJ Chat.02x04
 ~I see. You have many respectable talents, so it speaks to the strength of your character that you have not received formal training in that capacity.~ EXTERN AJANTJ Chat.02x06
 
 CHAIN AJANTJ Chat.02x06
-~I have a mentor of my own. Sir Keldorn Firecam, a senior paladin of the Order of the Radiant Heart. It is he who took me on as his squire and taught me that which the schools and tutors in Waterdeep could not. I admire him greatly. He is... everything I hope to be. When others doubt, he knows the righteous path as though Torm himself whispers in his ear.~
+~I have a mentor of my own. Sir Keldorn Firecam, a senior paladin of the Order of the Radiant Heart. It is he who took me on as his squire and taught me that which the schools and tutors in Waterdeep could not. I admire him greatly. He is... everything I hope to be. When others may have doubts, he seems to know the righteous path as though Torm himself whispers in his ear.~
 == AJANTJ ~I must prove myself worthy in his eyes. If I stumble in my quest for knighthood, then all I have striven for will crumble.~
 	END
 		IF~~THEN REPLY ~He sounds like a hard man to live up to.~ EXTERN AJANTJ Chat.02x07
 		IF~~THEN REPLY ~Men can be certain without being right, Ajantis.~ EXTERN AJANTJ Chat.02x08
 		IF~~THEN REPLY ~What else? Has he never lost a game of dice? Perhaps he rides a silver dragon into battle too.~ EXTERN AJANTJ Chat.02x09
-
+		
 CHAIN AJANTJ Chat.02x07
 ~Aye, in more ways than one. He sees with a clarity I can only aspire to, though I chase it with all my strength.~ EXTERN AJANTJ Chat.02x10
 
 CHAIN AJANTJ Chat.02x08
-~Perhaps, but he is old and wise enough that his judgment holds a weight that others filled with certainty would not have.~ EXTERN AJANTJ Chat.02x10
+~Perhaps, but he is old and wise enough that his judgement holds a weight that others filled with certainty would not have.~ EXTERN AJANTJ Chat.02x10
 
 CHAIN AJANTJ Chat.02x09
 ~Hah! No silver dragon, though I have seen him ride a steed as fine a destrier as any knight could ask for. Even so, perhaps my tongue runs away with me when I speak of him.~ EXTERN AJANTJ Chat.02x10
 
 CHAIN AJANTJ Chat.02x10
-~Whether I speak too highly of him or too gravely of myself, I know this much: his example drives me forward. If I can prove myself on my mission here on the Sword Coast, then perhaps one day I will stand with him as an equal knight of the Radiant Heart.~
+~Whether I speak too highly of him or too gravely of myself, I know this much: his example drives me forward. If I can prove myself on my mission here on the Sword Coast, then perhaps one day I will stand beside him as an equal member of the Radiant Heart.~
 == AJANTJ ~But come, I have spoken for long enough, and our journey demands focus. We will have plenty of time for conversation in the future.~
 DO ~SetGlobal("WNAjantisChat","GLOBAL",6)~ EXIT
 
 CHAIN AJANTJ Chat.02x05
 ~As you wish it. I simply wished to get to know you better. The bonds we forge as a party are ever important, as it is each other that we trust with our lives.~
 DO ~SetGlobal("WNAjantisChat","GLOBAL",6)~ EXIT
+
+// Conversation 3: A Worthy Leader
+
+CHAIN IF ~Global("WNAjantisChat","GLOBAL",7)~ THEN AJANTJ Chat.03x01
+~With each passing battle won, I am affirmed of the rightness in my decision to join you. We are doing good things on the Sword Coast, and I am earning my honor in ways I had not imagined.~
+END
+    IF~~THEN REPLY ~How did you imagine earning your honor, if not like this?~
+	IF~~THEN REPLY ~~
+	IF~~THEN REPLY ~I don't know about GOOD things, but we're certainly doing THINGS.~

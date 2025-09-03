@@ -579,10 +579,25 @@ CHAIN IF ~Global("WNCoranFaldorn","GLOBAL",0)
           !StateCheck("CORAN",CD_STATE_NOTVALID)~ THEN BFALDO WNCoranFaldorn1
 ~Where do you hail from, Coran? You walk with a surprising delicacy considering your city-dweller disposition.~
 DO ~SetGlobal("WNCoranFaldorn","GLOBAL",1)~ 
-== BCORAN ~City-dweller disposition? You wound me, Faldorn. I once called the Forest of Tethyr home, but I have since travelled far and wide. For as much time as I spend in Baldur’s Gate, I always find myself forced to leave. Perhaps the forest just calls to me.~
+== BCORAN ~City-dweller disposition? You wound me, Faldorn. I once called the Forest of Tethir home, but I have since travelled far and wide. For as much time as I spend in Baldur’s Gate, I always find myself forced to leave. Perhaps the forest just calls to me.~
 == BFALDO ~Cities are like snakes attempting to consume their own tails. They will inevitably spit out or excrete anything that doesn’t serve their purpose.~
 == BCORAN ~What a... lovely metaphor.~
 EXIT
+
+CHAIN IF ~Global("WNCoranFaldorn","GLOBAL",1)
+          CombatCounter(0)
+          !StateCheck("FALDORN",CD_STATE_NOTVALID)
+          InParty("CORAN")
+          See("CORAN")
+          !StateCheck("CORAN",CD_STATE_NOTVALID)~ THEN BFALDO WNCoranFaldorn2
+~Only a coward leaves nature as you have, Coran. I would not be surprised if you fled your home the same way you flee women when they no longer suit your purpose.~
+DO ~SetGlobal("WNCoranFaldorn","GLOBAL",2)~ 
+== BCORAN ~Nature and I have an open arrangement, just as I do with the women you speak of. I don't think you have as clear a picture of me as you imagine.~
+== BFALDO ~You drift like pollen on the wind, proud that no roots tie you down. My eyes are open, and I do not like what I see.~
+== BCORAN ~Perhaps you would be happier if you stopped looking at me, then. Unless... No, you smell like moss from this distance, I dare not imagine what you smell like any closer.~
+== BFALDO ~That is because you are a weak city-dweller at heart. That much has become clear to me traveling by your side.~
+EXIT
+
 
 // Coran / Garrick
 
@@ -675,9 +690,9 @@ EXIT
 CHAIN IF ~Global("WNCoranKivan","GLOBAL",0)
           CombatCounter(0)
           !StateCheck("CORAN",CD_STATE_NOTVALID)
-          InParty("KAGAIN")
-          See("KAGAIN")
-          !StateCheck("KAGAIN",CD_STATE_NOTVALID)~ THEN BCORAN WNCoranKivan1
+          InParty("KIVAN")
+          See("KIVAN")
+          !StateCheck("KIVAN",CD_STATE_NOTVALID)~ THEN BCORAN WNCoranKivan1
 ~This Deheriana of yours must have been some woman to have you so wrapped up in yourself about her passing.~
 DO ~SetGlobal("WNCoranKivan","GLOBAL",1)~ 
 == BKIVAN ~Do not dare to invoke her name so flippantly. The least she deserves from a man like you is silence.~
@@ -753,9 +768,9 @@ CHAIN IF ~Global("WNCoranRasaad","GLOBAL",0)
           !StateCheck("RASAAD",CD_STATE_NOTVALID)~ THEN BCORAN WNCoranRasaad1
 ~You’re an enigma to me, my friend. How is one able to look at a feast and choose fasting instead?~
 DO ~SetGlobal("WNCoranQuayle","GLOBAL",1)~ 
-== BRASAAD ~I have had much time in my life for indulgence, when it felt like there was nothing greater to be gained than momentary relief, but such times are as distant to me now as the new moon on a cloudy night.~
+== BRASAAD ~I have had much time in my life for indulgence. When it felt like there was nothing greater to be gained than momentary relief, it was a false comfort, but such times are as distant to me now as the new moon on a cloudy night.~
 == BCORAN ~What is life if not an endless stream of moments? It seems to me that filling each of them with joy is a worthwhile endeavor.~
-== BRASAAD ~An interesting perspective. erhaps there is wisdom in it, even if I do not yet see it. Thank you, Coran.~
+== BRASAAD ~An interesting perspective. Perhaps there is wisdom in it, even if I do not yet see it. Thank you, Coran.~
 == BCORAN ~That may be the first time a monk has ever spoken those words to me. It may be the first time I've spoken to a monk regardless, but who's to say?~
 EXIT
  
