@@ -22,10 +22,9 @@ IF
 	!StateCheck(Player1,CD_STATE_NOTVALID) 
 	RealGlobalTimerExpired("WNAjantisChatTimer","GLOBAL") 
 	Global("WNAjantisChatActive","GLOBAL",1) 
-	OR(3) 
+	OR(2) 
 		Global("WNAjantisChat","GLOBAL",1)
 		Global("WNAjantisChat","GLOBAL",4)
-		Global("WNAjantisChat","GLOBAL",7)
 	THEN
 		RESPONSE #100
 		IncrementGlobal("WNAjantisChat","GLOBAL",1) 
@@ -33,10 +32,9 @@ END
 
 //(b) make the character talk when the variable is right
 IF
-	OR(3)
+	OR(2)
 		Global("WNAjantisChat","GLOBAL",2)
 		Global("WNAjantisChat","GLOBAL",5)
-		Global("WNAjantisChat","GLOBAL",8)
 	THEN
 		RESPONSE #100
 		MoveToObject(Player1)
@@ -48,17 +46,40 @@ END
 IF
 	InParty(Myself) 
 	Global("WNAjantisChatActive","GLOBAL",1)
-	OR(3)
+	OR(2)
 		Global("WNAjantisChat","GLOBAL",3)
 		Global("WNAjantisChat","GLOBAL",6)
-		Global("WNAjantisChat","GLOBAL",9)
 	THEN
 	RESPONSE #100
 		IncrementGlobal("WNAjantisChat","GLOBAL",1)
 		RealSetGlobalTimer("WNAjantisChatTimer","GLOBAL",1800)
 END
 
+// OTR Conversation 3
 
+IF
+	InParty(Myself)
+	CombatCounter(0)
+	!See([ENEMY])
+	See(Player1)
+	GlobalGT("Chapter","GLOBAL",3)
+	Global("WNAjantisChat","GLOBAL",7)
+THEN
+	RESPONSE #100
+		SetGlobal("WNAjantOTR4","GLOBAL",1)
+		SetGlobalTimer("WNAjantOTR4Timer","GLOBAL",1800)
+END
+
+IF
+	Global("WNAjantOTR4","GLOBAL",1)
+	GlobalTimerExpired("WNAjantOTR4Timer","GLOBAL")
+THEN
+	RESPONSE #100
+		SetGlobal("WNAjantisChat","GLOBAL",8)
+		SetGlobal("WNAjantOTR4","GLOBAL",2)
+		MoveToObject(Player1)
+		StartDialogueNoSet(Player1)
+END
 
 
 

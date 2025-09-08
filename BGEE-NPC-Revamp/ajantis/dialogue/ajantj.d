@@ -206,7 +206,7 @@ DO ~SetGlobal("WNAjantisChat","GLOBAL",6)~ EXIT
 
 // Conversation 3: A Worthy Leader [req: Chapter 4]
 
-CHAIN IF ~Global("WNAjantisChat","GLOBAL",8)~ THEN AJANTJ Chat.03x00
+CHAIN IF ~Global("WNAjantisChat","GLOBAL",8) Global("WNAjantOTR4","GLOBAL",2)~ THEN AJANTJ Chat.03x00
 ~With each passing battle won, I am affirmed of the rightness in my decision to join you. I am earning my honor in ways I had not imagined, and for that I am grateful.~
 	END
 		IF~~THEN REPLY ~How did you imagine earning your honor, if not like this?~ EXTERN AJANTJ Chat.03x01
@@ -273,11 +273,11 @@ CHAIN AJANTJ Chat.03x14
 
 CHAIN AJANTJ Chat.03x15
 ~In the meantime, I suspect we have business to attend to. Relaxation must be earned, after all!~
-DO ~SetGlobal("WNAjantisChat","GLOBAL",9) SetGlobal("WNAjantisTavern","GLOBAL",1)~ EXIT
+DO ~SetGlobal("WNAjantisChat","GLOBAL",9) SetGlobal("WNAjantisTavern","GLOBAL",1) SetGlobal("WNAjantOTR4","GLOBAL",3)~ EXIT
 
 CHAIN AJANTJ Chat.03x04
 ~You might find that group morale would improve should you take the time to tend to your compatriots, but I shall not bother you farther with this.~
-DO ~SetGlobal("WNAjantisChat","GLOBAL",9)~ EXIT
+DO ~SetGlobal("WNAjantisChat","GLOBAL",9) SetGlobal("WNAjantOTR4","GLOBAL",3)~ EXIT
 
 // Conversation 4: A Toast to the Heroes! [req: agreed to a drink last conversation]
 

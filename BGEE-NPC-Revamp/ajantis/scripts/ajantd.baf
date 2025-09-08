@@ -5,6 +5,7 @@ IF
 	See(Player1)
 	Global("WNAjantisTavern","GLOBAL",1)
 	ReputationGT(Player1,9)
+	GlobalGT("Chapter","GLOBAL",3)
 	OR(23)
 		AreaCheck("AR0103")
 		AreaCheck("AR0105")

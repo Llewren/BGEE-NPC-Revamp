@@ -85,4 +85,9 @@ All original content contained in this mod is © Llewren. Please do not redistri
 -- Version history --
 ---------------------
 
-July 2025 — v0.1
+September 2025 — v0.1.1
+- Two new on-the-road conversations with Ajantis
+- Banter fixes
+
+July 2025 — v0.1.0
+- Initial alpha release
