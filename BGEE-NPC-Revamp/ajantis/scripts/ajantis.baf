@@ -11,7 +11,7 @@ THEN
 END
 
 
-//////////////////// TIMERED TALKS ////////////////////
+//////////////////// FRIENDSHIP TALKS ////////////////////
 
 //(a) increment the global variable when the timer’s countdown is finished
 IF
@@ -22,9 +22,10 @@ IF
 	!StateCheck(Player1,CD_STATE_NOTVALID) 
 	RealGlobalTimerExpired("WNAjantisChatTimer","GLOBAL") 
 	Global("WNAjantisChatActive","GLOBAL",1) 
-	OR(2) 
+	OR(3) 
 		Global("WNAjantisChat","GLOBAL",1)
 		Global("WNAjantisChat","GLOBAL",4)
+		Global("WNAjantisChat","GLOBAL",7)
 	THEN
 		RESPONSE #100
 		IncrementGlobal("WNAjantisChat","GLOBAL",1) 
@@ -32,9 +33,10 @@ END
 
 //(b) make the character talk when the variable is right
 IF
-	OR(2)
+	OR(3)
 		Global("WNAjantisChat","GLOBAL",2)
 		Global("WNAjantisChat","GLOBAL",5)
+		Global("WNAjantisChat","GLOBAL",8)
 	THEN
 		RESPONSE #100
 		MoveToObject(Player1)
@@ -46,9 +48,10 @@ END
 IF
 	InParty(Myself) 
 	Global("WNAjantisChatActive","GLOBAL",1)
-	OR(2)
+	OR(3)
 		Global("WNAjantisChat","GLOBAL",3)
 		Global("WNAjantisChat","GLOBAL",6)
+		Global("WNAjantisChat","GLOBAL",9)
 	THEN
 	RESPONSE #100
 		IncrementGlobal("WNAjantisChat","GLOBAL",1)
@@ -57,7 +60,11 @@ END
 
 
 
-//////////////////// SCENERY TALKS ////////////////////
+
+
+
+
+//////////////////// QUEST TALKS ////////////////////
 
 
 // QUEST 1: TEMPLE OF HELM IN THIS AREA

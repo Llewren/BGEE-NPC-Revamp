@@ -28,6 +28,7 @@ COMPILE ~%MOD_FOLDER%/ajantis/dialogue/wnauc0.d~
 // Ajantis - Scripts
 
 EXTEND_TOP ~ajantis.bcs~ ~%MOD_FOLDER%/ajantis/scripts/ajantis.baf~
+EXTEND_TOP ~ajantd.bcs~ ~%MOD_FOLDER%/ajantis/scripts/ajantd.baf~
 EXTEND_TOP ~AR0002.bcs~ ~%MOD_FOLDER%/ajantis/scripts/AR0002.baf~
 EXTEND_TOP ~AR0112.bcs~ ~%MOD_FOLDER%/ajantis/scripts/AR0112.baf~
 EXTEND_TOP ~AR0115.bcs~ ~%MOD_FOLDER%/ajantis/scripts/AR0115.baf~

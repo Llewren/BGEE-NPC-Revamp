@@ -259,7 +259,7 @@ CHAIN WNAUC0 BidWon
 	== SKIEJ IF ~InParty("SKIE") IsValidForPartyDialogue("SKIE")~ THEN ~I've witnessed more thrilling scenes at charity galas. I HATE charity galas.~
 	== CORANJ IF ~InParty("CORAN") IsValidForPartyDialogue("ALORA")~ THEN ~I hope that you somehow manage to reconcile the absurd amount of gold you just spent on this trinket, <CHARNAME>.~
 	== KIVANJ IF ~InParty("KIVAN") IsValidForPartyDialogue("KIVAN")~ THEN ~So much posturing over coin and appearance. Truly, this the city at its lowest.~
-	== IMOEN IF ~InParty("IMOEN") IsValidForPartyDialogue("IMOEN")~ THEN ~Wow. Auctions are boring!~
+	== IMOEN2 IF ~InParty("IMOEN") IsValidForPartyDialogue("IMOEN")~ THEN ~Wow. Auctions are boring!~
 	EXIT
 
 CHAIN WNAUC1 NecroPath.02
