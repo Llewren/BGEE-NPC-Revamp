@@ -6,7 +6,7 @@
 ## Features [Currently Implemented]
 
 - Two on-the-road conversations with Coran.
-- Two on-the-road conversations with Ajantis.
+- Four on-the-road conversations with Ajantis.
 - A quest for Ajantis that begins when the player enters northern Baldur’s Gate, involving reactive branching paths.
 - Enhanced reactivity and player involvement in Coran’s quests: ‘Coran the Wyvern Hunter’ and ‘Brielbara’s Baby’.
 - At least one banter between Coran and every joinable companion.
