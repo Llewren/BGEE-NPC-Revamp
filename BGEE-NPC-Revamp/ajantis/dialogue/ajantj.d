@@ -317,23 +317,59 @@ CHAIN IF ~Global("WNAjantisTavern","GLOBAL",2)~ THEN AJANTJ Chat.04x00
 		
 CHAIN AJANTJ Chat.04x01
 ~And there will be much more still! Tomorrow, we continue on our righteous journey. For now, we drink.~
-DO ~SetGlobal("WNAjantisTavern","GLOBAL",3) RestParty()~ EXIT
+DO ~SetGlobal("WNAjantisChat","GLOBAL",10) SetGlobal("WNAjantisTavern","GLOBAL",3) RestParty()~ EXIT
 
 CHAIN AJANTJ Chat.04x02
 ~And to the friends we are yet to meet. Drink up!~
-DO ~SetGlobal("WNAjantisTavern","GLOBAL",3) RestParty()~ EXIT
+DO ~SetGlobal("WNAjantisChat","GLOBAL",10) SetGlobal("WNAjantisTavern","GLOBAL",3) RestParty()~ EXIT
 
 CHAIN AJANTJ Chat.04x03
 ~Apologies, my friend. For tonight, though, you deserve it. Get some rest, I'm sure it is needed.~
-DO ~SetGlobal("WNAjantisTavern","GLOBAL",3) RestParty()~ EXIT
+DO ~SetGlobal("WNAjantisChat","GLOBAL",10) SetGlobal("WNAjantisTavern","GLOBAL",3) RestParty()~ EXIT
 
 CHAIN AJANTJ Chat.04x04
 ~Of course, we must keep our wits about us. Remember, though, that relaxation is as important as any training. Now, let us drink!~
-DO ~SetGlobal("WNAjantisTavern","GLOBAL",3) RestParty()~ EXIT
+DO ~SetGlobal("WNAjantisChat","GLOBAL",10) SetGlobal("WNAjantisTavern","GLOBAL",3) RestParty()~ EXIT
 
 CHAIN AJANTJ Chat.04x05
 ~Of course, I shall not rob you of another moment of rest. We've well earned it.~
-DO ~SetGlobal("WNAjantisTavern","GLOBAL",3) RestParty()~ EXIT
+DO ~SetGlobal("WNAjantisChat","GLOBAL",10) SetGlobal("WNAjantisTavern","GLOBAL",3) RestParty()~ EXIT
+
+// Conversation 5: Veneration of Helm
+
+CHAIN IF ~Global("WNAjantisChat","GLOBAL",10)~ THEN AJANTJ Chat.05x00
+~Traveling the Sword Coast I am ever reminded that worship of Helm is not so common the further north we travel. The temple in Nashkel is large, and lavish, but it stands as something of a bygone era. When people see the Vigilant One's symbol on a warrior's shield now, they do not feel protected as they should. It is... disappointing.~
+	END
+		IF~~THEN REPLY ~Why is Helm not venerated as he used to be?~ EXTERN AJANTJ Chat.05x01
+		IF~~THEN REPLY ~Religions come and go all the time. It's natural.~ EXTERN AJANTJ Chat.05x02
+		IF~CheckStatGT(Player1,16,INT)~THEN REPLY ~I cannot blame them, given Helm's actions during the Time of Troubles.~ EXTERN AJANTJ Chat.05x03
+		IF~~THEN REPLY ~We don't have time for ruminating right now, Ajantis.~ EXTERN AJANTJ Chat.05x04
+		
+		
+CHAIN AJANTJ Chat.05x01
+~Ah, I am surprised you do not know the tale. Or perhaps you just need reminding.~
+== AJANTJ ~Helm has fallen out of many people's favor due to his actions during the Time of Troubles. When all other gods were cast to walk the land as mortals, Helm alone remained to guard the Celestial Stairway to deny the gods re-entry to their home planes.~
+== AJANTJ ~This was not of his will—it was a commandment to which he was absolutely bound on his own honor and godhood. When Mystra, god of magic, foolishly attempted to bypass his guard, he was compelled to strike her down. It is something that other churches still hold over those who worship Helm.~ EXTERN AJANTJ Chat.05x05
+
+CHAIN AJANTJ Chat.05x02
+~Aye, that is true. However, Helm still holds much power compared to lesser gods that have since been forgotten to time. I find it highly unlikely that Faerûn will ever find the Vigilant One's gaze unneeded.~
+== AJANTJ ~Unfortunately, not everyone sees it that way. Helm's actions during the Time of Troubles as the sole guardian of the Celestial Stairway have greatly soured their opinions on him.~
+== AJANTJ ~What people don't know was that it was Helm's solemn duty, for when the other gods were cast to the lands as mortals, he was bound to his obligation to disallow entry to any and all former gods to the heavens—and so, when Mystra, god of magic, foolishly attempted to bypass his guard, he was compelled to strike her down. It is something that other churches still hold over those who worship Helm.~ EXTERN AJANTJ Chat.05x05
+
+CHAIN AJANTJ Chat.05x03
+~Then you know the tale already, but perhaps only as most people do.~
+== AJANTJ ~When Helm struck Mystra down, knowing what it would cost, it was no act of spite, but of duty. He was fulfilling his solemn obligation as decreed by Ao, as much as it pained him to do so.~
+== AJANTJ ~That is why I hold him in such esteem: because even when the weight was unbearable, he stood firm. I pray that I may find a fraction of that same resolve when my time of trial comes.~ EXTERN AJANTJ Chat.05x05
+
+CHAIN AJANTJ Chat.05x05
+~Even some within the Order of the Radiant Heart hold Helm worship with a degree of distaste. I am curious where you stand on it.~
+	END
+		IF~~THEN REPLY ~I don't see anything wrong with it, if that's your worry.~ EXTERN AJANTJ Chat.05x06
+		IF~~THEN REPLY ~Helm acted out of duty—that's no reason to scorn his followers.~ EXTERN AJANTJ Chat.05x07
+		IF~~THEN REPLY ~Can you blame them? Killing the god of magic is hardly a noble act.~ EXTERN AJANTJ Chat.05x08
+		IF~~THEN REPLY ~The affairs of the gods have no real interest to me.~ EXTERN AJANTJ Chat.05x09
+		IF~~THEN REPLY ~If people glare at you for your god, you can always glare back. Helm would approve of vigilance, no?~ EXTERN AJANTJ Chat.05x10
+
 
 
 // Em dash — — — — —

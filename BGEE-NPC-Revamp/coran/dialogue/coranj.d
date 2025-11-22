@@ -156,7 +156,7 @@ CHAIN CORANJ Chat.01x04
 
 CHAIN CORANJ Chat.01x06
 ~That I get to live the life of an adventurer is one of life's greatest gifts. The road is a threadbare but endless stage—no matter how worn it is, you can always be exactly who you wish to be.~
-== CORANJ ~It’s not the road that changes, mind you, it’s the stories you tell about yourself along the way. And I, my friend, have a vast collection of stories.~
+== CORANJ ~It’s not the road that changes, mind you, it’s the stories one tells about themselves along the way. And I, my friend, have a vast collection of stories.~
 	END
 		IF~~THEN REPLY ~That's an interesting perspective. The adventuring lifestyle lends itself to reinvention.~ EXTERN CORANJ Chat.01x07
 		IF~~THEN REPLY ~I'm not sure that I agree. Knowing yourself is how you stay true to the things that matter.~ EXTERN CORANJ Chat.01x08
@@ -165,7 +165,7 @@ CHAIN CORANJ Chat.01x06
 		IF~Gender(player1,FEMALE)~THEN REPLY ~What I'm hearing is that you're an ingenuine wanderer.~ EXTERN CORANJ Chat.01x11
 
 CHAIN CORANJ Chat.01x07
-~Precisely. No need to be the fool you were yesterday, eh? Today, you can be a new fool, with better shoes and a sharper smile.~ EXTERN CORANJ Chat.01x12
+~Precisely. No need to be the fool you were yesterday, eh? Today, you can be a new fool, with a sharper smile.~ EXTERN CORANJ Chat.01x12
 
 CHAIN CORANJ Chat.01x08
 ~Ah, but how does one know what matters if you never let yourself change? Too many people anchor themselves to ideas that stopped making sense a long time ago.~ EXTERN CORANJ Chat.01x12
@@ -190,7 +190,7 @@ DO ~SetGlobal("WNCoranChat","GLOBAL",3)~ EXIT
 // Conversation 2: Archery
 
 CHAIN IF ~Global("WNCoranChat","GLOBAL",5)~ THEN CORANJ Chat.02x01
-~Blast. I keep forgetting to pick up more wax for my bowstring. One tug too many and it’ll snap like a harp string in a jealous bard’s hands.~
+~Blast. I keep forgetting to pick up wax for my bowstring. One tug too many and it’ll snap like a harp string in a jealous bard’s hands.~
 	END
 		IF~~THEN REPLY ~If it breaks, we'll buy you another.~ EXTERN CORANJ Chat.02x02
 		IF~~THEN REPLY ~You really ought to take better care of your equipment.~ EXTERN CORANJ Chat.02x03
@@ -207,7 +207,7 @@ CHAIN CORANJ Chat.02x04
 ~'Handy enough' isn't quite the same thing as masterful. I try my best not to settle for mediocrity.~ EXTERN CORANJ Chat.02x06
 
 CHAIN CORANJ Chat.02x06
-~I've long learned to keep my tools sharp. If nothing else, they remind me I'm still capable of hitting my mark. Besides, there’s a satisfaction in it. You draw, you loose, and just for that one moment, you've no questions to ask.~
+~I've long learned to keep my tools sharp. If nothing else, they remind me I'm capable of hitting my mark. Besides, there’s a satisfaction in it. You draw, you loose, and just for that one moment, you've no questions to ask.~
 	END
 		IF~~THEN REPLY ~So that's what keeps you going?~ EXTERN CORANJ Chat.02x07
 		IF~!Gender(player1,FEMALE)~THEN REPLY ~Sometimes you sound more like a bard than some actual bards I've met.~ EXTERN CORANJ Chat.02x08
@@ -227,7 +227,7 @@ CHAIN CORANJ Chat.02x10
 ~Nay, I'm happy with merely the one constant. A bow in my hand reminds me who I am and where I'm going. I needn't make sense of the rest.~ EXTERN CORANJ Chat.02x11
 
 CHAIN CORANJ Chat.02x11
-~Simple pleasures, <CHARNAME>. They're rare enough. A steady shot. A good bottle of wine. And perhaps a pretty lass to notice both.~
+~Simple pleasures, <CHARNAME>. They're rare enough. A steady shot, and a good bottle of wine. Perhaps someone to share it with.~
 == CORANJ ~Let's get going. I'll not forget the wax next time we stop.~
 DO ~SetGlobal("WNCoranChat","GLOBAL",3)~ EXIT
 
