@@ -6,15 +6,15 @@
 
 // Quest 1: Ajantis wishes to visit the Temple of Helm
 
-CHAIN IF ~Global("WNAjantisQuest","GLOBAL",1) !Global("WNAjantisQuestRefused","GLOBAL",1)~ THEN AJANTJ Temple.01
-~Hold a moment, <CHARNAME>. If my recollections are correct, then there is a temple dedicated to Helm not far from here. It would do our quest well to pay respects to the Vigilant One in his church... and I would consider it a personal favor if we went there soon.~
+CHAIN IF ~Global("WNAjantisQuest","GLOBAL",1)~ THEN AJANTJ Temple.01
+~Hold a moment, <CHARNAME>. If my recollections are true, then there is a temple dedicated to Helm not far from here. It would do our quest well to pay respects to the Vigilant One in his church... and I would consider it a personal favor if we went there soon.~
 END
 IF~~THEN REPLY ~Of course, Ajantis. We will go there as soon as we are able.~ EXTERN AJANTJ Temple.02
 IF~~THEN REPLY ~I suppose the blessing of Helm couldn't hurt.~ EXTERN AJANTJ Temple.03
 IF~~THEN REPLY ~I have no interest in visiting a temple of your god.~ EXTERN AJANTJ Temple.04
 
 CHAIN AJANTJ Temple.02
-~It heartens me to see that you recognize the value of Helm's strength. In these times, his vigilance is more important than ever. The temple lies north of the Ducal Palace, just a short walk from here. It will be good to stand within its hallowed walls once more.~ EXTERN AJANTJ Temple.05
+~It heartens me to see that you recognize the value of Helm's strength. In these times, his vigilance is more important than ever. The temple lies north of the Ducal Palace, just a short walk from here. It will be good to stand within its walls once more.~ EXTERN AJANTJ Temple.05
 
 CHAIN AJANTJ Temple.03
 ~You would do well to speak of Helm with greater respect. The Vigilant One watches over us all, whether you offer your prayers to him or not. The temple is north of the Ducal Palace, not far from here. Perhaps standing in his house of worship will grant you a better appreciation of his strength.~ EXTERN AJANTJ Temple.05
@@ -24,7 +24,7 @@ CHAIN AJANTJ Temple.04
 DO ~SetGlobal("WNAjantisQuest","GLOBAL",5) AddJournalEntry(@101, QUEST)~ EXIT
 
 CHAIN AJANTJ Temple.05
-~It has been so many years since I last visited the temple. I was but a child then... I suspect it may not be quite so grand as my memories paint it to be, but it will strengthen our resolve nonetheless. Come, let us go!~ 
+~It has been so many years since I last visited the temple. I was but a boy then... I suspect it may not be quite so grand as my memories paint it to be, but it will strengthen our resolve nonetheless. Come, let us be off!~
 DO ~SetGlobal("WNAjantisQuest","GLOBAL",5) AddJournalEntry(@101, QUEST)~ EXIT
 
 // Quest 2: Peitor is not here
@@ -33,15 +33,15 @@ CHAIN IF~Global("WNAjantisTimeTalk","GLOBAL",1)~ THEN AJANTJ PeitorSpawn.00
 ~This is the right place, <CHARNAME>, but I see no sign of Peitor. Perhaps we ought to return later in the day.~
 DO ~SetGlobal("WNAjantisTimeTalk","GLOBAL",2)~ EXIT
 
-// Quest 3: After quest is over
+// Quest 3a: Good resolution
 
-CHAIN IF~Global("WNAjantisQuestDoneTalk","GLOBAL",1) !Global("WNAjantisQuestBadEnding","GLOBAL",1)~ THEN AJANTJ AjantisAfterQuest.00
+ CHAIN IF~Global("WNAjantisQuestDoneTalk","GLOBAL",1) Global("WNAjantisQuest","GLOBAL",20)~ THEN AJANTJ AjantisAfterQuest.00
 ~The task is done, and I am left to reflect on the day's events. Do you know what weighs on my mind the heaviest?~
 	END
-		IF~~THEN REPLY ~Something to with Peitor?~ EXTERN AJANTJ AjantisAfterQuest.01
+		IF~~THEN REPLY ~Something to do with Peitor?~ EXTERN AJANTJ AjantisAfterQuest.01
 		IF~PartyHasItem("wnajsh")~THEN REPLY ~The shield, perhaps?~ EXTERN AJANTJ AjantisAfterQuest.02
 		IF~~THEN REPLY ~The necromancer and what he wrought?~ EXTERN AJANTJ AjantisAfterQuest.03
-		IF~~THEN REPLY ~Watcher Teomara's judgement?~ EXTERN AJANTJ AjantisAfterQuest.04
+		IF~~THEN REPLY ~Watcher Teomara's judgment?~ EXTERN AJANTJ AjantisAfterQuest.04
 		IF~~THEN REPLY ~I'm assuming it's probably related to Helm.~ EXTERN AJANTJ AjantisAfterQuest.05
 		IF~~THEN REPLY ~I don't. Please, tell me.~ EXTERN AJANTJ AjantisAfterQuest.06
 
@@ -61,15 +61,15 @@ CHAIN AJANTJ AjantisAfterQuest.05
 ~Helm is ever on my mind, for his duty is not one that one can bear lightly.~ EXTERN AJANTJ AjantisAfterQuest.06
 
 CHAIN AJANTJ AjantisAfterQuest.06
-~Watcher Teomara—she could have sent anyone else to see to this matter, or even approached it herself. In truth, I am wondering if Helm guided her to wait for our arrival, so that I would see something that I was meant to see.~
+~Watcher Teomara—she could have sent anyone to see to this matter, or even approached it herself. In truth, I am wondering if Helm guided her to wait for our arrival, so that I would see something that I was meant to see.~
 == AJANTJ ~But... I do not know if I see it.~
 	END
 		IF~~THEN REPLY ~I think you do, Ajantis. The conflict you feel is evidence enough of that.~ EXTERN AJANTJ AjantisAfterQuest.07
 		IF~~THEN REPLY ~Well, think on it.~ EXTERN AJANTJ AjantisAfterQuest.08
-		IF~~THEN REPLY ~I truly, don't really care.~ EXTERN AJANTJ AjantisAfterQuest.09
+		IF~~THEN REPLY ~I truly don't really care.~ EXTERN AJANTJ AjantisAfterQuest.09
 
 CHAIN AJANTJ AjantisAfterQuest.07
-~Perhaps you are right. You counsel continues to be a source of strength for me.~ EXTERN AJANTJ AjantisAfterQuest.10
+~Perhaps you are right. Your counsel continues to be a source of strength for me.~ EXTERN AJANTJ AjantisAfterQuest.10
 
 CHAIN AJANTJ AjantisAfterQuest.08
 ~I am doing so. Deeply.~ EXTERN AJANTJ AjantisAfterQuest.10
@@ -102,6 +102,60 @@ DO ~SetGlobal("WNAjantisQuestDoneTalk","GLOBAL",2)~ EXIT
 
 CHAIN AJANTJ AjantisAfterQuest.15
 ~Thank you for listening to me. I have much to think on, it seems. Now, let us go forth and tackle our quest with the strength that it requires!~
+DO ~SetGlobal("WNAjantisQuestDoneTalk","GLOBAL",2)~ EXIT
+
+// Quest 3b: Bad resolution
+
+CHAIN IF~Global("WNAjantisQuestDoneTalk","GLOBAL",1) Global("WNAjantisQuest","GLOBAL",30)~ THEN AJANTJ AjantisBadQuest.00
+~<CHARNAME>, a moment. I cannot put Ollera from my mind.~
+== AJANTJ ~When Peitor told us his tale, I spoke of the shield as if it mattered above all else. I said the man who took his sister could wait. He... could not. And others paid for my certainty.~
+	END
+		IF~~THEN REPLY ~You couldn't have known what the necromancer was doing to her.~ EXTERN AJANTJ AjantisBadQuest.01
+		IF~~THEN REPLY ~We made that choice together. The blame isn't yours alone.~ EXTERN AJANTJ AjantisBadQuest.02
+		IF~~THEN REPLY ~Recovering the shield was our task. You did your duty.~ EXTERN AJANTJ AjantisBadQuest.03
+		IF~~THEN REPLY ~No, it wasn't. You chose wrong.~ EXTERN AJANTJ AjantisBadQuest.04
+		IF~~THEN REPLY ~Dwell on it later, Ajantis. We have work to do.~ EXTERN AJANTJ AjantisBadQuest.05
+
+CHAIN AJANTJ AjantisBadQuest.01
+~Perhaps not, but a paladin who will not look is little better than one who cannot see.~ EXTERN AJANTJ AjantisBadQuest.06
+
+CHAIN AJANTJ AjantisBadQuest.02
+~That is generous of you. But you heeded my counsel, and my counsel was poor.~ EXTERN AJANTJ AjantisBadQuest.06
+
+CHAIN AJANTJ AjantisBadQuest.03
+~That is what I told myself. But Helm's faithful are meant to guard the living and honor the dead, not just polish their relics.~ EXTERN AJANTJ AjantisBadQuest.06
+
+CHAIN AJANTJ AjantisBadQuest.04
+~...Yes, I did. I would rather hear it plainly than be comforted.~ EXTERN AJANTJ AjantisBadQuest.06
+
+CHAIN AJANTJ AjantisBadQuest.06
+~And Ollera is only half of it.~
+// Ending 4: Peitor was expelled
+== AJANTJ IF ~Global("WNPeitorExpelled","GLOBAL",1)~ THEN ~Peitor is cast out, and I cannot say the Watcher judged wrongly. Yet I wonder whether, had I been gentler with him in that tavern, he might have found his courage sooner.~
+// Ending 3: Peitor forgiven, shield returned
+== AJANTJ IF ~!Global("WNPeitorExpelled","GLOBAL",1)~ THEN ~Peitor was forgiven, and the shield is within my grasp. Yet I wonder if I am worthy of it.~
+== AJANTJ ~Sir Keldorn once told me that a knight is not measured by whether he errs, but by what he does after the fact. I took that as a comfort at the time, but now I see that it is a burden, and it is one I mean to carry.~
+	END
+		IF~~THEN REPLY ~All we can do is endeavor to do better, Ajantis.~ EXTERN AJANTJ AjantisBadQuest.07
+		IF~~THEN REPLY ~Just don't let it break you. You have a responsibility to our quest, and to yourself.~ EXTERN AJANTJ AjantisBadQuest.08
+		IF~~THEN REPLY ~As long as it doesn't slow us down.~ EXTERN AJANTJ AjantisBadQuest.09
+
+CHAIN AJANTJ AjantisBadQuest.07
+~I will. Thank you, <CHARNAME>.~ EXTERN AJANTJ AjantisBadQuest.10
+
+CHAIN AJANTJ AjantisBadQuest.08
+~It will not, you have my word on that.~ EXTERN AJANTJ AjantisBadQuest.10
+
+CHAIN AJANTJ AjantisBadQuest.10
+~Let us go on. I will remember her name, not merely what was done to her.~
+DO ~SetGlobal("WNAjantisQuestDoneTalk","GLOBAL",2)~ EXIT
+
+CHAIN AJANTJ AjantisBadQuest.09
+~...As you say.~
+DO ~SetGlobal("WNAjantisQuestDoneTalk","GLOBAL",2)~ EXIT
+
+CHAIN AJANTJ AjantisBadQuest.05
+~As you wish. But I will not forget it.~
 DO ~SetGlobal("WNAjantisQuestDoneTalk","GLOBAL",2)~ EXIT
 
 // OTR Talks
@@ -151,7 +205,7 @@ CHAIN AJANTJ Chat.01x11
 ~Hah! The Order of the Radiant Heart does not accept just anyone. I, myself, am but a squire. Helm willing, I shall be knighted having completed our righteous quest in these lands. You are under no duty to worship as I do, and I respect you no less for it.~ EXTERN AJANTJ Chat.01x12
 
 CHAIN AJANTJ Chat.01x05
-~Very well, forgive the intrustion. Let us continue our quest for righteousness!~
+~Very well, forgive the intrusion. Let us continue our quest for righteousness!~
 DO ~SetGlobal("WNAjantisChat","GLOBAL",3)~ EXIT
 
 CHAIN AJANTJ Chat.01x12
@@ -170,7 +224,7 @@ CHAIN IF ~Global("WNAjantisChat","GLOBAL",5)~ THEN AJANTJ Chat.02x01
 		IF~~THEN REPLY ~We don't have time to talk, Ajantis.~ EXTERN AJANTJ Chat.02x05
 		
 CHAIN AJANTJ Chat.02x02
-~I am sorry to hear of your loss. Such a thing cannot be easy, and you can count on my strength to support you. Nonetheless, it is good to hear that you had a teacher of sorts. Such a thing can hold great value.~ EXTERN AJANTJ Chat.02x06
+~I am sorry to hear of your loss. Such a thing cannot be easy, and you can count on my strength to support you. Nonetheless, it is good to hear that you had a teacher of sorts. Bonds as these can hold great value.~ EXTERN AJANTJ Chat.02x06
 
 CHAIN AJANTJ Chat.02x03
 ~Varied talents having a hand in your learning certainly shows. You are a dynamic individual—a valuable quality in any capacity. There is something to be said for having a longstanding relationship with a teacher, though. It is oft an impenetrable bond.~ EXTERN AJANTJ Chat.02x06
@@ -190,7 +244,7 @@ CHAIN AJANTJ Chat.02x07
 ~Aye, in more ways than one. He sees with a clarity I can only aspire to, though I chase it with all my strength.~ EXTERN AJANTJ Chat.02x10
 
 CHAIN AJANTJ Chat.02x08
-~Perhaps, but he is old and wise enough that his judgement holds a weight that others filled with certainty would not have.~ EXTERN AJANTJ Chat.02x10
+~Perhaps, but he is old and wise enough that his judgment holds a truth that others filled with certainty are bereft of.~ EXTERN AJANTJ Chat.02x10
 
 CHAIN AJANTJ Chat.02x09
 ~Hah! No silver dragon, though I have seen him ride a steed as fine a destrier as any knight could ask for. Even so, perhaps my tongue runs away with me when I speak of him.~ EXTERN AJANTJ Chat.02x10
@@ -206,31 +260,31 @@ DO ~SetGlobal("WNAjantisChat","GLOBAL",6)~ EXIT
 
 // Conversation 3: A Worthy Leader [req: Chapter 4]
 
-CHAIN IF ~Global("WNAjantisChat","GLOBAL",8) Global("WNAjantOTR4","GLOBAL",2)~ THEN AJANTJ Chat.03x00
-~With each passing battle won, I am affirmed of the rightness in my decision to join you. I am earning my honor in ways I had not imagined, and for that I am grateful.~
+CHAIN IF ~Global("WNAjantisChat","GLOBAL",8)~ THEN AJANTJ Chat.03x00
+~With each passing battle won, I am affirmed of the rightness in my decision to join you. I am earning my honor in ways I had not imagined, and I am not short of gratitude for that fact.~
 	END
 		IF~~THEN REPLY ~How did you imagine earning your honor, if not like this?~ EXTERN AJANTJ Chat.03x01
-		IF~~THEN REPLY ~I'm glad to hear that Ajantis.~ EXTERN AJANTJ Chat.03x02
-		IF~~THEN REPLY ~I don't know about GOOD things, but we're certainly doing things.~ EXTERN AJANTJ Chat.03x03
+		IF~~THEN REPLY ~I'm glad to hear that, Ajantis.~ EXTERN AJANTJ Chat.03x02
+		IF~~THEN REPLY ~I don’t know about honor, but we’re certainly winning battles.~ EXTERN AJANTJ Chat.03x03
 		IF~~THEN REPLY ~That's great, but we haven't the time to stop and pat ourselves on the back.~ EXTERN AJANTJ Chat.03x04
 	
 CHAIN AJANTJ Chat.03x01
-~Perhaps it's silly, because it's something that Sir Keldorn has reminded me time and time again. Even so, I find that only now I see it with open eyes.~ EXTERN AJANTJ Chat.03x05
+~Not like this, I confess. Sir Keldorn warned me as much, many times, as a weathered and experienced warrior himself.~ EXTERN AJANTJ Chat.03x05
 
 CHAIN AJANTJ Chat.03x02
-~That you are willing to take the time for each member of your party is a sign of a great leader, too. It is something that I have seen Sir Keldorn do on many occasions. The effectiveness of your group is only as good as the morale of each member.~ EXTERN AJANTJ Chat.03x05
+~That you are willing to take the time for each member of your party is a sign of a great leader, too. It is something that I have seen Sir Keldorn do on many occasions. The effectiveness of your group is determined by the morale of the individuals within it.~ EXTERN AJANTJ Chat.03x05
 
 CHAIN AJANTJ Chat.03x03
-~That is exactly what I speak of, try as you might to be modest. Our quest takes us to many places, many people, that I would have balked at otherwise. Under your leadership, though, I feel that we are on the right path.~ EXTERN AJANTJ Chat.03x05
+~That is what I speak of, try as you might to be modest. Our quest takes us to many places, many people, that I would have balked at otherwise. Under your leadership, though, I feel that we are on the right path.~ EXTERN AJANTJ Chat.03x05
 
 CHAIN AJANTJ Chat.03x05
-~When I dreamed of following knighthood during my training, it always involved grand acts colored by absolute truth and certainty. There are many boastful souls in the Order of the Radiant Heart in Athkatla that perpetuate this vision, though they tend to be the ones that do not stray far from the city.~
-== AJANTJ ~With you, our every day is filled with unsung acts of heroism. Often, we are dirty, caked in mud and blood, whether it be ours or our foes. It is oft unglamorous, yet I know that under the eye of Helm, we are doing good.~
+~When I dreamed of following knighthood during my training, it always involved grand acts filtered through glory and chivalrous battle. There are many boastful souls in the Order of the Radiant Heart in Athkatla that perpetuate this vision, though they tend to be the ones that do not stray far from the city.~
+== AJANTJ ~With you, our every day is filled with unsung acts of heroism. Often, we are dirty, caked in mud and blood, whether it be ours or our foes'. It is oft unglamorous, yet I know that under the eye of Helm, we are doing good.~
 	END
 		IF~~THEN REPLY ~Aye, I was raised on tales of heroes and villains within the halls of my home. The life of an adventurer is not exactly what I imagined it to be.~ EXTERN AJANTJ Chat.03x06
 		IF~CLASS(player1,PALADIN)~THEN REPLY ~I know exactly what you mean. The life of a paladin is far less ceremonial than I once believed, though no less necessary.~ EXTERN AJANTJ Chat.03x06
-		IF~CLASS(Player1,RANGER_ALL)~THEN REPLY ~I never expected glamor, only purpose. But I never imagined how far that purpose would stretch, or how many would rely on us out here.~ EXTERN AJANTJ Chat.03x06
-		IF~CLASS(Player1,MAGE_ALL)~THEN REPLY ~I know what you mean. In all my time of arcane study I learned from pristine books and lessons from tutors. Now I learn from experience and the spellbooks of fallen foes.~ EXTERN AJANTJ Chat.03x06
+		IF~CLASS(Player1,RANGER_ALL)~THEN REPLY ~I never expected glamor, only my purpose. But I never imagined how far that purpose would stretch, or how many would rely on us out here.~ EXTERN AJANTJ Chat.03x06
+		IF~CLASS(Player1,MAGE_ALL)~THEN REPLY ~I know what you mean. In all my time of arcane study I learned only from pristine books and lessons from Gorion. Now I learn from experience and the spellbooks of fallen foes.~ EXTERN AJANTJ Chat.03x06
 		IF~CLASS(Player1,CLERIC_ALL)~THEN REPLY ~I once thought service to my god would come through doctrine and my temple. I suppose we have both found that the fates have their own plans for us.~ EXTERN AJANTJ Chat.03x06
 		IF~CLASS(Player1,MONK)~THEN REPLY ~My training taught me to find clarity in peace, but there is much more chaos in my life now than I ever could have imagined.~ EXTERN AJANTJ Chat.03x06
 		IF~~THEN REPLY ~The work is ugly, but someone has to do it. Most who do don't get the luxury of reflecting on it.~ EXTERN AJANTJ Chat.03x07
@@ -242,134 +296,101 @@ CHAIN AJANTJ Chat.03x06
 ~We have much in common, as ever. It reassures me that I am not the only one adjusting to this life.~ EXTERN AJANTJ Chat.03x10
 
 CHAIN AJANTJ Chat.03x07
-~Indeed, and for that I am grateful. Our swords and our wits have seen us through, as has Helm's watchful eye. I would pray that it continue to be so, but I have confidence enough in our abilities that such a thing is unneeded.~ EXTERN AJANTJ Chat.03x10
+~Indeed, and for that I am grateful. Our swords and our wits have seen us through, as has Helm's watchful eye. I pray that it continues to be so, and with the skill of our group I am without doubts.~ EXTERN AJANTJ Chat.03x10
 
 CHAIN AJANTJ Chat.03x08
-~An understandable position as leader. Though, you ought to credit yourself—in the grand scheme of things, each victory seized brings us closer to our goals.~ EXTERN AJANTJ Chat.03x10
+~An understandable position as leader. Though, you ought to credit yourself—each victory seized brings us closer to realizing our goals.~ EXTERN AJANTJ Chat.03x10
 
 CHAIN AJANTJ Chat.03x09
 ~You jest, but in some ways it is easier now than it used to be. The pressure of training and imagining a future that may never come was oft greater than living out my purpose day to day as I do now.~ EXTERN AJANTJ Chat.03x10
 
 CHAIN AJANTJ Chat.03x10
-~If I were alone, perhaps I would still be chasing those grand deeds, but in this group I have seen the value in helping a single person. It is in these actions that we shall prevail in our quest, and I am more envigorated than ever to see it through.~
-== AJANTJ ~Next time we stop at an inn, I shall raise a tankard to our party! I am certain that Sir Keldorn would do the same in fairer times.~
-	END
-		IF~~THEN REPLY ~Then we shall seek warm beds soon. It's past time that we stop for a drink, anyway.~ EXTERN AJANTJ Chat.03x11
-		IF~~THEN REPLY ~Just be sure not to spill your drink during that speech.~ EXTERN AJANTJ Chat.03x12
-		IF~~THEN REPLY ~I'll drink to living through the day, at least.~ EXTERN AJANTJ Chat.03x13
-		IF~~THEN REPLY ~If you're buying the first round, I may even let you toast me by name.~ EXTERN AJANTJ Chat.03x14
-		
-CHAIN AJANTJ Chat.03x11
-~It does me well to hear that. There's nothing quite like a restful eve amongst friends to raise morale.~ EXTERN AJANTJ Chat.03x15
-
-CHAIN AJANTJ Chat.03x12
-~I'll do my best, but I shan't promise anything.~ EXTERN AJANTJ Chat.03x15
-
-CHAIN AJANTJ Chat.03x13
-~Come now, there's more to life than survival. Perhaps it will do us both some good.~ EXTERN AJANTJ Chat.03x15
-
-CHAIN AJANTJ Chat.03x14
-~You drive a hard bargain, my <PRO_LADYLORD>, but perhaps it shall be so.~ EXTERN AJANTJ Chat.03x15
-
-CHAIN AJANTJ Chat.03x15
-~In the meantime, I suspect we have business to attend to. Relaxation must be earned, after all!~
-DO ~SetGlobal("WNAjantisChat","GLOBAL",9) SetGlobal("WNAjantisTavern","GLOBAL",1) SetGlobal("WNAjantOTR4","GLOBAL",3)~ EXIT
+~If I were alone, perhaps I would still be chasing those grand deeds, but in this group I have seen the value in helping a single person. It is in these actions that we shall prevail in our quest, and I am more invigorated than ever to see it through.~
+== AJANTJ ~After a long expedition I accompanied Sir Keldorn on once, he told me that our swords are not the only thing worth raising. I believe I am beginning to understand him. Come, let us press on!~
+DO ~SetGlobal("WNAjantisChat","GLOBAL",9)~ EXIT
 
 CHAIN AJANTJ Chat.03x04
-~You might find that group morale would improve should you take the time to tend to your compatriots, but I shall not bother you farther with this.~
-DO ~SetGlobal("WNAjantisChat","GLOBAL",9) SetGlobal("WNAjantOTR4","GLOBAL",3)~ EXIT
+~You might find that group morale would improve should you take the time to tend to your compatriots, but I shall not bother you further with this.~
+DO ~SetGlobal("WNAjantisChat","GLOBAL",9)~ EXIT
 
-// Conversation 4: A Toast to the Heroes! [req: agreed to a drink last conversation]
+// Conversation 4: What Duty Demands [req: Completed "The Errant Acolyte"]
 
-CHAIN IF ~Global("WNAjantisTavern","GLOBAL",2)~ THEN AJANTJ Chat.04x00
-~My mentor, Sir Keldorn, once taught me that camaraderie is a gift not to be shirked. I accompanied him on a campaign during my training—after our hard-fought victory, the men were drinking and laughing, and I felt... out of place, like my duty commanded me to remain vigilant even when rest called.~
-== AJANTJ ~He approached me, armor set aside, and when I asked him if such merriment was proper for knights befitting our order, he merely laughed. "Ajantis," he said, "We celebrate not because we are proud, but because we are grateful. The sword is not the only thing worth raising." Although that night I did not truly feel at ease in his words, today I do.~
-== AJANTJ ~I am honored to fight among this righteous band, and so today I raise my tankard to our quest and all our victories!~
-== IMOEN2 IF ~InParty("IMOEN") IsValidForPartyDialogue("IMOEN")~ THEN ~Hear hear! Pass me a drink, I'm not lettin' you all enjoy yourselves without me.~
-== RASAADJ IF ~InParty("RASAAD") IsValidForPartyDialogue("RASAAD")~ THEN ~I am blessed, truly, to be among such a group. Company like this is hard to come by.~
-== BRANWJ IF ~InParty("BRANWEN") IsValidForPartyDialogue("BRANWEN")~ THEN ~We have fought, we have bled, and we have earned this ale! Tempus smiles on those who fight hard and drink hard, and we're only half way there.~
-== YESLIJ IF ~InParty("YESLICK") IsValidForPartyDialogue("YESLICK")~ THEN ~Aye, now that’s a proper toast! To friends, to Clangeddin, and to the next foe we flatten!~
-== JAHEIJ IF ~InParty("JAHEIRA") IsValidForPartyDialogue("JAHEIRA")~ THEN ~I am grateful indeed for a warm place to rest in good company. Would that our good fortune continue in the face of adversity.~
-== KHALIJ IF ~InParty("KHALID") IsValidForPartyDialogue("KHALID")~ THEN ~I-I agree! To comradeship, and the r-road well traveled!~
-== ALORAJ IF ~InParty("ALORA") IsValidForPartyDialogue("ALORA")~ THEN ~Yeah! But, uh, I might toast with cider instead of ale if Helm doesn't mind, Ajantis.~
-== QUAYLJ IF ~InParty("QUAYLE") IsValidForPartyDialogue("QUAYLE")~ THEN ~To heroes! Even the armored, self-important ones!~
-== MINSCJ IF ~InParty("MINSC") IsValidForPartyDialogue("MINSC")~ THEN ~Evil shall tremble anew with our reinvigorated spirits! When the next villains set eye on Minsc and Boo and friends, they shall turn tail and run!~
-== DYNAHJ IF ~InParty("DYNAHEIR") IsValidForPartyDialogue("DYNAHEIR") InParty("MINSC") IsValidForPartyDialogue("MINSC")~ THEN ~Egh. Minsc, please stop waving thy hamster around so. It is surely not sanitary.~
-== SKIEJ IF ~InParty("SKIE") IsValidForPartyDialogue("SKIE")~ THEN ~Cheers to you, Ajantis! If I faint from too much wine, you've only yourself to blame for being so inspiring.~
-== NEERAJ IF ~InParty("NEERA") IsValidForPartyDialogue("NEERA")~ THEN ~If we're all sharing our feelings, I'm gonna need a stronger drink. Who's paying? Anyone? Don't leave me hanging.~
-== CORANJ IF ~InParty("CORAN") IsValidForPartyDialogue("CORAN")~ THEN ~I didn't think room for merriment existed beneath your breastplate, Ajantis. Hear hear!~
-== SAFANJ IF ~InParty("SAFANA") IsValidForPartyDialogue("SAFANA")~ THEN ~I've heard worse speeches in my time, but I've heard more than most. To our success, then.~
-== VICONJ IF ~InParty("VICONIA") IsValidForPartyDialogue("VICONIA")~ THEN ~Shall we clasp hands and weep for the fallen now? I shall drink, if only to drown out the sound of your voice.~
-== SHARTJ IF ~InParty("SHARTEEL") IsValidForPartyDialogue("SHARTEEL")~ THEN ~*grunt* That's supposed to be rousing? I've heard better from a dying pig.~
-== ELDOTJ IF ~InParty("ELDOTH") IsValidForPartyDialogue("ELDOTH")~ THEN ~How charming. I am ever so relieved to have such a bastion of wisdom in our front lines.~
-== EDWINJ IF ~InParty("EDWIN") IsValidForPartyDialogue("EDWIN")~ THEN ~Yes, yes, a valliantly grating speech. Keep it down, will you?~
-== KIVANJ IF ~InParty("KIVAN") IsValidForPartyDialogue("KIVAN")~ THEN ~I find no comfort in cheers, but I shall not begrudge yours.~
-== KAGAIJ IF ~InParty("KAGAIN") IsValidForPartyDialogue("KAGAIN")~ THEN ~I'll drink to good battlin' and the gold flowin' our way. You lot get sentimental, I'll get drunk.~
-== FALDOJ IF ~InParty("FALDORN") IsValidForPartyDialogue("FALDORN")~ THEN ~The need for this display escapes me, and I will not be poisoning myself with any of this swill. Direct your praises elsewhere.~
-== XANJ IF ~InParty("XAN") IsValidForPartyDialogue("XAN")~ THEN ~To the fleeting illusion of safety, then.~
-== AJANTJ ~And to <CHARNAME>, a finer leader we could not ask for, and a <PRO_MANWOMAN> I am proud to call my friend!~
+CHAIN IF ~Global("WNAjantisChat","GLOBAL",10)~ THEN AJANTJ Chat.04x00
+~<CHARNAME>, may I borrow your ear for a moment? I have been turning over a question that Watcher Teomara asked me before Helm's altar.~
+== AJANTJ ~She asked whether I held true to Helm's path, even in the mire.~
 	END
-		IF~~THEN REPLY ~Hear hear! We've much to be proud of.~ EXTERN AJANTJ Chat.04x01
-		IF~~THEN REPLY ~I would not be here if not for the people around me. To all of us!~ EXTERN AJANTJ Chat.04x02
-		IF~~THEN REPLY ~I'd rather not be the center of attention.~ EXTERN AJANTJ Chat.04x03
-		IF~~THEN REPLY ~The road before us is long. Let's not celebrate too hard just yet.~ EXTERN AJANTJ Chat.04x04
-		IF~~THEN REPLY ~Great. Now let us drink in peace.~ EXTERN AJANTJ Chat.04x05
-		
+		IF~~THEN REPLY ~And what's your answer?~ EXTERN AJANTJ Chat.04x01
+		IF~~THEN REPLY ~You've been thinking about a swamp this whole time?~ EXTERN AJANTJ Chat.04x02
+		IF~~THEN REPLY ~I'm not sure I'm the right person to judge that.~ EXTERN AJANTJ Chat.04x03
+		IF~~THEN REPLY ~We haven't the time to stop now, Ajantis.~ EXTERN AJANTJ Chat.04x04
+
 CHAIN AJANTJ Chat.04x01
-~And there will be much more still! Tomorrow, we continue on our righteous journey. For now, we drink.~
-DO ~SetGlobal("WNAjantisChat","GLOBAL",10) SetGlobal("WNAjantisTavern","GLOBAL",3) RestParty()~ EXIT
+~At first, I thought myself unable to answer truly, for Helm's path is not one lightly walked.~ EXTERN AJANTJ Chat.04x05
 
 CHAIN AJANTJ Chat.04x02
-~And to the friends we are yet to meet. Drink up!~
-DO ~SetGlobal("WNAjantisChat","GLOBAL",10) SetGlobal("WNAjantisTavern","GLOBAL",3) RestParty()~ EXIT
+~If my conscience be a swamp, I find myself wading through it with fervor. But it has been worth the effort.~ EXTERN AJANTJ Chat.04x05
 
 CHAIN AJANTJ Chat.04x03
-~Apologies, my friend. For tonight, though, you deserve it. Get some rest, I'm sure it is needed.~
-DO ~SetGlobal("WNAjantisChat","GLOBAL",10) SetGlobal("WNAjantisTavern","GLOBAL",3) RestParty()~ EXIT
+~I do not ask you to judge it—only to hear it, if you would.~ EXTERN AJANTJ Chat.04x05
 
 CHAIN AJANTJ Chat.04x04
-~Of course, we must keep our wits about us. Remember, though, that relaxation is as important as any training. Now, let us drink!~
-DO ~SetGlobal("WNAjantisChat","GLOBAL",10) SetGlobal("WNAjantisTavern","GLOBAL",3) RestParty()~ EXIT
+~Of course. I will come to you another time, then.~
+DO ~SetGlobal("WNAjantisChat","GLOBAL",9) SetGlobal("WNAjantOTR4","GLOBAL",0)~ EXIT
 
 CHAIN AJANTJ Chat.04x05
-~Of course, I shall not rob you of another moment of rest. We've well earned it.~
-DO ~SetGlobal("WNAjantisChat","GLOBAL",10) SetGlobal("WNAjantisTavern","GLOBAL",3) RestParty()~ EXIT
-
-// Conversation 5: Veneration of Helm
-
-CHAIN IF ~Global("WNAjantisChat","GLOBAL",10)~ THEN AJANTJ Chat.05x00
-~Traveling the Sword Coast I am ever reminded that worship of Helm is not so common the further north we travel. The temple in Nashkel is large, and lavish, but it stands as something of a bygone era. When people see the Vigilant One's symbol on a warrior's shield now, they do not feel protected as they should. It is... disappointing.~
+~You know of Helm's actions during the Time of Troubles, yes? He was bidden to guard the way to the heavens, and when Mystra—goddess of magic—tried to pass, he struck her down. Many have never forgiven him for it.~
+== AJANTJ ~When I was younger, I thought his strength was in holding steadfast to his order. He was commanded, so he obeyed, and if that were enough for Helm himself, then that was all a paladin need understand.~
+== AJANTJ ~I see it differently now. Helm did not strike Mystra down because obedience is a virtue. He did it because he had given his word, and he bore the cost of that promise knowingly, without turning away. The sorrowful tale instills a new kind of strength in me now—I am emboldened not by duty itself, but by the courage to carry the weight of my own choices.~
 	END
-		IF~~THEN REPLY ~Why is Helm not venerated as he used to be?~ EXTERN AJANTJ Chat.05x01
-		IF~~THEN REPLY ~Religions come and go all the time. It's natural.~ EXTERN AJANTJ Chat.05x02
-		IF~CheckStatGT(Player1,16,INT)~THEN REPLY ~I cannot blame them, given Helm's actions during the Time of Troubles.~ EXTERN AJANTJ Chat.05x03
-		IF~~THEN REPLY ~We don't have time for ruminating right now, Ajantis.~ EXTERN AJANTJ Chat.05x04
-		
-		
-CHAIN AJANTJ Chat.05x01
-~Ah, I am surprised you do not know the tale. Or perhaps you just need reminding.~
-== AJANTJ ~Helm has fallen out of many people's favor due to his actions during the Time of Troubles. When all other gods were cast to walk the land as mortals, Helm alone remained to guard the Celestial Stairway to deny the gods re-entry to their home planes.~
-== AJANTJ ~This was not of his will—it was a commandment to which he was absolutely bound on his own honor and godhood. When Mystra, god of magic, foolishly attempted to bypass his guard, he was compelled to strike her down. It is something that other churches still hold over those who worship Helm.~ EXTERN AJANTJ Chat.05x05
+		IF~~THEN REPLY ~So what does that make you now?~ EXTERN AJANTJ Chat.04x06
+		IF~~THEN REPLY ~That sounds like a convenient way to forgive your god for a terrible act.~ EXTERN AJANTJ Chat.04x07
+		IF~~THEN REPLY ~It's good to hear you sounding sure of yourself again.~ EXTERN AJANTJ Chat.04x08
+		IF~~THEN REPLY ~Gods do what they do. I try not to read into it too much.~ EXTERN AJANTJ Chat.04x09
 
-CHAIN AJANTJ Chat.05x02
-~Aye, that is true. However, Helm still holds much power compared to lesser gods that have since been forgotten to time. I find it highly unlikely that Faerûn will ever find the Vigilant One's gaze unneeded.~
-== AJANTJ ~Unfortunately, not everyone sees it that way. Helm's actions during the Time of Troubles as the sole guardian of the Celestial Stairway have greatly soured their opinions on him.~
-== AJANTJ ~What people don't know was that it was Helm's solemn duty, for when the other gods were cast to the lands as mortals, he was bound to his obligation to disallow entry to any and all former gods to the heavens—and so, when Mystra, god of magic, foolishly attempted to bypass his guard, he was compelled to strike her down. It is something that other churches still hold over those who worship Helm.~ EXTERN AJANTJ Chat.05x05
+CHAIN AJANTJ Chat.04x06
+~A squire who has finally learned what his oath asks of him, I hope.~ EXTERN AJANTJ Chat.04x10
 
-CHAIN AJANTJ Chat.05x03
-~Then you know the tale already, but perhaps only as most people do.~
-== AJANTJ ~When Helm struck Mystra down, knowing what it would cost, it was no act of spite, but of duty. He was fulfilling his solemn obligation as decreed by Ao, as much as it pained him to do so.~
-== AJANTJ ~That is why I hold him in such esteem: because even when the weight was unbearable, he stood firm. I pray that I may find a fraction of that same resolve when my time of trial comes.~ EXTERN AJANTJ Chat.05x05
+CHAIN AJANTJ Chat.04x07
+~I have nothing to forgive. Even Helm himself would not deny that the events of that day were dreadful, but his sorrow over it has left a lasting impression on me.~ EXTERN AJANTJ Chat.04x10
 
-CHAIN AJANTJ Chat.05x05
-~Even some within the Order of the Radiant Heart hold Helm worship with a degree of distaste. I am curious where you stand on it.~
+CHAIN AJANTJ Chat.04x08
+~I have doubted enough for one lifetime, I think. It is about time that I do something with all that I have learned.~ EXTERN AJANTJ Chat.04x10
+
+CHAIN AJANTJ Chat.04x09
+~Maybe so, but there is wisdom to be found in revisiting such ideas.~ EXTERN AJANTJ Chat.04x10
+
+CHAIN AJANTJ Chat.04x10
+~And so, when I consider whether or not I held true to Helm's path in the face of the trial Watcher Teomara put before me, I believe I have an answer.~
 	END
-		IF~~THEN REPLY ~I don't see anything wrong with it, if that's your worry.~ EXTERN AJANTJ Chat.05x06
-		IF~~THEN REPLY ~Helm acted out of duty—that's no reason to scorn his followers.~ EXTERN AJANTJ Chat.05x07
-		IF~~THEN REPLY ~Can you blame them? Killing the god of magic is hardly a noble act.~ EXTERN AJANTJ Chat.05x08
-		IF~~THEN REPLY ~The affairs of the gods have no real interest to me.~ EXTERN AJANTJ Chat.05x09
-		IF~~THEN REPLY ~If people glare at you for your god, you can always glare back. Helm would approve of vigilance, no?~ EXTERN AJANTJ Chat.05x10
+		IF~Global("WNAjantisEnding","GLOBAL",1)~ THEN EXTERN AJANTJ Chat.04xEnd1
+		IF~Global("WNAjantisEnding","GLOBAL",2)~ THEN EXTERN AJANTJ Chat.04xEnd2
+		IF~Global("WNAjantisEnding","GLOBAL",3)~ THEN EXTERN AJANTJ Chat.04xEnd3
+		IF~Global("WNAjantisEnding","GLOBAL",4)~ THEN EXTERN AJANTJ Chat.04xEnd4
+
+// Ending 1: shield recovered, Ollera saved
+CHAIN AJANTJ Chat.04xEnd1
+~I held true, but not through rigidly following my orders to the letter. I stayed true to myself because I listened—to you, and to my own conscience, not only to the task before me. Through these things I found temperance. For that, I am grateful to you.~
+== AJANTJ ~Orders are far from meaningless, do not mistake me, but they are no substitute for judgment—a tool I mean to keep sharp. Come, let us move onwards!~
+DO ~SetGlobal("WNAjantisChat","GLOBAL",11)~ EXIT
+
+// Ending 2: Ollera saved, shield lost
+CHAIN AJANTJ Chat.04xEnd2
+~I failed the task I was given, and saved a girl's rest instead. If the Order asks me to account for it, I will, and gladly.~
+== AJANTJ ~Objects may come and go, but life—and death—are delicate things to be protected. I would make the same choice a hundred times over, and I have you to thank for helping me find my mind amidst it all. Come, let us go on.~
+DO ~SetGlobal("WNAjantisChat","GLOBAL",11)~ EXIT
+
+// Ending 3: shield recovered, Ollera defiled
+CHAIN AJANTJ Chat.04xEnd3
+~I did not, then. I put the task first, and a girl's rest paid the price for it. That burden is mine, and I shall carry it for a long time.~
+== AJANTJ ~But I know now what such a choice costs. I will not make it blindly again. Come, let us go on.~
+DO ~SetGlobal("WNAjantisChat","GLOBAL",11)~ EXIT
+
+// Ending 4: everything lost, Peitor expelled
+CHAIN AJANTJ Chat.04xEnd4
+~Not as I should have. We lost the shield, and Peitor lost his place among the faithful, just as he lost his sister.~
+== AJANTJ ~Yet the Watcher showed me that justice need not be cruel to be right. To guard the weak, and to show them mercy when they fall—I shall hold this responsibility close to my heart. Come, let us continue on, to better things.~
+DO ~SetGlobal("WNAjantisChat","GLOBAL",11)~ EXIT
 
 
 
-// Em dash — — — — —
+

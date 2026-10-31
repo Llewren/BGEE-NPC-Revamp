@@ -11,7 +11,7 @@ THEN
 END
 
 IF
-	GlobalGT("WNBoaFirst","GLOBAL",1)
+	GlobalGT("WNBoaFirst","GLOBAL",0)
 	Global("wn_ollera_zombie","GLOBAL",0)
 THEN
 	RESPONSE #100

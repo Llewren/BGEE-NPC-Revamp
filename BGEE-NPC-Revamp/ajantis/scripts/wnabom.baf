@@ -1,6 +1,17 @@
+// Every undead in Fenathigrast's lair (the abominations and Ollera) runs this script.
 IF
-    Heard("wnfena",1)
+	Global("WNFenaFight","GLOBAL",1)
+	!Allegiance(Myself,ENEMY)
 THEN
-    RESPONSE #100
-        Enemy()
+	RESPONSE #100
+		Enemy()
+END
+
+// Backup: the original shout response
+IF
+	Heard("wnfena",1)
+	!Allegiance(Myself,ENEMY)
+THEN
+	RESPONSE #100
+		Enemy()
 END

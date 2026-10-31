@@ -25,6 +25,7 @@ IF
 IF
 	Global("WNAjantisQuestDone","GLOBAL",1)
 	Global("WNPeitorFinalPosition","GLOBAL",0)
+	!Global("WNPeitorExpelled","GLOBAL",1)
 	THEN
 		RESPONSE #100
 		ActionOverride("WNPEIT",MoveToPoint([315.331]))

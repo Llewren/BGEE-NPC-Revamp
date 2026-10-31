@@ -12,8 +12,8 @@ CHAIN IF~GlobalGT("WNAjantisQuest","GLOBAL",14) NumTimesTalkedTo(0)~THEN WNZOMF1
 	== XZARJ IF ~InParty("XZAR") IsValidForPartyDialogue("XZAR")~ THEN ~Necromancy is at work here. Such fine specimens they are, too. Let us remove their limbs and find their creator, quickly.~
 	== WNZOMF1 ~Fist... business...~
 		END
-			IF~~THEN REPLY ~I'm looking for a mage, supposedly a diviner. Seemed really interested in dead bodies.~ EXTERN WNZOMF1 01
-			IF~Class(player1,MAGE)~THEN REPLY ~I recognize this magic. Necromancy, it must be—these men are undead.~ EXTERN WNZOMF1 02
+			IF~~THEN REPLY ~I'm looking for a man, potentially mysterious, supposedly a healer. Seemed really interested in dead bodies.~ EXTERN WNZOMF1 01
+			IF~Class(player1,MAGE_ALL)~THEN REPLY ~I recognize this magic. Necromancy, it must be—these men are undead.~ EXTERN WNZOMF1 02
 			IF~~THEN REPLY ~That's great, but I really need to get into the sewer here.~ EXTERN WNZOMF2 03
 			IF~~THEN REPLY ~Very well, if you insist.~ EXTERN WNZOMF2 03
 			

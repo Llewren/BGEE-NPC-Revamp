@@ -14,11 +14,13 @@ THEN
 		SetGlobal("WNAuction","AR0121",1)
 END
 
+// Fena path: the party now has the shield, however they got it (bought, bargained, threatened, or taken from the auctioneer or the Baroness).
 IF
-	Dead("wnauc0")
-	!GlobalGT("WNBoaFirst","GLOBAL",0)
+	Global("WNFenaFirst","GLOBAL",1)
 	PartyHasItem("wnajsh")
+	Global("WNAucShieldJournal","GLOBAL",0)
 THEN
 	RESPONSE #100
 		AddJournalEntry(@112, QUEST)
+		SetGlobal("WNAucShieldJournal","GLOBAL",1)
 END

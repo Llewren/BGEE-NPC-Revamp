@@ -35,7 +35,7 @@ CHAIN IF WEIGHT #-1 ~InParty("AJANTIS") IsValidForPartyDialogue("AJANTIS") Globa
 		IF~~THEN REPLY ~You have—~ EXTERN AJANTJ PeitorQuest.01
 
 CHAIN AJANTJ PeitorQuest.01
-~Ugh. By Helm, man! You're practically drowning in ale! 'Tis completely shameful! You cast a poor shadow on your temple. What excuse to do you have for your behavior?~
+~Ugh. By Helm, man! You're practically drowning in ale! 'Tis completely shameful! You cast a poor shadow on your temple. What excuse do you have for your behavior?~
 == WNPEIT ~I—I'm sorry. I just... I couldn't go back. Not after everythin'.~
 == AJANTJ ~What do you mean? Explain yourself.~
 	END
@@ -49,14 +49,14 @@ CHAIN AJANTJ PeitorQuest.02
 
 CHAIN AJANTJ PeitorQuest.04
 ~This is no laughing matter, <CHARNAME>. This man is shirking his duty to Helm, and to the people of this city.~
-== ELDOTJ IF ~InParty("ELDOTH") IsValidForPartyDialogue("ELDOTH")~ THEN ~On the contrary—what else is there to do but laugh at this so-called symbol strength brought low?~
+== ELDOTJ IF ~InParty("ELDOTH") IsValidForPartyDialogue("ELDOTH")~ THEN ~On the contrary—what else is there to do but laugh at this so-called symbol of strength brought low?~
 == WNPEIT ~No, <PRO_HESHE>'s right. You're right. I'm a mess.~ EXTERN WNPEIT PeitorQuest.03
 
 CHAIN WNPEIT PeitorQuest.03
 ~I s'pose I can tell you. Not like it'll change anything. *sigh* Watcher Teomara entrusted me with a holy item. A shield, one she used to carry back when she was younger. Special to Helm an' all that.~
 == WNPEIT ~I... I sold it.~
 == AJANTJ ~You sold a holy relic?! You...!~
-== JAHEIJ IF ~InParty("JAHEIRA") IsValidForPartyDialogue("JAHEIRA")~ THEN ~Foolish, but not unexpected. It is common for one so young bend under the weight of duty.~
+== JAHEIJ IF ~InParty("JAHEIRA") IsValidForPartyDialogue("JAHEIRA")~ THEN ~Foolish, but not unexpected. It is common for one so young to bend under the weight of duty.~
 == SAFANJ IF ~InParty("SAFANA") IsValidForPartyDialogue("SAFANA")~ THEN ~Wish I could say I was surprised. Helmite stuff can fetch a pretty hefty sum... and no man is immune to the allure of gold.~
 == BRANWJ IF ~InParty("BRANWEN") IsValidForPartyDialogue("BRANWEN")~ THEN ~To trade away a holy artefact? That is a foul deed—I dare not imagine ever stooping to such treachery in the eyes of Tempus.~
 == KAGAIJ IF ~InParty("KAGAIN") IsValidForPartyDialogue("KAGAIN")~ THEN ~You did the smart thing, boy. You're better off with the gold than some religious junk.~
@@ -84,8 +84,8 @@ CHAIN WNPEIT PeitorQuest.04
 == WNPEIT ~I met with a trader, down in the Undercellar. He was very eager to buy. I couldn't see any other way.~
 == WNPEIT ~Once I had the gold, I met with the man again an' handed it over along with Ollera's body. He... he took her away. That was days ago, an' I've not seen him or... or her since.~
 	END
-		IF~~THEN REPLY ~Peitor, you may be among the most incompetant, idiotic people I have ever met on the whole of the Sword Coast—and that's an accomplishment, because I meet a LOT of people.~ EXTERN WNPEIT PeitorQuest.08
-		IF~~THEN REPLY ~You sold a holy relic for the privelege of giving away your sister's corpse?~ EXTERN WNPEIT PeitorQuest.09
+		IF~~THEN REPLY ~Peitor, you may be among the most incompetent, idiotic people I have ever met on the whole of the Sword Coast—and that's an accomplishment, because I meet a LOT of people.~ EXTERN WNPEIT PeitorQuest.08
+		IF~~THEN REPLY ~You sold a holy relic for the privilege of giving away your sister's corpse?~ EXTERN WNPEIT PeitorQuest.09
 		IF~~THEN REPLY ~Is there a chance that the offer was genuine?~ EXTERN WNPEIT PeitorQuest.10
 		IF~~THEN REPLY ~I can't make any promises, but we can try to fix this.~ EXTERN WNPEIT PeitorQuest.11
 
@@ -143,11 +143,11 @@ DO ~SetGlobal("WNAjantisQuest","GLOBAL",15) AddJournalEntry(@105, QUEST)~ EXIT
 
 CHAIN WNPEIT PeitorQuest.16
 ~So be it. I've already given up hope, anyway. I'll find some other place t' drink my days away, if you'll excuse me.~
-DO ~SetGlobal("WNAjantisQuest","GLOBAL",2) AddJournalEntry(@115, QUEST_DONE)~ EXIT
+DO ~SetGlobal("WNAjantisQuest","GLOBAL",2) SetGlobal("WNPeitorLeft","GLOBAL",1) AddJournalEntry(@115, QUEST_DONE) EscapeArea()~ EXIT
 
 // Returning
 
-CHAIN IF WEIGHT #-1 ~GlobalGT("WNAjantisQuest","GLOBAL",10)GlobalLT("WNAjantisQuest","GLOBAL",21) !Global("WNPeitRet","GLOBAL",1)~ THEN WNPEIT PeitorReturn.00
+CHAIN IF WEIGHT #-1 ~GlobalGT("WNAjantisQuest","GLOBAL",10) GlobalLT("WNAjantisQuest","GLOBAL",20) !Global("WNPeitRet","GLOBAL",1)~ THEN WNPEIT PeitorReturn.00
 ~You're back. Do you have any news?~
 	END
 		IF~~THEN REPLY ~Not yet. I'll let you know when I do.~ EXTERN WNPEIT PeitorReturn.01
@@ -178,7 +178,7 @@ CHAIN WNPEIT BestPathMenu
 ~I ought t' go back and face Watcher Teomara. Helm will be seein' all anyway—even the drink doesn't help me to be forgettin' that. But... I don't know how I'll face her if I don't have the shield.~
 	END
 		IF~PartyHasItem("wnajsh")~THEN REPLY ~I have the shield. I'll meet you there with it. Go.~ DO ~SetGlobal("WNAjantisQuest","GLOBAL",20)~ EXTERN WNPEIT PeitorReturn.05
-		IF~GlobalGT("WNAuctionDone","GLOBAL",0)!PartyHasItem("wnajsh")~THEN REPLY ~I couldn't get the shield, Peitor. There's nothing more to do but go back.~ DO ~SetGlobal("WNAjantisQuest","GLOBAL",20)~ EXTERN WNPEIT PeitorReturn.05
+		IF~GlobalGT("WNAuctionDone","GLOBAL",0) !PartyHasItem("wnajsh")~THEN REPLY ~I couldn't get the shield, Peitor. There's nothing more to do but go back.~ DO ~SetGlobal("WNAjantisQuest","GLOBAL",20)~ EXTERN WNPEIT PeitorReturn.05
 		IF~!PartyHasItem("wnajsh")~THEN REPLY ~Forget the shield. Go and take your punishment.~ DO ~SetGlobal("WNAjantisQuest","GLOBAL",20)~ EXTERN WNPEIT PeitorReturn.05
 		IF~!PartyHasItem("wnajsh")~THEN REPLY ~Very well, Peitor. I will do my best to retrieve the holy shield.~ EXTERN WNPEIT PeitorReturn.11
 		IF~PartyHasItem("wnajsh")~THEN REPLY ~I'll return to you shortly, there are some things I must take care of.~ EXTERN WNPEIT PeitorReturn.12
@@ -210,7 +210,7 @@ CHAIN WNPEIT PeitorReturn.09
 ~I... I got no excuse now. Ollera wouldn't want me to hide from my duty. My church. I ought t' go back and face Watcher Teomara. Helm will be seein' all anyway—even the drink doesn't help me to be forgettin' that. But... I don't know how I'll face her if I don't have the shield.~
 	END
 		IF~PartyHasItem("wnajsh")~THEN REPLY ~I have the shield. I'll meet you there with it. Go.~ DO ~SetGlobal("WNAjantisQuest","GLOBAL",30)~ EXTERN WNPEIT PeitorReturn.10
-		IF~GlobalGT("WNAuctionDone","GLOBAL",0)!PartyHasItem("wnajsh")~THEN REPLY ~I couldn't get the shield, Peitor. There's nothing more to do but go back.~ DO ~SetGlobal("WNAjantisQuest","GLOBAL",30)~ EXTERN WNPEIT PeitorReturn.10
+		IF~GlobalGT("WNAuctionDone","GLOBAL",0) !PartyHasItem("wnajsh")~THEN REPLY ~I couldn't get the shield, Peitor. There's nothing more to do but go back.~ DO ~SetGlobal("WNAjantisQuest","GLOBAL",30)~ EXTERN WNPEIT PeitorReturn.10
 		IF~!PartyHasItem("wnajsh")~THEN REPLY ~Forget the shield. Go and take your punishment.~ DO ~SetGlobal("WNAjantisQuest","GLOBAL",30)~ EXTERN WNPEIT PeitorReturn.10
 		IF~!PartyHasItem("wnajsh")~THEN REPLY ~Very well, Peitor. I will do my best to retrieve the holy shield.~ EXTERN WNPEIT PeitorReturn.11
 		IF~PartyHasItem("wnajsh")~THEN REPLY ~I'll return to you shortly, there are some things I must take care of.~ EXTERN WNPEIT PeitorReturn.12
@@ -233,6 +233,7 @@ CHAIN IF WEIGHT #-1 ~Global("WNPeitRet","GLOBAL",1)~ THEN WNPEIT Return.13
 			END
 			IF ~PartyHasItem("wnbody1")~ THEN EXTERN WNPEIT BestPathMenu
 			IF ~PartyHasItem("wnbody2")~ THEN EXTERN WNPEIT PeitorReturn.09
+			IF ~!PartyHasItem("wnbody1") !PartyHasItem("wnbody2")~ THEN EXTERN WNPEIT PeitorReturn.01
 
 
 // In the temple
@@ -245,6 +246,6 @@ CHAIN IF WEIGHT #-1 ~OR(2)
 ~I'm awaitin' judgment, just as we all are. Teomara's been wantin' t' talk with you.~
 EXIT
 
-CHAIN IF WEIGHT #-1 ~Global("WNAjantisQuestDone","GLOBAL",1)~ THEN WNPEIT Final.00
+CHAIN IF WEIGHT #-1 ~Global("WNAjantisQuestDone","GLOBAL",1) !Global("WNPeitorExpelled","GLOBAL",1)~ THEN WNPEIT Final.00
 ~Thanks for helpin' me out. If you ever need help, just come callin', and I'll be there to return the favor.~
 EXIT

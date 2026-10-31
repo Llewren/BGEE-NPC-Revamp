@@ -1,25 +1,25 @@
 BEGIN WNBOA
 
 // WNAjantisQuest = the stage of Ajantis's quest (increments by five)
-// FenaFirst = Fenathigrast sought First
-// BoaFirst = Boa + shield sought First
+// FenaFirst = Fenathigrast sought first
+// BoaFirst = Boa + shield sought first
 // BoaHaggled = price down from 6k to 5k
 
-// Technically AjantisQuest doesn't need to be as checked as often as it is, but for debugging's sake, I have included it even when it is redundant.
+// Technically AjantisQuest doesn't need to be as checked as often as it is but like, whatever
 
-CHAIN IF~Global("BoaTalk","GLOBAL",0)~THEN WNBOA 01
+CHAIN IF~Global("WNBoaTalk","GLOBAL",0)~THEN WNBOA 01
 ~Ah, a potential customer in this dreary hovel. Good. I've many wares that might catch the fancy of one such as you, well equipped as you are—for the discerning eye, my stock might just be the most valuable thing you'll get down here. What say you to a little trade, friend?~
 	END
 		IF~~THEN REPLY ~You're a merchant? Let's see what you have.~ EXTERN WNBOA 02
 		IF~~THEN REPLY ~What kind of person runs a shop out of a brothel?~ EXTERN WNBOA 03
 		//BoaFirst line
-		IF~Global("WNFenaFirst","GLOBAL",0) GlobalLT("WNBoaFirst","GLOBAL",2)Global("WNAjantisQuest","GLOBAL",15)~THEN REPLY ~Have you obtained any shields recently? Perhaps of the holy variety?~ DO ~SetGlobal("WNBoaFirst","GLOBAL",1)~ EXTERN WNBOA 04
-		IF~Global("WNFenaFirst","GLOBAL",0) GlobalLT("WNBoaFirst","GLOBAL",2)Global("WNAjantisQuest","GLOBAL",15)~THEN REPLY ~I'm here about the shield that Peitor sold to you.~ DO ~SetGlobal("WNBoaFirst","GLOBAL",1)~ EXTERN WNBOA 05
-		IF~Global("WNFenaFirst","GLOBAL",0) Global("WNBoaFirst","GLOBAL",2)Global("WNBoaHaggled","GLOBAL",1)PartyGoldGT(5000)~ THEN REPLY ~I have 5000 gold for you. Now hand over the shield.~ EXTERN WNBOA 14
-		IF~Global("WNFenaFirst","GLOBAL",0) Global("WNBoaFirst","GLOBAL",2)!Global("WNBoaHaggled","GLOBAL",1)PartyGoldGT(6000)~ THEN REPLY ~I have 6000 gold for you. Now hand over the shield.~ EXTERN WNBOA 14
+		IF~Global("WNFenaFirst","GLOBAL",0) GlobalLT("WNBoaFirst","GLOBAL",2) Global("WNAjantisQuest","GLOBAL",15) InParty("AJANTIS") IsValidForPartyDialogue("AJANTIS")~THEN REPLY ~Have you obtained any shields recently? Perhaps of the holy variety?~ DO ~SetGlobal("WNBoaFirst","GLOBAL",1)~ EXTERN WNBOA 04
+		IF~Global("WNFenaFirst","GLOBAL",0) GlobalLT("WNBoaFirst","GLOBAL",2) Global("WNAjantisQuest","GLOBAL",15) InParty("AJANTIS") IsValidForPartyDialogue("AJANTIS")~THEN REPLY ~I'm here about the shield that Peitor sold to you.~ DO ~SetGlobal("WNBoaFirst","GLOBAL",1)~ EXTERN WNBOA 05
+		IF~Global("WNFenaFirst","GLOBAL",0) Global("WNBoaFirst","GLOBAL",2) Global("WNBoaHaggled","GLOBAL",1) PartyGoldGT(4999) InParty("AJANTIS") IsValidForPartyDialogue("AJANTIS")~ THEN REPLY ~I have 5000 gold for you. Now hand over the shield.~ EXTERN WNBOA 14
+		IF~Global("WNFenaFirst","GLOBAL",0) Global("WNBoaFirst","GLOBAL",2) !Global("WNBoaHaggled","GLOBAL",1) PartyGoldGT(5999) InParty("AJANTIS") IsValidForPartyDialogue("AJANTIS")~ THEN REPLY ~I have 6000 gold for you. Now hand over the shield.~ EXTERN WNBOA 14
 		//FenaFirst line
-		IF~Global("WNFenaFirst","GLOBAL",1)Global("WNAjantisQuest","GLOBAL",15)~THEN REPLY ~Have you obtained any shields recently? Perhaps of the holy variety?~ EXTERN WNBOA Second.00
-		IF~Global("WNFenaFirst","GLOBAL",1)Global("WNAjantisQuest","GLOBAL",15)~THEN REPLY ~I'm here about the shield that Peitor sold to you.~ EXTERN WNBOA Second.00
+		IF~Global("WNFenaFirst","GLOBAL",1) Global("WNAjantisQuest","GLOBAL",15) InParty("AJANTIS") IsValidForPartyDialogue("AJANTIS")~THEN REPLY ~Have you obtained any shields recently? Perhaps of the holy variety?~ EXTERN WNBOA Second.00
+		IF~Global("WNFenaFirst","GLOBAL",1) Global("WNAjantisQuest","GLOBAL",15) InParty("AJANTIS") IsValidForPartyDialogue("AJANTIS")~THEN REPLY ~I'm here about the shield that Peitor sold to you.~ EXTERN WNBOA Second.00
 		IF~~THEN REPLY ~Nothing, thank you.~ EXIT
 	
 CHAIN WNBOA 02
@@ -27,17 +27,17 @@ CHAIN WNBOA 02
 DO ~StartStore("wnboa", LastTalkedToBy)~ EXIT
 
 CHAIN WNBOA 03
-~The kind of that enjoys proximity to an indulgent clientele, and the privacy that it affords. Perhaps saying that I "enjoy" it is too strong a declaration—it's vastly preferable than answering to the Flaming Fist on the surface... not that I don't see a few of them in here from time to time. Heh.~
+~The kind that enjoys proximity to an indulgent clientele, and the privacy that it affords. Perhaps saying that I "enjoy" it is too strong a declaration—it's vastly preferable to answering to the Flaming Fist on the surface... not that I don't see a few of them in here from time to time. Heh.~
 	END
 		IF~~THEN REPLY ~I'll happily indulge in your stock if the price suits me. Show me what you've got.~ EXTERN WNBOA 02
 		//BoaFirst line
-		IF~Global("WNFenaFirst","GLOBAL",0) GlobalLT("WNBoaFirst","GLOBAL",2) Global("WNAjantisQuest","GLOBAL",15)~THEN REPLY ~Have you obtained any shields recently? Perhaps of the holy variety?~ DO ~SetGlobal("WNBoaFirst","GLOBAL",1)~ EXTERN WNBOA 04
-		IF~Global("WNFenaFirst","GLOBAL",0) GlobalLT("WNBoaFirst","GLOBAL",2) Global("WNAjantisQuest","GLOBAL",15)~THEN REPLY ~I'm here about the shield that Peitor sold to you.~ DO ~SetGlobal("WNBoaFirst","GLOBAL",1)~ EXTERN WNBOA 05
-		IF~Global("WNFenaFirst","GLOBAL",0) Global("WNBoaFirst","GLOBAL",2)Global("WNBoaHaggled","GLOBAL",1)PartyGoldGT(5000)~ THEN REPLY ~I have 5000 gold for you. Now hand over the shield.~ EXTERN WNBOA 14
-		IF~Global("WNFenaFirst","GLOBAL",0) Global("WNBoaFirst","GLOBAL",2)!Global("WNBoaHaggled","GLOBAL",1)PartyGoldGT(6000)~ THEN REPLY ~I have 6000 gold for you. Now hand over the shield.~ EXTERN WNBOA 14
+		IF~Global("WNFenaFirst","GLOBAL",0) GlobalLT("WNBoaFirst","GLOBAL",2) Global("WNAjantisQuest","GLOBAL",15) InParty("AJANTIS") IsValidForPartyDialogue("AJANTIS")~THEN REPLY ~Have you obtained any shields recently? Perhaps of the holy variety?~ DO ~SetGlobal("WNBoaFirst","GLOBAL",1)~ EXTERN WNBOA 04
+		IF~Global("WNFenaFirst","GLOBAL",0) GlobalLT("WNBoaFirst","GLOBAL",2) Global("WNAjantisQuest","GLOBAL",15) InParty("AJANTIS") IsValidForPartyDialogue("AJANTIS")~THEN REPLY ~I'm here about the shield that Peitor sold to you.~ DO ~SetGlobal("WNBoaFirst","GLOBAL",1)~ EXTERN WNBOA 05
+		IF~Global("WNFenaFirst","GLOBAL",0) Global("WNBoaFirst","GLOBAL",2) Global("WNBoaHaggled","GLOBAL",1) PartyGoldGT(4999) InParty("AJANTIS") IsValidForPartyDialogue("AJANTIS")~ THEN REPLY ~I have 5000 gold for you. Now hand over the shield.~ EXTERN WNBOA 14
+		IF~Global("WNFenaFirst","GLOBAL",0) Global("WNBoaFirst","GLOBAL",2) !Global("WNBoaHaggled","GLOBAL",1) PartyGoldGT(5999) InParty("AJANTIS") IsValidForPartyDialogue("AJANTIS")~ THEN REPLY ~I have 6000 gold for you. Now hand over the shield.~ EXTERN WNBOA 14
 		//FenaFirst line
-		IF~Global("WNFenaFirst","GLOBAL",1)Global("WNAjantisQuest","GLOBAL",15)~THEN REPLY ~Have you obtained any shields recently? Perhaps of the holy variety?~ EXTERN WNBOA Second.00
-		IF~Global("WNFenaFirst","GLOBAL",1)Global("WNAjantisQuest","GLOBAL",15)~THEN REPLY ~I'm here about the shield that Peitor sold to you.~ EXTERN WNBOA Second.00
+		IF~Global("WNFenaFirst","GLOBAL",1) Global("WNAjantisQuest","GLOBAL",15) InParty("AJANTIS") IsValidForPartyDialogue("AJANTIS")~THEN REPLY ~Have you obtained any shields recently? Perhaps of the holy variety?~ EXTERN WNBOA Second.00
+		IF~Global("WNFenaFirst","GLOBAL",1) Global("WNAjantisQuest","GLOBAL",15) InParty("AJANTIS") IsValidForPartyDialogue("AJANTIS")~THEN REPLY ~I'm here about the shield that Peitor sold to you.~ EXTERN WNBOA Second.00
 		IF~~THEN REPLY ~I'd rather not do business with someone like you.~ EXIT
 		
 CHAIN WNBOA 04
@@ -75,7 +75,7 @@ CHAIN WNBOA 11
 CHAIN WNBOA 12
 ~If you buy the shield and go smooth things over with my auction-goers... explain that it was a fake, or that the Fist caught wind of the deal—I frankly don't care what you tell them, so long as they understand that it's not my fault that it's out of their grubby paws—then I'll offer you the shield for 6000 gold pieces.~
 	END
-		IF~PartyGoldGT(6000)~THEN REPLY ~Done. Give it to me, and I'll see what I can do about your auction-goers.~ EXTERN WNBOA 14
+		IF~PartyGoldGT(5999)~THEN REPLY ~Done. Give it to me, and I'll see what I can do about your auction-goers.~ EXTERN WNBOA 14
 		IF~~THEN REPLY ~6000 gold? Are you insane?~ EXTERN WNBOA 15
 		IF~~THEN REPLY ~I don't think so. Lower the price otherwise you'll be getting a visit from the Fist soon.~ EXTERN WNBOA 16
 		IF~~THEN REPLY ~No. Give me the shield or I'll flay you within an inch of your life.~ EXTERN WNBOA 17
@@ -91,7 +91,7 @@ CHAIN WNBOA 16
 ~The Flaming Fist are my loyal customers! You'll find that many among their number will be more or less reluctant to see me brought to 'justice', and I'm sure they would no more like the things I've learned of them down here revealed to their spouses.~
 END
 IF ~OR(2) CheckStatGT(Player1,15,STR) CheckStatGT(Player1,15,CHR)~ THEN DO ~AddJournalEntry(@107, QUEST)~ EXTERN WNBOA Intimidated
-IF ~OR(2) !CheckStatGT(Player1,15,STR) !CheckStatGT(Player1,15,CHR)~ THEN DO ~AddJournalEntry(@106, QUEST)~ EXTERN WNBOA Steadfast
+IF ~!CheckStatGT(Player1,15,STR) !CheckStatGT(Player1,15,CHR)~ THEN DO ~AddJournalEntry(@106, QUEST)~ EXTERN WNBOA Steadfast
 	
 CHAIN WNBOA Intimidated
 ~I can tell you don't play about, though. For that, I'll offer you the shield for 5000 gold—and no less! That's a generous bit of business you'll not see the likes of elsewhere.~ DO ~SetGlobal("WNBoaHaggled","GLOBAL",1)~ EXTERN WNBOA Return
@@ -102,8 +102,8 @@ CHAIN WNBOA Steadfast
 CHAIN WNBOA Return
 ~So what will it be?~
 	END
-		IF~!Global("WNBoaHaggled","GLOBAL",1)PartyGoldGT(6000)~THEN REPLY ~Fine. Give it to me, and I'll see what I can do about your auction-goers.~ EXTERN WNBOA 14
-		IF~Global("WNBoaHaggled","GLOBAL",1)PartyGoldGT(5000)~THEN REPLY ~Very well. 5000 gold it is, and I'll see what I can do about your auction-goers.~ EXTERN WNBOA 14
+		IF~!Global("WNBoaHaggled","GLOBAL",1) PartyGoldGT(5999)~THEN REPLY ~Fine. Give it to me, and I'll see what I can do about your auction-goers.~ EXTERN WNBOA 14
+		IF~Global("WNBoaHaggled","GLOBAL",1) PartyGoldGT(4999)~THEN REPLY ~Very well. 5000 gold it is, and I'll see what I can do about your auction-goers.~ EXTERN WNBOA 14
 		IF~~THEN REPLY ~This is the way I do business: I'm going to get violent now if you don't give me the shield.~ EXTERN WNBOA 17
 		IF~~THEN REPLY ~I'll be back with the gold.~ EXTERN WNBOA 18
 		
@@ -119,6 +119,7 @@ CHAIN WNBOA GetShield
 DO ~GiveItem("WNAJSH",player1)
 	TakePartyGold(6000)
 	SetGlobal("WNBoaFirst","GLOBAL",5)
+	SetGlobal("WNBoaShieldJournal","GLOBAL",1)
 	AddJournalEntry(@108, QUEST)
 	AddJournalEntry(@117, INFO)~
 EXIT
@@ -128,6 +129,7 @@ CHAIN WNBOA GetShieldCheap
 DO ~GiveItem("WNAJSH",player1)
 	TakePartyGold(5000)
 	SetGlobal("WNBoaFirst","GLOBAL",5)
+	SetGlobal("WNBoaShieldJournal","GLOBAL",1)
 	AddJournalEntry(@108, QUEST)
 	AddJournalEntry(@117, INFO)~
 EXIT
@@ -176,7 +178,7 @@ DO ~SetGlobal("WNAuctionCrashed","GLOBAL",4)
 
 CHAIN IF WEIGHT #-1 ~Global("WNAuctionCrashed","GLOBAL",2)~ THEN WNBOA BadAuc.00
 ~That was a gods-damned fiasco. You call that smoothing things over? I'd have had better luck asking a gnoll to sort that out. If the Fist start poking around, I’ll know who to thank. Now get out before I decide you’re more trouble than you’re worth.~
-DO ~SetGlobal("WNAuctionCrashed","GLOBAL",4)~ EXIT // Nothing
+DO ~SetGlobal("WNAuctionCrashed","GLOBAL",4)~ EXIT
 
 CHAIN IF WEIGHT #-1 ~Global("WNAuctionCrashed","GLOBAL",3)~ THEN WNBOA DeadAuc.00
 ~You really couldn’t leave well enough alone, could you? Word’s already spreading—Boa can’t keep his house in order, his deals end with blood staining the rugs. You expect me to thank you for what you did? I'll show you just how appreciative I am.~

@@ -39,7 +39,7 @@ IF
     HaveSpell(WIZARD_MIRROR_IMAGE)
 THEN
     RESPONSE #100
-        Spell(NearestEnemyOf(Myself),WIZARD_MIRROR_IMAGE)
+        Spell(Myself,WIZARD_MIRROR_IMAGE)
 END
 
 IF

@@ -28,7 +28,6 @@ COMPILE ~%MOD_FOLDER%/ajantis/dialogue/wnauc0.d~
 // Ajantis - Scripts
 
 EXTEND_TOP ~ajantis.bcs~ ~%MOD_FOLDER%/ajantis/scripts/ajantis.baf~
-EXTEND_TOP ~ajantd.bcs~ ~%MOD_FOLDER%/ajantis/scripts/ajantd.baf~
 EXTEND_TOP ~AR0002.bcs~ ~%MOD_FOLDER%/ajantis/scripts/AR0002.baf~
 EXTEND_TOP ~AR0112.bcs~ ~%MOD_FOLDER%/ajantis/scripts/AR0112.baf~
 EXTEND_TOP ~AR0115.bcs~ ~%MOD_FOLDER%/ajantis/scripts/AR0115.baf~
@@ -41,7 +40,6 @@ COMPILE ~%MOD_FOLDER%/ajantis/scripts/wnfena.baf~
 COMPILE ~%MOD_FOLDER%/ajantis/scripts/wnfen1.baf~
 COMPILE ~%MOD_FOLDER%/ajantis/scripts/wnabom.baf~
 COMPILE ~%MOD_FOLDER%/ajantis/scripts/wnauc0.baf~
-COMPILE ~%MOD_FOLDER%/ajantis/scripts/wnauc1.baf~
 COMPILE ~%MOD_FOLDER%/ajantis/scripts/wnboa.baf~
 COMPILE ~%MOD_FOLDER%/ajantis/scripts/wnbo1.baf~
 
@@ -74,10 +72,12 @@ SAY NAME2 ~Boa~
 COPY ~%MOD_FOLDER%/ajantis/creatures/wnbog1.cre~ ~override~
 SAY NAME1 ~Guard~
 SAY NAME2 ~Guard~
+WRITE_ASCII 0x260 ~WTASIGHT~ #8
 
 COPY ~%MOD_FOLDER%/ajantis/creatures/wnbog2.cre~ ~override~
 SAY NAME1 ~Guard~
 SAY NAME2 ~Guard~
+WRITE_ASCII 0x260 ~WTASIGHT~ #8
 
 COPY ~%MOD_FOLDER%/ajantis/creatures/wnauc0.cre~ ~override~
 SAY NAME1 ~Auctioneer~
@@ -86,6 +86,7 @@ SAY NAME2 ~Auctioneer~
 COPY ~%MOD_FOLDER%/ajantis/creatures/wnauc1.cre~ ~override~
 SAY NAME1 ~Pushy Patrician~
 SAY NAME2 ~Pushy Patrician~
+WRITE_ASCII 0x248 ~None~ #8
 
 COPY ~%MOD_FOLDER%/ajantis/creatures/wnauc2.cre~ ~override~
 SAY NAME1 ~Loud Lordling~
@@ -209,7 +210,7 @@ Weight: 140~
 COPY ~%MOD_FOLDER%/ajantis/items/wnbody2.itm~ ~override~
   SAY NAME1 ~Female Body~
   SAY NAME2 ~Mangled Corpse~
-  SAY DESC ~This is probably the body of Ollera, Peitor's sister. She has been stitched up unnaturally beyond recognition.
+  SAY DESC ~This is probably the body of Ollera, Peitor's sister. She has been mangled and stitched up unnaturally beyond recognition.
 
 STATISTICS:
 

@@ -2,10 +2,10 @@
 IF
  InParty("CORAN")
  See("CORWYVRN")
- Global("CORAN_WYVERN_CRY","GLOBAL",0)
+ Global("WNCoranWyvernCry","GLOBAL",0)
 THEN
  RESPONSE #100
- SetGlobal("CORAN_WYVERN_CRY","GLOBAL",1)
+ SetGlobal("WNCoranWyvernCry","GLOBAL",1)
  DisplayStringHead("CORAN",~There they are! Take the beasts down, and we'll all be in for a hefty reward.~)
 END
 
@@ -45,6 +45,7 @@ END
 
 //(b) make the character talk when the variable is right
 IF
+	InParty(Myself)
 	OR(2)
 		Global("WNCoranChat","GLOBAL",2)
 		Global("WNCoranChat","GLOBAL",5)
@@ -88,6 +89,7 @@ THEN
 END
 
 IF
+	InParty(Myself)
 	Global("wn_coran_wyvern_talk","GLOBAL",1)
 	GlobalTimerExpired("wn_coran_wyvern_talk_timer","GLOBAL")
 THEN
@@ -112,6 +114,7 @@ THEN
 END
 
 IF
+	InParty(Myself)
 	Global("wn_brielcoran_talk","GLOBAL",1)
 	GlobalTimerExpired("wn_brielcoran_talk_timer","GLOBAL")
 THEN
@@ -137,6 +140,7 @@ THEN
 END
 
 IF
+	InParty(Myself)
 	Global("wn_coranquest_end","GLOBAL",1)
 	GlobalTimerExpired("wn_coranquest_end_timer","GLOBAL")
 THEN

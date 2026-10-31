@@ -1,24 +1,27 @@
 // Peitor
 
-IF                  
-   Global("wnPeitorSpawn","AR0115",0)      
-   OR(2)
-		TimeOfDay(DUSK) 
-		TimeOfDay(NIGHT)                     
+IF
+	Global("wnPeitorSpawn","AR0115",0)
+	!Global("WNPeitorLeft","GLOBAL",1)
+	OR(3)
+		TimeOfDay(DUSK)
+		TimeOfDay(NIGHT)
+		GlobalGT("WNAjantisQuest","GLOBAL",14)
 THEN
-   RESPONSE #100
+	RESPONSE #100
 		CreateCreature("WNPEIT",[535.277],SW)
 		SetGlobal("wnPeitorSpawn","AR0115",1)
 END
 
-
+// Daytime: remove him, but only before the quest has properly started with him.
 IF
 	Global("wnPeitorSpawn","AR0115",1)
-	!TimeOfDay(DUSK) 
-	!TimeOfDay(NIGHT)  
-
+	!Global("WNPeitorLeft","GLOBAL",1)
+	GlobalLT("WNAjantisQuest","GLOBAL",15)
+	!TimeOfDay(DUSK)
+	!TimeOfDay(NIGHT)
 THEN
 	RESPONSE #100
-		DestroySelf()
+		ActionOverride("WNPEIT",DestroySelf())
 		SetGlobal("wnPeitorSpawn","AR0115",0)
 END

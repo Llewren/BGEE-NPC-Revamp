@@ -76,7 +76,7 @@ CHAIN IF ~Global("WNAjantisCoran","GLOBAL",0)
   == BAJANT ~I am no knight yet, Coran. While I hope to one day have a wife and family of my own, the Order must come first.~
   == BCORAN ~Wife? Family? My friend, you would do best to put these silly notions out of your head and have some *fun*. There's a whole world of women out there waiting for you— Dallying with a few won't kill you.~
   == BAJANT ~I am no philanderer. You would do well to hold more respect for the fairer sex, rogue.~
-  == BSAFAN IF ~InParty("SAFANA")~ ~Perhaps you should try listening to him, Coran. It might be better for your health.~
+  == BSAFAN IF ~InParty("SAFANA") IsValidForPartyDialogue("SAFANA")~ THEN ~Perhaps you should try listening to him, Coran. It might be better for your health.~
 EXIT
 
 CHAIN IF ~Global("wn_coranquest_end","GLOBAL",2)
@@ -137,12 +137,12 @@ CHAIN IF ~Global("WNAjantisEldoth","GLOBAL",0)
 ~Eldoth, I would have words with you.~
   DO ~SetGlobal("WNAjantisEldoth","GLOBAL",1)~
   == BELDOT ~Oh? What does our resident holy warrior wish of me?~
-  == BAJANT ~Your manner towards me—and the rest of the group—is unnacceptable. You are a dishonorable snake, and I would be a fool to allow you to jeopardize our quest any longer!~
+  == BAJANT ~Your manner towards me—and the rest of the group—is unacceptable. You are a dishonorable snake, and I would be a fool to allow you to jeopardize our quest any longer!~
   == BELDOT ~How quaint. Who is it truly that puts our... 'quest', as you put it, at risk— The man who, as any reasonable person would, has his own interests beyond that of the group and isn't afraid to speak his mind, or the man who is willing to slay any ally that does not meet his own, personal standards?~
   == BAJANT ~You... you...!~
-  == BSKIE IF ~InParty("SKIE")~ ~Please, Ajantis, he's just playing about. You don't need to do anything rash!~
-  == BAJANT IF ~InParty("SKIE")~ ~Lady Skie, this man is an affront to all that is good and respectful in this world! He is a cad, and he is no more deserving of your company than a petty criminal!~
-  == BSKIE IF ~InParty("SKIE")~ ~Oh, nobody's perfect. Just... just try and calm down, okay?~
+  == BSKIE IF ~InParty("SKIE") IsValidForPartyDialogue("SKIE")~ THEN ~Please, Ajantis, he's just playing about. You don't need to do anything rash!~
+  == BAJANT IF ~InParty("SKIE") IsValidForPartyDialogue("SKIE")~ THEN ~Lady Skie, this man is an affront to all that is good and respectful in this world! He is a cad, and he is no more deserving of your company than a petty criminal!~
+  == BSKIE IF ~InParty("SKIE") IsValidForPartyDialogue("SKIE")~ THEN ~Oh, nobody's perfect. Just... just try and calm down, okay?~
   == BELDOT ~As amusing as this has been, I am trying to work on my latest ballad. Try to keep it down, will you?~
 EXIT
   
@@ -234,7 +234,7 @@ CHAIN IF ~Global("WNAjantisKagain","GLOBAL",0)
           !StateCheck("KAGAIN",CD_STATE_NOTVALID)
           InParty("AJANTIS")
           See("AJANTIS")
-          !StateCheck("AJANTIS",CD_STATE_NOTVALID)~ THEN BKAGAI WNAjantisKagain
+          !StateCheck("AJANTIS",CD_STATE_NOTVALID)~ THEN BKAGAI WNAjantisKagain1
 ~Say, Ajantis. What do ya plan on doin' if that order of yours doesn't accept ya into their fold after all this?~
   DO ~SetGlobal("WNAjantisKagain","GLOBAL",1)~
   == BAJANT ~I wouldn't even entertain such a possibility. Helm has blessed me with his power because I am worthy. Under his gaze, I will not fail on my quest, and I shall be knighted.~
@@ -247,7 +247,7 @@ CHAIN IF ~Global("WNAjantisKagain","GLOBAL",1)
           !StateCheck("KAGAIN",CD_STATE_NOTVALID)
           InParty("AJANTIS")
           See("AJANTIS")
-          !StateCheck("AJANTIS",CD_STATE_NOTVALID)~ THEN BKAGAI WNAjantisKagain
+          !StateCheck("AJANTIS",CD_STATE_NOTVALID)~ THEN BKAGAI WNAjantisKagain2
 ~Nothing better than gettin' paid after a hard day's work. Eh, Ajantis?~
   DO ~SetGlobal("WNAjantisKagain","GLOBAL",2)~
   == BAJANT ~The only payment I need is the knowledge that I have done good in the world. Beyond that, everything else is fleeting.~
@@ -261,7 +261,7 @@ CHAIN IF ~Global("WNAjantisKagain","GLOBAL",2)
           !StateCheck("AJANTIS",CD_STATE_NOTVALID)
           InParty("KAGAIN")
           See("KAGAIN")
-          !StateCheck("KAGAIN",CD_STATE_NOTVALID)~ THEN BAJANT WNAjantisKagain
+          !StateCheck("KAGAIN",CD_STATE_NOTVALID)~ THEN BAJANT WNAjantisKagain3
 ~You're looking at me again, Kagain. If there is something you wish to say to me, do so. If not, remain focused on the task at hand.~
   DO ~SetGlobal("WNAjantisKagain","GLOBAL",3)~
   == BKAGAI ~Don't get scruffy with me, boy. I'll make ya regret it. I've just been thinkin', ya see...~
@@ -316,7 +316,7 @@ CHAIN IF ~Global("WNAjantisMinsc","GLOBAL",0)
   == BMINSC ~As part of the lodge... Boo and I will be one of Rashemen's great defenders! I dream of the day that I see him jump at the eyes of a white dragon. Oh, it makes me teary-eyed just thinking about it... Move aside! Weeping ranger coming through!~
   EXIT
 
-// Ajantis / Montaron. Rest in peace Earl Boen. It's an honor and a pleasure to write and hear your words in my head as I do.
+// Ajantis / Montaron. Rest in peace Earl Boen.
 
 CHAIN IF ~Global("WNAjantisMontaron","GLOBAL",0)
           CombatCounter(0)
@@ -347,7 +347,7 @@ CHAIN IF ~Global("WNAjantisNeera","GLOBAL",0)
   == BAJANT ~Do not be afraid to confide in me, my lady. I can tell that you do not hold me in contempt.~
   == BNEERA ~Okay, well first off— You've GOT to stop calling me that. It's giving me shivers, and not in the good way. As for what I was doing with your pack... I accidentally translocated my favorite pair of socks into it.~
   == BAJANT ~You... what?~
-  == BNEERA ~Translocated. My socks. Into your pack. Not intentionally! It just happened, and I SWEAR I looked everywhere else first. I even looked in <CHARNAME>'s pack!~
+  == BNEERA ~Translocated. My socks. Into your pack. Not intentiorednally! It just happened, and I SWEAR I looked everywhere else first. I even looked in <CHARNAME>'s pack!~
   == BNEERA ~Anyway, sorry for alarming you, Ajantis. Next time I'll, uh, ask first.~
   EXIT
 
@@ -362,7 +362,7 @@ CHAIN IF ~Global("WNAjantisQuayle","GLOBAL",0)
 ~Hey! HEY!~
   DO ~SetGlobal("WNAjantisQuayle","GLOBAL",1)~
   == BAJANT ~Is it me that you're yelling at, little man?~
-  == BQUAYL ~Little? The outrage! I should expect no less from one jealous of my intelligence, but alas, here I am—still apalled!~
+  == BQUAYL ~Little? The outrage! I should expect no less from one jealous of my intelligence, but alas, here I am—still appalled!~
   == BAJANT ~*sigh* You interrupted me in a moment of prayer, you insufferable gnome. What was it that you WANTED?~
   == BQUAYL ~I—well, I... um... I've deigned you too stupid to comprehend. Good day to you!~
   EXIT
@@ -393,7 +393,7 @@ CHAIN IF ~Global("WNAjantisSafana","GLOBAL",0)
           InParty("AJANTIS")
           See("AJANTIS")
           !StateCheck("AJANTIS",CD_STATE_NOTVALID)~ THEN BSAFAN WNAjantisSafana
-~Would you care to explain, Ajantis, why it is that every time I've met someone from your 'Order of the Radiant Heart'—or whatever it is that you call yourselves—they turn out to be one of the most unbearably uptight, rude, contemptable people that I've ever had the displeasure of meeting? Present company excluded, of course.~
+~Would you care to explain, Ajantis, why it is that every time I've met someone from your 'Order of the Radiant Heart'—or whatever it is that you call yourselves—they turn out to be one of the most unbearably uptight, rude, contemptible people that I've ever had the displeasure of meeting? Present company excluded, of course.~
   DO ~SetGlobal("WNAjantisSafana","GLOBAL",1)~
   == BAJANT ~I— I was not expecting such vitriol from you, Safana! The Order is a holy organization devoted to doing good in the world, not the den of vipers you make it out to be.~
   == BSAFAN ~Come now, Ajantis. Do you really believe that every member of your order is wholly good and righteous? There are many evils considered decent by our society, and many more harmless activities that are punished. In a world so contradictory, how do you think your purity stays intact? Let me spoil it for you: it doesn't.~
@@ -430,9 +430,9 @@ CHAIN IF ~Global("WNAjantisSkie","GLOBAL",0)
   == BSKIE ~Ugh, don't remind me. The last thing I want right now is to feel like some pampered noble.~
   == BAJANT ~To the contrary, my lady. The Silvershields are renowned for being respectable and virtuous adventuring folk. It is not hard to see that these qualities have passed themselves on to you.~
   == BSKIE ~I don't know about VIRTUOUS, but thank you, Ajantis. That means a lot to me.~
-  == BELDOT IF ~InParty("ELDOTH")~ ~Skie, come away from the knight-errant. Who knows what nonsense he could fill your head with.~
-  == BSKIE IF ~InParty("ELDOTH")~ ~He's being NICE to me, Eldoth! It's NOT nonsense.~
-  == BELDOT IF ~InParty("ELDOTH")~ ~Whatever you say, dear. Now come back over here so I can tell you of the time I vanquished a ship full of pirates all on my lonesome...~
+  == BELDOT IF ~InParty("ELDOTH") IsValidForPartyDialogue("ELDOTH")~ THEN ~Skie, come away from the knight-errant. Who knows what nonsense he could fill your head with.~
+  == BSKIE IF ~InParty("ELDOTH") IsValidForPartyDialogue("ELDOTH")~ THEN ~He's being NICE to me, Eldoth! It's NOT nonsense.~
+  == BELDOT IF ~InParty("ELDOTH") IsValidForPartyDialogue("ELDOTH")~ THEN ~Whatever you say, dear. Now come back over here so I can tell you of the time I vanquished a ship full of pirates all on my lonesome...~
   EXIT
   
 // Ajantis / Tiax
@@ -442,7 +442,7 @@ CHAIN IF ~Global("WNAjantisTiax","GLOBAL",0)
           !StateCheck("AJANTIS",CD_STATE_NOTVALID)
           InParty("TIAX")
           See("TIAX")
-          !StateCheck("SKIE",CD_STATE_NOTVALID)~ THEN BAJANT WNAjantisTiax
+          !StateCheck("TIAX",CD_STATE_NOTVALID)~ THEN BAJANT WNAjantisTiax
 ~If I did not know any better, then I would say that your insanity has rendered you harmless, gnome. He who knows nothing, however, can be just as dangerous as he who knows all.~
   DO ~SetGlobal("WNAjantisTiax","GLOBAL",1)~
   == BTIAX ~Eh? You... you...~
@@ -473,7 +473,7 @@ CHAIN IF ~Global("WNAjantisXan","GLOBAL",0)
           InParty("AJANTIS")
           See("AJANTIS")
           !StateCheck("AJANTIS",CD_STATE_NOTVALID)~ THEN BXANNN WNAjantisXan.01
-~Ajantis, do you ever get tired of utterly dull your worldview is?~
+~Ajantis, do you ever get tired of how utterly dull your worldview is?~
   DO ~SetGlobal("WNAjantisXan","GLOBAL",1)~
   == BAJANT ~You are one to talk, elf. At least I believe that there is good in this world. I truly wonder when the last time you felt joy was.~
   == BXANNN ~And I truly wonder how you've managed to survive thus far, considering the lethal situations I am stuck ever pulling you from.~
@@ -537,7 +537,7 @@ CHAIN IF ~Global("WNCoranDynaheir","GLOBAL",0)
 ~How blessed I am to find myself traveling alongside such a beautiful and powerful wychlaran. You, my dear Dynaheir, are a diamond in the rough.~
 DO ~SetGlobal("WNCoranDynaheir","GLOBAL",1)~ 
 == BDYNAH ~Yes, I am well aware. Thou need not remind me.~
-== BCORAN ~Of course, a woman like yourself would would not muddy her mind with insecurities or doubts. Though I know for a fact that everyone needs a... distraction once in a while.~
+== BCORAN ~Of course, a woman like yourself would not muddy her mind with insecurities or doubts. Though I know for a fact that everyone needs a... distraction once in a while.~
 == BDYNAH ~If thy knowledge of me is so comprehensive, then what dost thou think I wouldst say to such a brazen advance?~
 == BCORAN ~A fair point adroitly made. I shall admire from afar.~
 EXIT
@@ -700,7 +700,7 @@ CHAIN IF ~Global("WNCoranKivan","GLOBAL",0)
 ~This Deheriana of yours must have been some woman to have you so wrapped up in yourself about her passing.~
 DO ~SetGlobal("WNCoranKivan","GLOBAL",1)~ 
 == BKIVAN ~Do not dare to invoke her name so flippantly. The least she deserves from a man like you is silence.~
-== BCORAN ~*sigh* As you wish it. Gods forbid I strike up a conversation.~
+== BCORAN ~*sigh* As you wish it. Gods forbid I strike up a conversation with my fellow man.~
 EXIT
 
 // Coran / Minsc
@@ -771,7 +771,7 @@ CHAIN IF ~Global("WNCoranRasaad","GLOBAL",0)
           See("RASAAD")
           !StateCheck("RASAAD",CD_STATE_NOTVALID)~ THEN BCORAN WNCoranRasaad1
 ~You’re an enigma to me, my friend. How is one able to look at a feast and choose fasting instead?~
-DO ~SetGlobal("WNCoranQuayle","GLOBAL",1)~ 
+DO ~SetGlobal("WNCoranRasaad","GLOBAL",1)~ 
 == BRASAAD ~I have had much time in my life for indulgence. When it felt like there was nothing greater to be gained than momentary relief. It was nought but false comfort, but such times are as distant to me now as the new moon on a cloudy night.~
 == BCORAN ~What is life if not an endless stream of moments? It seems to me that filling each of them with joy is a worthwhile endeavor.~
 == BRASAAD ~An interesting perspective. Perhaps there is wisdom in it, even if I do not yet see it. Thank you, Coran.~
@@ -819,7 +819,7 @@ CHAIN IF ~Global("WNCoranSkie","GLOBAL",0)
 ~Skie, my dear, how is it that I've never seen that pretty face of yours till now? I'm not an infrequent visitor of Baldur's Gate, and I'm certainly well connected.~
 DO ~SetGlobal("WNCoranSkie","GLOBAL",1)~ 
 == BSKIE ~Maybe you're just not looking in the right places. I sneak out a LOT. My parents don't know just how many parties I go to. Even if you have seen me, you probably wouldn't know—I'm REALLY good at disguises.~
-== BCORAN ~Ah, how debonaire of you. You do seem to have a way with your appearance. It's hard not to notice.~
+== BCORAN ~Ah, how debonair of you. You do seem to have a way with your appearance. It's hard not to notice.~
 == BSKIE ~Thanks, Coran! Mm... I do miss having all my products and makeup. *sigh* I want a bath.~
 EXIT
 
@@ -869,7 +869,7 @@ DO ~SetGlobal("WNCoranXan","GLOBAL",1)~
 == BCORAN ~What is life without a little risk, my gloomy friend? I am confident in my skill— You ought to be, as well.~
 == BXANNN ~The only thing that I am confident about is the unavoidable fact that we are, as unfortunate as such a truth is, in incredible danger almost every day of our lives. The party does not need you endangering it further.~
 == BCORAN ~I am speechless before your endless defeatism. If it makes you happy, you have my word that I will *try* not to shoot any of our allies.~
-== BXANNN ~If the bare minimum was enough to make me happy, I'd... well, I'd probably still feel the same way, to be honest~
+== BXANNN ~If the bare minimum was enough to make me happy, I'd... well, I'd probably still feel the same way, to be honest.~
 EXIT
 
 // Coran / Xzar

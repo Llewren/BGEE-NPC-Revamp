@@ -1,13 +1,4 @@
-IF
-    See(Player1)
-    NumberOfTimesTalkedTo(0)
-	Global("WNAuctionDone","GLOBAL",0)
-THEN
-    RESPONSE #100
-        SmallWait(1)
-        StartDialog("wnauc0",[PC])
-END
-
+// Give the auctioneer the shield first, so it's in his inventory before he can start the scene
 IF
 	Global("WNFenaFirst","GLOBAL",1)
 	Global("WNShieldAuctioneer","GLOBAL",0)
@@ -15,4 +6,14 @@ THEN
 	RESPONSE #100
 		GiveItemCreate("wnajsh","wnauc0",1,1,0)
 		SetGlobal("WNShieldAuctioneer","GLOBAL",1)
+END
+
+IF
+	See(Player1)
+	NumberOfTimesTalkedTo(0)
+	Global("WNAuctionDone","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SmallWait(1)
+		StartDialog("wnauc0",[PC])
 END

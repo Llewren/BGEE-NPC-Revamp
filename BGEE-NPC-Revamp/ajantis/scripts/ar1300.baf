@@ -10,8 +10,10 @@ END
 
 IF
 	Dead("wnfena")
+	Global("WNFistZombiesCleared","GLOBAL",0)
 THEN
 	RESPONSE #100
 		ActionOverride("wnzomf1",DestroySelf())
 		ActionOverride("wnzomf2",DestroySelf())
+		SetGlobal("WNFistZombiesCleared","GLOBAL",1)
 END

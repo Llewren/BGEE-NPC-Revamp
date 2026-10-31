@@ -7,7 +7,6 @@ I_C_T ~CORANJ~ 4 wn_coran_briel_2
 == CORANJ ~That sounds perfectly agreeable to me.~
 END
 
-
 I_C_T2 ~BRIELB~ 14 wn_coran_briel_saf
 == SAFANJ IF ~InParty("SAFANA")IsValidForPartyDialogue("SAFANA")~ THEN ~I wouldn't count on it.~
 END
