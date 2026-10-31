@@ -3,6 +3,8 @@
 | <img width="525" height="825" alt="revamp-card-2" src="https://github.com/user-attachments/assets/8f0975bc-600d-442a-88d5-faabb757c31c" /> | This is an in-development mod exclusively for *Baldur’s Gate: Enhanced Edition*. It aims to add depth to the companions in the game with all new interparty banter, quests, expansions to existing quests, interjections, and player-talks. |
 | --- | --- |
 
+**Important note: The BG:EE NPC Revamp is in active development and it may break other mods that heavily change or add to companion dialogue. Furthermore, this mod may cause issues if updated mid-playthrough. If you're uncertain about whether or not updating the BG:EE NPC Revamp is safe, please contact me as per the links at the bottom of this page!**
+
 ## Features [Currently Implemented]
 
 - Two on-the-road conversations with Coran.
