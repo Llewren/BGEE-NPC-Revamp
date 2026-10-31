@@ -1,6 +1,6 @@
 BEGIN WNPEIT
 
-CHAIN IF~GlobalLT("WNAjantisQuest","GLOBAL",10)~THEN WNPEIT UnQuested.00
+CHAIN IF~GlobalLT("WNAjantisQuest","GLOBAL",11)~THEN WNPEIT UnQuested.00
 ~Good evenin' to you. Here to gamble? Or just to drink? Either way, if you've troubles to drown, this is the place to do it.~
 	END
 		IF~~THEN REPLY ~I'm here to win some coin.~ EXTERN WNPEIT UnQuested.01
